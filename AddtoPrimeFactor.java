@@ -1,6 +1,6 @@
 /**
  * Problem 5 - Project Euler - Chicago Pod Project
- * This is the class to take the elements returned by each number in your 
+ * This is the class to take the elements returned by each number and add them to the list
  */
 import java.util.Scanner;
 import java.util.ArrayList;
