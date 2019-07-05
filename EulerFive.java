@@ -6,12 +6,16 @@
 / that is evenly divisible by all of the numbers from 1 to 20?"
 */
 
+import java.util.*;
+
 public class EulerFive{
 
 	public static void main(String[] args){
 
-		//This will contain all required divisors after prime factorizing input
-		ArrayList<Integer> factorList = new ArrayList<Integer>();
+		//Calculating the product of all numbers in this list will give the LCM
+		ArrayList<Integer> requiredDivisorsList = new ArrayList<Integer>();
+
+		long answer = 0;
 		
 		//Lower bound for the list of consecutive integers
 		int lowerBound = 0;
@@ -20,29 +24,35 @@ public class EulerFive{
 		int upperBound = 0;
 
 		//Display the problem prompt
-		System.out.println("I can find the smallest positive number that is" +
+		System.out.println("\nI can find the smallest positive number that is" +
 			" evenly divisible by a list of consecutive factors. That is, I" + 
-			" can calculate least common multiples for you. Please input a" +
-			" lower bound and an upper bound for the list of consecutive" +
-			" factors.");
+			" can calculate least common multiples for you given a lower" +
+			" bound and an upper bound for the list of consecutive factors.\n");
 
-		System.out.print("First, please enter a lower bound.");
+		System.out.print("First, enter a lower bound. ");
 		lowerBound = Tools.getWholeNumberInput();
 		
-		System.out.print("Now, please enter an upper bound.");
-		upperBound = Tools.getWholeNumberInput();
+		System.out.print("\nNow, enter an upper bound. ");
+		while(upperBound < lowerBound){
+			System.out.print("Make sure the upper bound is greater than or" +
+				" equal to the lower bound of " + lowerBound + ". ");
+			upperBound = Tools.getWholeNumberInput();
+		}
 
-		//For loop bounded by lower and upper user inputs, go from highest
-		//to lowest looking for required factors.
-		//Call NumberFactorizer on the current int, pass the answer ArrayList
-		//The NumberFactorizer class uses IsPrime to test if the factor needs
-		//to be broken down further. Once a prime factor is found, 
-		//AddToPrimeFactor will pass factors to ArrayList if it is not already
-		// contained in the list.
+		//the goal of this for loop is to gather the list of divisors 
+		//that should divide into the least common multiple.  
+		for(int i = upperBound; i >= lowerBound; i--){
+			ArrayList<Integer> factorList = NumberFactorizer.factorize(i);
+			AddToArrayList.store(factorList, requiredDivisorsList);	
+		}
 
-		//Multiply the factors of ArrayList and display the answer.
+		//find the product of the required divisors
+		while(requiredDivisorsList.isEmpty() == false){
+			answer = answer * requiredDivisorsList.get(0);
+			requiredDivisorsList.remove(0);
+		}
 
+		//display the answer
+		System.out.println("The answer is " + answer + ". Have a nice day.");
 	}
-
 }
-
