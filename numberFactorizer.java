@@ -74,7 +74,7 @@ public class numberFactorizer {
                     lowerbound++;
 
                 }
-                
+
             }
             lowestprime++;
             lowerbound = 2;
