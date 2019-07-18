@@ -5,10 +5,10 @@
  */
 import java.util.*;
 
-public class AddtoArrayList {
+public class AddToArrayList {
 
 
-    public static ArrayList<Integer> store(ArrayList<Integer> elements, ArrayList<Integer> parentList) {        //take in the input array list and store
+    public static void store(ArrayList<Integer> elements, ArrayList<Integer> parentList) {        //take in the input array list and store
         
         ArrayList<Integer> uniqueElements = new ArrayList<Integer>();         //create arraylist for unique elements
         
@@ -42,6 +42,6 @@ public class AddtoArrayList {
             }
         }
 
-        return parentList;
+        return;
     }
 }
