@@ -38,7 +38,7 @@ public class Test{
 					for (int i=0; i < length; i++){
 						listB.add(Tools.getWholeNumberInput());
 					}
-					AddtoArrayList.store(listA,listB);
+					AddToArrayList.store(listA,listB);
 					System.out.println("Contents of listB: " + listB);
 					break;
 			
