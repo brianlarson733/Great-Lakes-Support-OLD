@@ -16,14 +16,13 @@ import java.util.ArrayList;
 
 public class numberFactorizer {
 
-    public static void main(String[] args) {
-        //set i = 2 (this needs to be an int var)
+    public static ArrayList<Integer> factorize(int x) {
+        //set i = 2 (this needs to be an integer var)
         Integer lowestprime = new Integer(2);
 
 
 
         //Testing code - remove this block prior to using code
-        //int lowerbound = 2;
         Integer lowerbound = new Integer (2);
         Integer upperbound = new Integer (10);
         //end testing code
