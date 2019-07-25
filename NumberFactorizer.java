@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 //this class will determine the factors within a provided integer
 
-public class numberFactorizer {
+public class NumberFactorizer {
 
     public static ArrayList<Integer> factorize(int x) {
         //set i = 2 (this needs to be an integer var)
