@@ -13,20 +13,21 @@ import java.util.ArrayList;
  */
 
 //this class will determine the factors within a provided integer
+    //execute javac java.test then java Test to run the program
 
 public class NumberFactorizer {
 
-    public static ArrayList<Integer> factorize(int x) {
+    public static ArrayList<Integer> factorize(int toFactor) {
         //set i = 2 (this needs to be an integer var)
         Integer lowestprime = new Integer(2);
+        Integer lowerbound = new Integer (2);
+        Integer upperbound = toFactor;
+        ArrayList<Integer> listC = new ArrayList<Integer>();
 
-
-
-        //Testing code - remove this block prior to using code
+        /**Testing code - remove this block prior to using code
         Integer lowerbound = new Integer (2);
         Integer upperbound = new Integer (10);
-        //end testing code
-
+        */
 
     //public static int numberFactorizer (int lowstore int inputstore[]) {
         //isPrime ? - if so store to array
@@ -42,43 +43,35 @@ public class NumberFactorizer {
         for (int divider = 2; divider<=upperbound; divider++) {
 
             for (int i = 2; i<=upperbound;i++) {
-                //for ((0 == (lowerbound%lowestprime)); lowestprime <= upperbound; lowestprime++) {
-                //if yes store i and (input/i)
-                //check if i is prime
-                //if yes - store to array
-
-
                 if (0 == lowerbound % lowestprime) {
-
                     if (lowerbound < divider){
-                        System.out.println ("Lowerbound is less than divider, not data stored");
+                        System.out.println ("Lowerbound is less than divider, no data stored");
                         System.out.println ();
-
-                    }
-
+                            }
                     else {
-
-
-                        /** This code is to test that the modulo function works as expected */
+                        /** This code is to test that the modulo function works as expected
                         System.out.println("Lowerbound is " + lowerbound +
                                 ", Module is " + (lowerbound % lowestprime)
                                     + ", Lowest Prime is " + lowestprime);
+                         System.out.println();*/
+
+                        listC.add(lowestprime);
                         lowerbound++;
-                        System.out.println();
-                    }
-                } else {
+
+                            }
+                    } else {
                     /**
                      System.out.println("Lowerbound (" + lowerbound + ") is not divisible cleanly by " + lowestprime
                             + " has been stored to the array (implement this)"); */
                     lowerbound++;
 
-                }
+                                }
 
-            }
-            lowestprime++;
-            lowerbound = 2;
+                                 }
+                lowestprime++;
+                lowerbound = 2; //This needs to be relocated elsewhere, right now its breaking the output
 
-                    /**
+                 /**
                     else if (lowestprime = isPrime) {
                     int lowstore = lowestprime;
                 }
@@ -93,9 +86,8 @@ public class NumberFactorizer {
 
                      */
 
-                    }
-                }
             }
-        //}
-    //}
-//}
+
+        return listC; }
+}
+
