@@ -10,6 +10,16 @@ To realistically and efficiently manage our project, we will be working across t
 2. QA will be the latest “stable” version. Changes in this branch will be sourced from modifications in the develop branch, once those commits have been reviewed and are ready to be added to the other completed portions of the game (to be tested with the already completed game aspects to ensure that the new changes don’t break anything previously submitted).
 3. Once changes have been QA tested, they will be merged from QA into the master branch, which will be the “public” version of the game (i.e., a working version that can be played with the files in their current state).
 
+###Initial Setup
+To make and prepare our Fork:
+1. Navigate to [brianlarson733:master](https://github.com/brianlarson733/Great-Lakes-Support) in a browser window, then click the "Fork" button in the upper right.
+2. While viewing the Fork in a browser page, copy the repo's SSH address (using the "Code v" and copy buttons)
+3. Open a local terminal where the working repository will be located on your local machine (for exmaple, in a directory called /git), then execute: `git clone [copied text]` (for example, `git clone git@github.com:WilsonIsaac/Great-Lakes-Support-1.git`)
+4. Add the remote "upstream" repo (what is shared between our Pod): `git remote add upstream git@github.com:brianlarson733/Great-Lakes-Support.git`
+
+
+###Development and Repository Usage
+
 To more specifically detail our steps:
 1. Prior to starting for the day, we will want to checkout the branch that we are working on (for example, `git checkout -b develop`, if we are going to be adding new code changes), to ensure that we have the latest changes in the repo. Afterwards, we can make the desired changes to the local files stored on our computer (only accessible to each individual user so far). 
 
