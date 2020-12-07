@@ -1,5 +1,4 @@
 # Ray's Adventure
-[[[ReadMe is in progress, being written as I verify these steps]]]
 
 This directory will be used to develop, test, and release the Chicago Pod's text-based game, Ray's Adventure.
 
@@ -47,4 +46,9 @@ To more specifically detail our day-to-day coding steps:
 At this point, you can check your Fork on Github and should see a note that says something like “This branch is 1 commit ahead of [brianlarson733:master](https://github.com/brianlarson733/Great-Lakes-Support).”
 
 3. Once we are ready to begin merging our commit (or group of commits) into the develop branch, we’ll create a pull request:
-[this will be edited with the next commit, to verify the steps]
+* In GitHub, select the "Compare & pull request" (where you see the "`develop` had recent pushes..." message)
+* Use the base repository (brianlarson733/Great-Lakes-Support) and base branch (develop), with our fork in the head repository and the branch we are pushing changes from (develop)
+* Create a title and/or leave a comment if needed, then click "Create pull Request"
+* This will run a quick automated test to check that our changes can be merged into the `develop` branch (i.e., ensuring we didn't make changes to the same file that conflict with recently committed changes from another user). 
+** If it passes, we (or a "GitHub admin") can then merge our pull request, which will incorporate our changes into the `develop` branch (which can then be seen on other user's computers when they next sync their fork).
+** If it does not pass, it is likely due to a conflict, in which case manual actions will be needed to align the code changes with the other merged changes.
