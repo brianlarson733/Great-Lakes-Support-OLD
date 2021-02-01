@@ -58,4 +58,7 @@ Once we are ready to begin merging our commit (or group of commits) into the dev
 
 5. We can continue adding commits to a pull request until it is merged or closed, if we have additional changes to add or need to make modifications to earlier commits.
 
-Note: After the PR is merged, you may see a "this branch is 1 commit behind" message when viewing your Fork in GitHub. This can be ignored, as since our Fork did not have the action of merging in our pushed changes, the message is expected.
+Note: After the PR is merged, you may see a "this branch is 1 commit behind" message when viewing your Fork in GitHub. This can be ignored, as since our Fork did not have the action of merging in our pushed changes, the message is expected. However, to resolve the messages we can run the following (replacing the branch name for the one being aligned):
+* `git checkout master`
+* `git pull upstream master`
+* `git push origin master`
