@@ -1,3 +1,5 @@
+package prototype.core;
+
 public class basicRoom {
     static void entryRoom(){
         System.out.println("Waking up from cold sleep the room around you is full of other cryocanisters");
@@ -5,7 +7,7 @@ public class basicRoom {
         System.out.println("And realize that it is empty...");
         System.out.println("..");
         System.out.println(".");
-
+        System.out.println("\r\n");
         basicBeing.alloyBeing();
     }
 }
