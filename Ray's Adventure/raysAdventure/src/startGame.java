@@ -1,12 +1,33 @@
+import prototype.core.*;
+import misc.*;
+
 public class startGame {
 
     public static void main (String[] args) {
         System.out.println("This is the driver class for testing of game modules for" +
-                "the Great Lakes CSE team game project");
+                " the Great Lakes CSE game project");
         System.out.println();
-        System.out.println("Welcome to Ray's Adventure!");
+        System.out.println("Welcome to Ray's Adventure's!");
+        System.out.println();
+        System.out.println();
+        System.out.println("Please choose an adventure below:");
+        System.out.println("1 - Prototype");
+        System.out.println("2 - The Secret of the Diamond Bar Basement");
+        int[] tempArray = {1, 2};
+        int choice = misc.Tools.getWholeNumberInput(tempArray);
 
-        basicRoom.entryRoom();
+        switch (choice){
+            case 1:
+                prototypeGame.prototypeGame();
+                break;
+            case 2:
+                System.out.println("There is no Diamond Bar basement...or is there.....");
+                break;
+            default:
+                break;
+        }
+
+
 
     }
 }
