@@ -1,17 +1,21 @@
-//package prototype.core.being;
 import java.util.*;
-// import prototype.core.*;
 
-public class BasicBeing {
-    public static String description;
-    public String name;
+public abstract class BasicBeing {
+    
+    private String name;
+    private String description;
+    private int health;
+    
     //public ArrayList<basicItem> items;
-    public int health;
     //public basicRoom location;
 
-    public BasicBeing(){}
+    public BasicBeing(String name, String description, int health){
+    	this.name = name;
+    	this.description = description;
+    	this.health = health;
+    }
 
-    public static void getDescription(){
+    public void printDescription(){
         System.out.println(description);
     }
 
