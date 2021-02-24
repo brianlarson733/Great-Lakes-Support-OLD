@@ -2,26 +2,20 @@ package prototype.core;
 
 public abstract class BasicItem {
     //Item fields
-    public static String description;
-    public static String name;
+    public String description;
+    public String name;
 
     //Item Constructor
-    //public BasicItem(String description, String name) {
-
-    //}
-
     public BasicItem(String description, String name) {
         this.description = description;
         this.name = name;
     }
 
-    // overriding toString() method
-    // of BasicItem to print more info
-    @Override public String toString()
+    //establishing toString() method to print info on the items
+    public String toString()
     {
-        return (super.toString() + "is "
-                + description
-                + " it's name is "
+        return (description
+                + " you know that it's name is "
                 + name);
     }
 
