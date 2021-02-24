@@ -1,7 +1,6 @@
-package prototype.room;
 import java.util.*;
 
-public class ProtoypeRoomTest {
+public class PrototypeRoomTest {
 	public static void main(String[] args){
 		EntryRoom protoEntryRoom = new EntryRoom();
 
