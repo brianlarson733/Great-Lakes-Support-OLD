@@ -1,26 +1,32 @@
 package prototype.core;
 import java.util.*;
-import prototype.core.*;
 
-public class BasicRoom {
+public abstract class BasicRoom {
 
 	//Instance Variables for BasicRoom
-	public static String description;
-	public static String name;
+	public String description;
+	public String name;
+	public String entryNarration;
 
 	//Constructor for BasicRoom
-	public BasicRoom(String description, String name) {
+	public BasicRoom(String description, String name, String entryNarration) {
 		this.description = description;
 		this.name = name;
+		this.entryNarration = entryNarration;
 	}
 
-	public static void getDescription(){
+	public void printDescription(){
 		System.out.println(description);
 	}
 
-	public void getName(){
+	public void printName(){
 		System.out.println(name);
 	}
+
+	public void printentryNarration(){
+		System.out.println(entryNarration);
+	}
+
 
 //    static void entryRoom(){
   //      System.out.println("Waking up from cold sleep the room around you is full of other cryocanisters");
