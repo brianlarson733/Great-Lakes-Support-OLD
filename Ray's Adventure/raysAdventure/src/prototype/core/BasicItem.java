@@ -1,19 +1,30 @@
 package prototype.core;
 
-class BasicItem {
+public abstract class BasicItem {
     //Item fields
-    public String description;
-    public String name;
+    public static String description;
+    public static String name;
 
     //Item Constructor
     //public BasicItem(String description, String name) {
 
     //}
 
-    public BasicItem() {
+    public BasicItem(String description, String name) {
         this.description = description;
         this.name = name;
     }
+
+    // overriding toString() method
+    // of BasicItem to print more info
+    @Override public String toString()
+    {
+        return (super.toString() + "is "
+                + description
+                + " it's name is "
+                + name);
+    }
+
 
     /*
        //Item Methods
@@ -28,18 +39,7 @@ class BasicItem {
         }
 
         public void pickUpItem{
-            //This will add the target item to the user's investory
+            //This will add the target item to the user's inventory
             System.out.print("Item has been added to the character's inventory");
         } */
-    }
-
-//derived class
-    class SwordItem extends BasicItem {
-        //SwordItem gets an additional field
-        public boolean shiny;
-
-        //Constructor
-        public SwordItem(String description, String name) {
-            super();
-        }
     }
