@@ -1,10 +1,9 @@
-//NR - This is an attempt to create the framework for inventories
-// Current plan is to use an Array and have a method to display the array
-//      as well as methods to modify the array
-// This is going to be a proof of concept first
-// This is not working at the moment. I've commented it out so that it does not conflict with other testing
-import java.util.Arrays;
+//NR - This was an attempt to create the framework for inventories
+// It can now be ignored as an inventory will be implemented into the Ray subclass
+
 /*
+import java.util.Arrays;
+
 package prototype.core;
 
 public class BasicInventory {
