@@ -1,3 +1,4 @@
+package prototype.being;
 import java.util.*;
 
 public class PrototypeRoomTest {
