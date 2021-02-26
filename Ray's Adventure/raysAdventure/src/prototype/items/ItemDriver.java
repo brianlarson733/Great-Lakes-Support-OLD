@@ -13,5 +13,7 @@ public class ItemDriver {
         SpaceSuitItem newsuit = new SpaceSuitItem("The space suit has a faded white and blue " +
                 "checkered pattern", "Portal 6.0");
         System.out.println(newsuit);
+
+        ConcreteBasicItem.listItems();
     }
 }
