@@ -5,6 +5,7 @@ public abstract class BasicItem {
     public String description;
     public String name;
 
+
     //Item Constructor
     public BasicItem(String description, String name) {
         this.description = description;
@@ -18,22 +19,23 @@ public abstract class BasicItem {
                 + " you know that it's name is "
                 + name);
     }
-
-
-    /*
+/*
        //Item Methods
-        public void useItem{
+        public void useItem(){
             //This will use the item for its context
             System.out.print("This method invokes the item's action");
         }
 
-        public void dropItem{
+        public void dropItem(){
             //This will drop the item from the user's inventory
             System.out.print("Item has been dropped");
         }
 
-        public void pickUpItem{
+        public void pickUpItem(){
             //This will add the target item to the user's inventory
             System.out.print("Item has been added to the character's inventory");
-        } */
-    }
+        }
+
+ */
+
+}
