@@ -6,7 +6,6 @@ public abstract class BasicRoom {
 	//Instance Variables for BasicRoom
 	public String description;
 	public String name;
-	public String entryNarration;
 
 	//Constructor for BasicRoom
 	public BasicRoom(String description, String name) {
