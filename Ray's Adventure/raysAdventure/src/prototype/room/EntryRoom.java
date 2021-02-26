@@ -1,6 +1,4 @@
 package prototype.room;
-import java.util.*;
-
 import prototype.core.BasicRoom;
 
 public class EntryRoom extends BasicRoom {
