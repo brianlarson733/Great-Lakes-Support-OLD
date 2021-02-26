@@ -1,10 +1,14 @@
+package main;
 import prototype.core.*;
 import misc.*;
 
-public class startGame {
+public class GameSelector {
 
     public static void main (String[] args) {
-        System.out.println("This is the driver class for testing of game modules for" +
+
+    	PrototypeGame prototype = new PrototypeGame();
+    	
+    	System.out.println("This is the driver class for testing of game modules for" +
                 " the Great Lakes CSE game project");
         System.out.println();
         System.out.println("Welcome to Ray's Adventure's!");
@@ -18,7 +22,7 @@ public class startGame {
 
         switch (choice){
             case 1:
-                prototypeGame.prototypeGame();
+                prototype.startGame();
                 break;
             case 2:
                 System.out.println("There is no Diamond Bar basement...or is there.....");

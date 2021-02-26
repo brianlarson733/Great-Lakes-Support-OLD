@@ -1,5 +1,6 @@
 package prototype.being;
 import prototype.core.BasicBeing;
+import prototype.room.EntryRoom;
 
 public class Alloy extends BasicBeing {
 
