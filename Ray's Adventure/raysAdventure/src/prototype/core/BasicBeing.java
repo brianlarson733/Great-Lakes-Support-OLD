@@ -18,5 +18,12 @@ public abstract class BasicBeing {
     public void printDescription(){
         System.out.println(description);
     }
+    
+    public BasicRoom getLocation() {
+    	return this.location;
+    }
 
+    public String getName() {
+    	return this.name;
+    }
 }
