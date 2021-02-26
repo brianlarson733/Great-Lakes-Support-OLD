@@ -1,3 +1,4 @@
+package prototype.core;
 import java.util.*;
 
 public abstract class BasicRoom {
