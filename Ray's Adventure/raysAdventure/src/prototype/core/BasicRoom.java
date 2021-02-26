@@ -9,10 +9,9 @@ public abstract class BasicRoom {
 	public String entryNarration;
 
 	//Constructor for BasicRoom
-	public BasicRoom(String description, String name, String entryNarration) {
+	public BasicRoom(String description, String name) {
 		this.description = description;
 		this.name = name;
-		this.entryNarration = entryNarration;
 	}
 
 	public void printDescription(){
@@ -22,11 +21,6 @@ public abstract class BasicRoom {
 	public void printName(){
 		System.out.println(name);
 	}
-
-	public void printEntryNarration(){
-		System.out.println(entryNarration);
-	}
-
 
 
 }
