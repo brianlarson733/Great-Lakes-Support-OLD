@@ -13,8 +13,6 @@ public class PrototypeGame extends Game {
         
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
         System.out.println("You are full of questions, what do you want to do?");
-        System.out.println("1 - Ask - 'Who am I'");
-        System.out.println("2 - Ask - 'Where am I?'");
         
         ray.makeChoice();
         
