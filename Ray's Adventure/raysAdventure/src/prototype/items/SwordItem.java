@@ -5,12 +5,10 @@ public class SwordItem extends ConcreteBasicItem {
 
     public SwordItem(){
         super("Light glints off of the monomolecular edge", "Excaliber MKII");
-    }
+        }
 
     @Override public String toString(){
         return ("SWORD ITEM: " + super.toString());
     }
 
-    //Test BasicItem method invocation
-    //ConcreteBasicItem.listItems();
 }
