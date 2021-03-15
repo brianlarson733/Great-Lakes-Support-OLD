@@ -26,4 +26,8 @@ public abstract class BasicBeing {
     public String getName() {
     	return this.name;
     }
+    
+    public void changeLocation(BasicRoom newLocation) {
+    	this.location = newLocation;
+    }
 }
