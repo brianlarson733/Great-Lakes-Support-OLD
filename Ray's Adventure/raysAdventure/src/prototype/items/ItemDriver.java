@@ -14,6 +14,5 @@ public class ItemDriver {
                 "checkered pattern", "Portal 6.0");
         System.out.println(newsuit);
 
-        ConcreteBasicItem.listItems();
     }
 }
