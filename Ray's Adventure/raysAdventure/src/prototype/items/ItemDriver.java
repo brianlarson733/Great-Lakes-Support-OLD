@@ -14,5 +14,21 @@ public class ItemDriver {
                 "checkered pattern", "Portal 6.0");
         System.out.println(newsuit);
 
+        //Create the array object
+        Inventory newinventory = new Inventory();
+
+        //Add the sample items to the inventory
+        newinventory.Inventory();
+
+        //Display the number of items in the inventory
+        newinventory.InventorySize();
+
+        //Display each item within the inventory individually
+        newinventory.InventoryList();
+
+        //Remove the 0 item
+        //newinventory.InventoryRemove();
+
+
     }
 }
