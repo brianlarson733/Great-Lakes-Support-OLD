@@ -8,6 +8,6 @@ public class HealthItem extends ConcreteBasicItem {
         super(description, name);
     }
     @Override public String toString(){
-        return ("HEALTH ITEM: " + super.toString());
+        return ("Health Item: " + super.toString());
     }
 }
