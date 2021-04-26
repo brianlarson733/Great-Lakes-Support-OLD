@@ -16,7 +16,7 @@ public abstract class BasicItem {
     public String toString()
     {
         return (description
-                + " you know that it's name is "
+                + " called "
                 + name);
     }
 

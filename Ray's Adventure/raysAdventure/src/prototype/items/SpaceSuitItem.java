@@ -1,12 +1,10 @@
 package prototype.items;
 
-import prototype.core.BasicItem;
-
 //This class extends an extended class and incorporates elements from both as expected.
 //The toString() output can't be easily modified though so that either needs to be reworked
 //  or just dealt with and classes updated accordingly.
 //Either way the toString() building will need to be annotated so that all items work as expected
-public class SpaceSuitItem extends EquipmentItem {
+public class SpaceSuitItem extends ProtectiveItem {
     public SpaceSuitItem (String description, String name){
         //invoking base class Constructor
         super(description, name);

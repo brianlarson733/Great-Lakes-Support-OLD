@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class Inventory {
 
     //Sample items for the inventory
-    ConcreteBasicItem water = new ConcreteBasicItem("This is a water flask", "Water Flask");
-    ConcreteBasicItem dehydratedFruit = new ConcreteBasicItem("This is dehydrated fruit", "Dehydrated Fruit");
-    ConcreteBasicItem dogTreats = new ConcreteBasicItem("These are dog treats", "Alloy's snacks");
+    ConcreteBasicItem water = new ConcreteBasicItem("Basic Item: This is a water flask", "Water Flask");
+    ConcreteBasicItem dehydratedFruit = new ConcreteBasicItem("Basic Item: This is dehydrated fruit", "Dehydrated Fruit");
+    ConcreteBasicItem dogTreats = new ConcreteBasicItem("Basic Item: These are dog treats", "Alloy's snacks");
 
     //public ArrayList<ConcreteBasicItem> items;
     public ArrayList<ConcreteBasicItem> items = new ArrayList<ConcreteBasicItem>();
 
-    public void Inventory() {
+    public void BasicInventory() {
         items.add(water);
         items.add(dehydratedFruit);
         items.add(dogTreats);
@@ -29,15 +29,21 @@ public class Inventory {
     }
 
     public void InventoryList() {
-        System.out.println("Ray's inventory includes: ");
+        System.out.println("Ray's inventory contains: ");
         for (int i = 0; i < items.size(); i++) {
+            System.out.print("    ");
+
+            //This is a debugging print and won't be needed later on if we can work out
+            //how to safely implement an inventory management system that takes
+            //into account arrays starting with 0
             System.out.print(i + ": ");
+
+            //This prints out the item at the i location
             System.out.println(items.get(i));
             }
         }
 
     public void InventoryRemove(){
         items.remove(0);
-
     }
 }
