@@ -27,7 +27,17 @@ public abstract class BasicBeing {
     	return this.name;
     }
     
+    public int getHealth() {
+    	return this.health;
+    }
+    
     public void changeLocation(BasicRoom newLocation) {
     	this.location = newLocation;
     }
+    
+    public void changeHealth(int change) {
+    	this.health += change;
+    }
+    
+    abstract public void interact();
 }

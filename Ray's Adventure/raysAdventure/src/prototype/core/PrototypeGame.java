@@ -10,8 +10,10 @@ public class PrototypeGame extends Game {
 	
     public void startGame() {
         EntryRoom entryRoom = new EntryRoom();
-        BasicBeing ray = entryRoom.getBeings().get(0);
-        makeChoice(ray);
+
+        Ray ray = (Ray) entryRoom.getBeings().get(0);
+        Alloy alloy = (Alloy) entryRoom.getDoors().get(0).getBeings().get(0);
+        makeChoice(ray, alloy);
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
         System.out.println("You are full of questions, what do you want to do?");
         
@@ -19,7 +21,7 @@ public class PrototypeGame extends Game {
         System.out.println("That was exciting, thanks for playing!");
     }
     
-	public void makeChoice(BasicBeing ray) {
+	public void makeChoice(Ray ray, Alloy alloy) {
 		
         
         /**
@@ -86,9 +88,14 @@ public class PrototypeGame extends Game {
 				}
 				else {
 					ray.changeLocation(ray.getLocation().getDoors().get(temp-2));
+					if (!alloy.getStayPut()) {
+						alloy.changeLocation(ray.getLocation());
+							
+					}
 				}
-				
 			}
+			
+			
 			
 			else {
 				System.out.println("You must be confused, that isn't an option.");

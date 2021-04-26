@@ -14,9 +14,11 @@ public class Ray extends BasicBeing {
 	//private ArrayList<BasicItem> inventory;
 
 	public Ray(BasicRoom room){
-		super("Ray", "Our titular hero.", 100, room);
+		super("Ray", "Our titular hero.", 50, room);
 	}
 	
-
+	public void interact() {}
+	
+		       
 	
 }
