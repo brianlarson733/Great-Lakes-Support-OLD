@@ -36,4 +36,12 @@ public abstract class BasicRoom {
 		return this.beings;
 	}
 
+	public void addBeing(BasicBeing being) {
+		this.getBeings().add(being);
+	}
+	
+	public void removeBeing(BasicBeing being) {
+		this.getBeings().remove(being);
+	}
+
 }

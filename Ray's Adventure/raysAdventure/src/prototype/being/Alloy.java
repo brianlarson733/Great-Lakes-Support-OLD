@@ -53,6 +53,7 @@ public class Alloy extends BasicBeing {
 				System.out.println("There isn't anyone else to attack!");
 			}
 			else {
+				//this is limited to only attacking the next being in the array list (not smart)
 				this.getLocation().getBeings().get(2).changeHealth(-10);
 				System.out.println("That looks like it hurt. Alloy bit " + 
 						this.getLocation().getBeings().get(2).getName() + "!");
@@ -65,12 +66,12 @@ public class Alloy extends BasicBeing {
 		
 		else if(choice==4) {
 			System.out.println("Alloy looks happy to be your companion and walk around with you.");
-			stayPut = true;
+			stayPut = false;
 		}
 		
 		else if(choice==5) {
 			System.out.println("He appears to understand the command. He'll stay put.");
-			stayPut = false;
+			stayPut = true;
 		}
 	}
 	
