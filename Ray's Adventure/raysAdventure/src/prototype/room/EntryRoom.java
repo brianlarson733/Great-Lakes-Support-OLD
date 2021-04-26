@@ -14,6 +14,9 @@ public class EntryRoom extends BasicRoom {
 				new ArrayList<BasicBeing>(), new ArrayList<BasicRoom>());
 		this.beings.add(new Ray(this));
 		this.doors.add(new CockpitRoom(this));
+		this.doors.add(new EngineRoom(this));
+		this.doors.add(new CargoRoom(this));
+
 	}
 
 }
