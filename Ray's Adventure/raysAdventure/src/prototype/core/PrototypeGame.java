@@ -5,6 +5,7 @@ import misc.Tools;
 import prototype.being.Alloy;
 import prototype.being.Ray;
 import prototype.room.EntryRoom;
+import prototype.items.Inventory;
 
 public class PrototypeGame extends Game {
 	
@@ -13,7 +14,12 @@ public class PrototypeGame extends Game {
 
         Ray ray = (Ray) entryRoom.getBeings().get(0);
         Alloy alloy = (Alloy) entryRoom.getDoors().get(0).getBeings().get(0);
-        makeChoice(ray, alloy);
+
+        //Instantating Ray's Inventory:
+		Inventory rayInventory = new Inventory();
+		rayInventory.BasicInventory();
+
+        makeChoice(ray, alloy, rayInventory);
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
         System.out.println("You are full of questions, what do you want to do?");
         
@@ -21,7 +27,7 @@ public class PrototypeGame extends Game {
         System.out.println("That was exciting, thanks for playing!");
     }
     
-	public void makeChoice(Ray ray, Alloy alloy) {
+	public void makeChoice(Ray ray, Alloy alloy, Inventory rayInventory) {
 		
         
         /**
@@ -59,9 +65,10 @@ public class PrototypeGame extends Game {
 				ray.getLocation().printDescription();
 			}
 			
-			// include Nate's Inventory.browseInventory() method
+			// Displays the contents of Ray's inventory.
 			else if(choice==3) {
-				
+				rayInventory.InventoryList();
+				System.out.println();
 			}
 			
 			else if(choice==4) {
