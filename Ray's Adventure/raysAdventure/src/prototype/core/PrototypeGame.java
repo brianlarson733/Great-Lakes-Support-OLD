@@ -47,11 +47,24 @@ public class PrototypeGame extends Game {
 		//condition for breaking the while loop needs to be explored
 		
 		while(true) {
+			
+			
+			
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Ask - 'Who am I'");
 	        System.out.println("2 - Ask - 'Where am I?'");
 	        System.out.println("3 - Inspect the items you are carrying");       
 	        System.out.println("4 - Go to another room.");
+	        
+	        // this will print out interaction options if there is another being in the room
+	        for (int i = 5; i-5 < ray.getLocation().getBeings().size(); i++) {
+	        	// make sure we only try to interact with a being that isn't Ray
+	        	if(!(ray.getLocation().getBeings().get(i-5) instanceof Ray)) {
+	        		System.out.println(i + " - Interact with " + 
+	        				ray.getLocation().getBeings().get(i-5).getName());
+	        	}
+	        		
+	        }
 			
 			int choice = Tools.getWholeNumberInput();
 			
@@ -94,14 +107,34 @@ public class PrototypeGame extends Game {
 					continue;
 				}
 				else {
+					BasicRoom tempRoom = ray.getLocation();
 					ray.changeLocation(ray.getLocation().getDoors().get(temp-2));
-					if (!alloy.getStayPut()) {
-						alloy.changeLocation(ray.getLocation());
+					tempRoom.removeBeing(ray);
+					ray.getLocation().addBeing(ray);
+					
+					if (alloy.getLocation().equals(tempRoom)) {
+						if(!alloy.getStayPut()) {
+							alloy.changeLocation(ray.getLocation());
+							tempRoom.removeBeing(alloy);
+							ray.getLocation().addBeing(alloy);
+					}
+					
 							
 					}
 				}
 			}
 			
+			// check if the choice is to interact with the other being
+			else if(choice <= 4+ray.getLocation().getBeings().size()-1) {
+				// don't interact with Ray in the room's being list
+				if(ray.getLocation().getBeings().get(choice-5) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-4).interact();
+				}
+				else {
+					ray.getLocation().getBeings().get(choice-5).interact();
+				}
+				
+			}
 			
 			
 			else {
