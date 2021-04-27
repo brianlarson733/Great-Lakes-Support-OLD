@@ -5,6 +5,7 @@
 package prototype.items;
 
 import java.util.ArrayList;
+import misc.Tools;
 
 public class Inventory {
 
@@ -43,7 +44,9 @@ public class Inventory {
             }
         }
 
-    public void InventoryRemove(){
-        items.remove(0);
+    public void InventoryRemove() {
+            System.out.println("Which item would you like to drop?");
+            int choice = Tools.getWholeNumberInput();
+            items.remove(choice);
     }
 }

@@ -16,30 +16,32 @@ public class ItemDriver {
     public static void main(String args[]) {
 
         OffensiveItem ns = new OffensiveItem();
-        //System.out.println(ns);
 
         HealthItem nh = new HealthItem("The item appears as a perfect glass sphere with a red liquid inside",
                 "Restorationation");
-        //System.out.println(nh);
 
         SpaceSuitItem newsuit = new SpaceSuitItem("The space suit has a faded white and blue " +
                 "checkered pattern", "Portal 6.0");
-        //System.out.println(newsuit);
 
         //Create the array object
         Inventory newinventory = new Inventory();
+        System.out.println("An Inventory has been created");
 
         //Add the basic items to the inventory
         newinventory.BasicInventory();
+        System.out.println("Basic items have been added to the inventory");
 
         //This adds the Sword Item object to the Array
         newinventory.items.add(ns);
+        System.out.println("Added the Offensive item to the inventory");
 
         //This adds the Health Item object to the Array
         newinventory.items.add(nh);
+        System.out.println("Added the Health item to the inventory");
 
         //This adds the Space Suit object to the Array
         newinventory.items.add(newsuit);
+        System.out.println("Added the Space Suit to the inventory");
 
         //Display the number of items in the inventory
         newinventory.InventorySize();
@@ -47,8 +49,11 @@ public class ItemDriver {
         //Display each item within the inventory individually
         newinventory.InventoryList();
 
-        //Remove the 0 item
-        //newinventory.InventoryRemove();
+        //Remove an item
+        newinventory.InventoryRemove();
+
+        //Confirm new inventory list
+        newinventory.InventoryList();
     }
 
 }
