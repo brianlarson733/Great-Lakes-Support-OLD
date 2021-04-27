@@ -4,8 +4,8 @@ import main.Game;
 import misc.Tools;
 import prototype.being.Alloy;
 import prototype.being.Ray;
-import prototype.room.EntryRoom;
 import prototype.items.Inventory;
+import prototype.room.EntryRoom;
 
 public class PrototypeGame extends Game {
 	
@@ -14,7 +14,6 @@ public class PrototypeGame extends Game {
 
         Ray ray = (Ray) entryRoom.getBeings().get(0);
         Alloy alloy = (Alloy) entryRoom.getDoors().get(0).getBeings().get(0);
-
 		//Instantating Ray's Inventory:
 		Inventory rayInventory = new Inventory();
 		rayInventory.BasicInventory();
@@ -56,13 +55,17 @@ public class PrototypeGame extends Game {
 	        System.out.println("3 - Inspect the items you are carrying");       
 	        System.out.println("4 - Go to another room.");
 	        
+	        int choiceNumber = 5;
+	        
 	        // this will print out interaction options if there is another being in the room
-	        for (int i = 5; i-5 < ray.getLocation().getBeings().size(); i++) {
+	        for (int i = 0; i < ray.getLocation().getBeings().size(); i++) {
 	        	// make sure we only try to interact with a being that isn't Ray
-	        	if(!(ray.getLocation().getBeings().get(i-5) instanceof Ray)) {
-	        		System.out.println(i + " - Interact with " + 
-	        				ray.getLocation().getBeings().get(i-5).getName());
+	        	if(!(ray.getLocation().getBeings().get(i) instanceof Ray)) {
+	        		System.out.println(choiceNumber + " - Interact with " + 
+	        				ray.getLocation().getBeings().get(i).getName());
+	        		choiceNumber++;
 	        	}
+	     
 	        		
 	        }
 			

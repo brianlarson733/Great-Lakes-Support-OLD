@@ -3,7 +3,7 @@ package misc;
 import java.util.*;
 
 public class Tools {
-
+	
     public static int getWholeNumberInput() {
         Scanner scanner = new Scanner(System.in);
         String placeholder = "";

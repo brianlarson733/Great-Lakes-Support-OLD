@@ -37,6 +37,10 @@ public abstract class BasicBeing {
     
     public void changeHealth(int change) {
     	this.health += change;
+    	if(this.getHealth()<=0) {
+    		this.getLocation().removeBeing(this);
+    		System.out.println(this.name + " is dead!");
+    	}
     }
     
     abstract public void interact();
