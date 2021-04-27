@@ -18,7 +18,7 @@ public class GameSelector {
         System.out.println("1 - Prototype");
         System.out.println("2 - The Secret of the Diamond Bar Basement");
         int[] tempArray = {1, 2};
-        int choice = misc.Tools.getWholeNumberInput(tempArray);
+        int choice = Tools.getWholeNumberInput(tempArray);
 
         switch (choice){
             case 1:

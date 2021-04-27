@@ -5,6 +5,7 @@
 package prototype.items;
 
 import java.util.ArrayList;
+
 import misc.Tools;
 
 public class Inventory {
