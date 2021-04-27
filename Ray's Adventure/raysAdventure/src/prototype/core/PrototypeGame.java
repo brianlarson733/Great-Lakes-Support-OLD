@@ -26,7 +26,8 @@ public class PrototypeGame extends Game {
              
         System.out.println("That was exciting, thanks for playing!");
     }
-    
+
+
 	public void makeChoice(Ray ray, Alloy alloy, Inventory rayInventory) {
 		
         

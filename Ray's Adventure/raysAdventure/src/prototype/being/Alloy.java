@@ -2,7 +2,9 @@ package prototype.being;
 import misc.Tools;
 import prototype.core.BasicBeing;
 import prototype.core.BasicRoom;
+import prototype.items.Inventory;
 import prototype.room.EntryRoom;
+import prototype.core.PrototypeGame;
 
 public class Alloy extends BasicBeing {
 
@@ -41,6 +43,8 @@ public class Alloy extends BasicBeing {
 		
 		else if(choice==2) {
 			System.out.println("What do you want to feed him with?");
+
+			//PrototypeGame.rayInventory.getInventory();
 
 			//call the review inventory method to see if anything edible is there
 			//if it is edible, increase health. If it isn't edible, decrease health
