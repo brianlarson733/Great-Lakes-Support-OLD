@@ -5,7 +5,7 @@ import misc.Tools;
 import prototype.being.Alloy;
 import prototype.being.Ray;
 import prototype.items.Inventory;
-import prototype.room.EntryRoom;
+import prototype.room.*;
 
 public class PrototypeGame extends Game {
 	
@@ -26,20 +26,31 @@ public class PrototypeGame extends Game {
 		cargoBay.doors.add(engineRoom);
 		engineRoom.doors.add(cargoBay);
 
-		
+		//Create and Place Beings
+		Ray ray = new Ray(entryRoom);
+		Alloy alloy = new Alloy(cockpit);
 
-        Ray ray = (Ray) entryRoom.getBeings().get(0);
-        Alloy alloy = (Alloy) entryRoom.getDoors().get(0).getBeings().get(0);
+		//Update Room Beings List
+		entryRoom.beings.add(ray);
+		cockpit.beings.add(alloy);		
+
+
 		//Instantating Ray's Inventory:
 		Inventory rayInventory = new Inventory();
 		rayInventory.BasicInventory();
 
-		makeChoice(ray, alloy, rayInventory);
+		//Introductory Text
+        System.out.println("------------------------------------------------------------");
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
         System.out.println("You are full of questions, what do you want to do?");
-        
+        System.out.println("------------------------------------------------------------");
              
+
+		makeChoice(ray, alloy, rayInventory);
+
+		//Game Conclusion Text
         System.out.println("That was exciting, thanks for playing!");
+
     }
 
 
@@ -70,7 +81,7 @@ public class PrototypeGame extends Game {
 			System.out.println("1 - Ask - 'Who am I'");
 	        System.out.println("2 - Ask - 'Where am I?'");
 	        System.out.println("3 - Inspect the items you are carrying");       
-	        System.out.println("4 - Go to another room.");
+	        System.out.println("4 - Go to another room. \n");
 	        
 	        int choiceNumber = 5;
 	        
