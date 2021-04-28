@@ -80,8 +80,9 @@ public class PrototypeGame extends Game {
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Ask - 'Who am I'");
 	        System.out.println("2 - Ask - 'Where am I?'");
-	        System.out.println("3 - Inspect the items you are carrying");       
-	        System.out.println("4 - Go to another room. \n");
+			System.out.println("3 - Inspect the room");
+			System.out.println("4 - Inspect the items you are carrying");
+	        System.out.println("5 - Go to another room. \n");
 	        
 	        int choiceNumber = 5;
 	        
@@ -108,14 +109,34 @@ public class PrototypeGame extends Game {
 				ray.getLocation().printName();
 				ray.getLocation().printDescription();
 			}
+
+			//Displays the contents of the room's inventory
+			//This needs to somehow determine both Ray's location and call the array for that location
+			else if(choice==3) {
+				System.out.println("This room contains:");
+				for (int i = 0; i < ray.getLocation().items.size(); i++) {
+					System.out.print("    ");
+
+					//This is a debugging print and won't be needed later on if we can work out
+					//how to safely implement an inventory management system that takes
+					//into account arrays starting with 0
+					System.out.print(i + ": ");
+
+					//This prints out the item at the i location
+					System.out.println(ray.getLocation().items.get(i));
+				}
+
+				//rayInventory.InventoryList();
+				System.out.println();
+			}
 			
 			// Displays the contents of Ray's inventory.
-			else if(choice==3) {
+			else if(choice==4) {
 				rayInventory.InventoryList();
 				System.out.println();
 			}
 			
-			else if(choice==4) {
+			else if(choice==5) {
 				
 				if(ray.getLocation().getDoors().size() == 1) {
 					System.out.println("You see only 1 door from this room.");
