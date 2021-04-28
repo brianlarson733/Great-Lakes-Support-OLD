@@ -9,10 +9,10 @@ import prototype.core.BasicRoom;
 public class CargoRoom extends BasicRoom {
 
 	//Constructor for CargoRoom
-	public CargoRoom (BasicRoom room) {
+	public CargoRoom () {
 		super("This room holds our stuff","Cargo Bay", new ArrayList<BasicItem>(),
 				new ArrayList<BasicBeing>(), new ArrayList<BasicRoom>());
-		this.doors.add(room);
+		
 	}
 
 }

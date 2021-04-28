@@ -5,7 +5,8 @@ Then add both the Basic items in Ray's inventory to the list
 As well as Offensive, Protective, and Health items
 
 To do:
-Add an Accessory items class
+Have Removed items be added to the active room's inventory
+Add/modify feeding alloy which should then remove the treats from the inventory
 
  */
 
@@ -54,6 +55,7 @@ public class ItemDriver {
 
         //Confirm new inventory list
         newinventory.InventoryList();
+
     }
 
 }

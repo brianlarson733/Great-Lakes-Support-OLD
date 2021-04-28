@@ -10,7 +10,23 @@ import prototype.room.EntryRoom;
 public class PrototypeGame extends Game {
 	
     public void startGame() {
+		//Create Rooms
         EntryRoom entryRoom = new EntryRoom();
+        CockpitRoom cockpit = new CockpitRoom();
+		EngineRoom engineRoom = new EngineRoom();
+		CargoRoom cargoBay = new CargoRoom();
+
+		//Create Layout
+		entryRoom.doors.add(cockpit);
+		entryRoom.doors.add(engineRoom);
+		entryRoom.doors.add(cargoBay);
+		cockpit.doors.add(entryRoom);
+		engineRoom.doors.add(entryRoom);
+		cargoBay.doors.add(entryRoom);
+		cargoBay.doors.add(engineRoom);
+		engineRoom.doors.add(cargoBay);
+
+		
 
         Ray ray = (Ray) entryRoom.getBeings().get(0);
         Alloy alloy = (Alloy) entryRoom.getDoors().get(0).getBeings().get(0);
@@ -25,7 +41,8 @@ public class PrototypeGame extends Game {
              
         System.out.println("That was exciting, thanks for playing!");
     }
-    
+
+
 	public void makeChoice(Ray ray, Alloy alloy, Inventory rayInventory) {
 		
         
