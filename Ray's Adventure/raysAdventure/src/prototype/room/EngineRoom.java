@@ -9,10 +9,9 @@ import prototype.core.BasicRoom;
 public class EngineRoom extends BasicRoom {
 
 	//Constructor for EngineRoom
-	public EngineRoom (BasicRoom room) {
+	public EngineRoom () {
 		super("Here we GO","Engine Room", new ArrayList<BasicItem>(),
 				new ArrayList<BasicBeing>(), new ArrayList<BasicRoom>());
-		this.doors.add(room);
 	}
 
 }
