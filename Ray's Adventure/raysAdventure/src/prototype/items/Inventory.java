@@ -50,4 +50,9 @@ public class Inventory {
             int choice = Tools.getWholeNumberInput();
             items.remove(choice);
     }
+
+    public ArrayList<ConcreteBasicItem> getInventory(){
+        return items;
+    }
+
 }
