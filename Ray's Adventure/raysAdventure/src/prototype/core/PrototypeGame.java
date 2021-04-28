@@ -43,7 +43,6 @@ public class PrototypeGame extends Game {
         System.out.println("------------------------------------------------------------");
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
         System.out.println("You are full of questions, what do you want to do?");
-        System.out.println("------------------------------------------------------------");
              
 
 		makeChoice(ray, alloy, rayInventory);
@@ -76,12 +75,12 @@ public class PrototypeGame extends Game {
 		while(true) {
 			
 			
-			
+			System.out.println("------------------------------------------------------------");
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Ask - 'Who am I'");
 	        System.out.println("2 - Ask - 'Where am I?'");
 	        System.out.println("3 - Inspect the items you are carrying");       
-	        System.out.println("4 - Go to another room. \n");
+	        System.out.println("4 - Go to another room.");
 	        
 	        int choiceNumber = 5;
 	        
@@ -96,17 +95,19 @@ public class PrototypeGame extends Game {
 	     
 	        		
 	        }
-			
+			System.out.println();
 			int choice = Tools.getWholeNumberInput();
+			System.out.println();
 			
 			if(choice ==1) {
-				System.out.println("Your name is " + ray.getName());
+				System.out.println("Your name is " + ray.getName() + "\n");
 			}
 			
 			else if(choice==2) {
 				System.out.println("You see a plaque near the door that says this room is called ");
 				ray.getLocation().printName();
 				ray.getLocation().printDescription();
+				System.out.println();
 			}
 			
 			// Displays the contents of Ray's inventory.
@@ -131,6 +132,7 @@ public class PrototypeGame extends Game {
 				}
 				int temp = 100;
 				do {
+					System.out.println();
 					temp = Tools.getWholeNumberInput();
 				}
 				while (temp > (ray.getLocation().getDoors().size() + 1));

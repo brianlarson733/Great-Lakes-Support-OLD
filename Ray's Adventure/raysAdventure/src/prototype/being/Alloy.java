@@ -19,11 +19,13 @@ public class Alloy extends BasicBeing {
 	}
 
 	public void interact() {
+		System.out.println("------------------------------------------------------------");
 		System.out.println("1 - Give Alloy a good head rub.");
 	    System.out.println("2 - Feed Alloy.");
 	    System.out.println("3 - Command Alloy to attack!");
 	    System.out.println("4 - Command Alloy to stick to your side.");
 	    System.out.println("5 - Command Alloy to stay in this room.");
+	    System.out.println();
 		int choice = Tools.getWholeNumberInput();
 		
 		if(choice ==1) {
