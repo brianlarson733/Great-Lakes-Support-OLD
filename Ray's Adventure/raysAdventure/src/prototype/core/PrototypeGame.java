@@ -1,11 +1,15 @@
 package prototype.core;
 
+import java.util.Random;
+
 import main.Game;
 import misc.Tools;
 import prototype.being.Alloy;
+import prototype.being.Bug;
 import prototype.being.Ray;
 import prototype.items.Inventory;
-import prototype.room.EntryRoom;
+import prototype.room.*;
+
 
 public class PrototypeGame extends Game {
 	
@@ -30,11 +34,15 @@ public class PrototypeGame extends Game {
 
         Ray ray = (Ray) entryRoom.getBeings().get(0);
         Alloy alloy = (Alloy) entryRoom.getDoors().get(0).getBeings().get(0);
-		//Instantating Ray's Inventory:
+        
+        Bug bug = new Bug(cargoBay);
+        cargoBay.getBeings().add(bug);
+        
+		//Instantiating Ray's Inventory:
 		Inventory rayInventory = new Inventory();
 		rayInventory.BasicInventory();
 
-		makeChoice(ray, alloy, rayInventory);
+		makeChoice(ray, alloy, bug, rayInventory);
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
         System.out.println("You are full of questions, what do you want to do?");
         
@@ -43,7 +51,7 @@ public class PrototypeGame extends Game {
     }
 
 
-	public void makeChoice(Ray ray, Alloy alloy, Inventory rayInventory) {
+	public void makeChoice(Ray ray, Alloy alloy, Bug bug, Inventory rayInventory) {
 		
         
         /**
@@ -63,6 +71,18 @@ public class PrototypeGame extends Game {
 		//condition for breaking the while loop needs to be explored
 		
 		while(true) {
+			
+			//If the bug is present, there is a 50% chance the bug will attack Ray
+			// each time makeChoice is called
+			if (bug.getLocation() == ray.getLocation()) {
+				Random rand = new Random();
+				int temp = rand.nextInt(2);
+				if (temp == 0) {
+					ray.changeHealth(-10);
+					System.out.println("The bug just bit you! Ouch!");
+				}
+			}
+			
 			
 			
 			
@@ -132,14 +152,22 @@ public class PrototypeGame extends Game {
 					tempRoom.removeBeing(ray);
 					ray.getLocation().addBeing(ray);
 					
+					// move Alloy with Ray if Alloy is in the same room and if stayPut is false
 					if (alloy.getLocation().equals(tempRoom)) {
 						if(!alloy.getStayPut()) {
 							alloy.changeLocation(ray.getLocation());
 							tempRoom.removeBeing(alloy);
 							ray.getLocation().addBeing(alloy);
+						}
 					}
 					
-							
+					// move the bug with Ray if the bug is in the same room
+					if (bug.getLocation().equals(tempRoom)) {
+						bug.changeLocation(ray.getLocation());
+						tempRoom.removeBeing(bug);
+						ray.getLocation().addBeing(bug);
+						System.out.println("How frightening! The bug followed you through the door!");
+						
 					}
 				}
 			}

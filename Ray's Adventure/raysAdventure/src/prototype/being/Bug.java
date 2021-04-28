@@ -8,9 +8,13 @@ import java.util.Random;
 
 public class Bug extends BasicBeing {
 
+		
 	public Bug(BasicRoom room) {
 		super("Bug", "An ugly creature.", 25, room);
 	}
+	
+	
+	
 
 	public void interact() {
 		System.out.println("1 - Say 'hello, friend!'");
@@ -32,7 +36,7 @@ public class Bug extends BasicBeing {
 			//when feeding the bug, increase the bugs health 
 			//make the bug nibble on Ray's hand, decreasing his health
 			
-			System.out.println("Hmmmm maybe it isn't a good idea to feed the bug");
+			System.out.println("Hmmmm maybe it isn't a good idea to feed the bug?");
 		}
 		
 		else if(choice==3) {

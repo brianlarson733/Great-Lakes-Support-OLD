@@ -8,7 +8,7 @@ import prototype.core.PrototypeGame;
 
 public class Alloy extends BasicBeing {
 
-	public boolean stayPut = false;
+	public boolean stayPut = true;
 	
 	public Alloy(BasicRoom room){
 		super("Alloy", "Our hero's faithful companion.", 50, room);
@@ -57,16 +57,21 @@ public class Alloy extends BasicBeing {
 				System.out.println("There isn't anyone else to attack!");
 			}
 			else {
-				//this is limited to only attacking the next being in the array list (not smart)
-				this.getLocation().getBeings().get(2).changeHealth(-10);
-				System.out.println("That looks like it hurt. Alloy bit " + 
-						this.getLocation().getBeings().get(2).getName() + "!");
-				if (this.getLocation().getBeings().get(2).getHealth() < 1) {
-					System.out.println(this.getLocation().getBeings().get(2).getName() + " has died!");
-					this.getLocation().getBeings().remove(2);
+				System.out.println("Alloy will attack!");
+				
+				//this chunk of code assumes Alloy will only be attacking the bug in this game
+				int bugIndex = -1;
+				for(int i = 0; i < this.getLocation().getBeings().size(); i++) {
+					if (this.getLocation().getBeings().get(i) instanceof Bug) {
+						bugIndex = i;
+					}
 				}
+				
+				System.out.println("That looks like it hurt. Alloy bit the bug!");
+				this.getLocation().getBeings().get(bugIndex).changeHealth(-20);
 			}
 		}
+		
 		
 		else if(choice==4) {
 			System.out.println("Alloy looks happy to be your companion and walk around with you.");

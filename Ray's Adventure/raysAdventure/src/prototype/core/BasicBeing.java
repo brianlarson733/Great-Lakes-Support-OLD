@@ -1,5 +1,7 @@
 package prototype.core;
 
+import prototype.being.Bug;
+
 public abstract class BasicBeing {
     
     private String name;
@@ -39,7 +41,14 @@ public abstract class BasicBeing {
     	this.health += change;
     	if(this.getHealth()<=0) {
     		this.getLocation().removeBeing(this);
-    		System.out.println(this.name + " is dead!");
+    		if(this instanceof Bug) {
+    			System.out.println("The bug is dead!");
+    		}
+    		
+    		else {
+    			System.out.println(this.name + " is dead!");
+    		}
+    		
     	}
     }
     
