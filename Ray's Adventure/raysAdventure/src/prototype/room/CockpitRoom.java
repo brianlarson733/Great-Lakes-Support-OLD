@@ -12,7 +12,6 @@ public class CockpitRoom extends BasicRoom {
 	public CockpitRoom () {
 		super("This appears to be the Cockpit","Cockpit", new ArrayList<BasicItem>(),
 				new ArrayList<BasicBeing>(), new ArrayList<BasicRoom>());
-		this.beings.add(new Alloy(this));
 	}
 
 }
