@@ -27,11 +27,11 @@ public class Inventory {
     public void InventorySize() {
         System.out.print("There are " );
         System.out.print(items.size());
-        System.out.println(" items in Ray's inventory");
+        System.out.println(" items in this inventory");
     }
 
     public void InventoryList() {
-        System.out.println("Ray's inventory contains: ");
+        System.out.println("This inventory contains: ");
         for (int i = 0; i < items.size(); i++) {
             System.out.print("    ");
 
