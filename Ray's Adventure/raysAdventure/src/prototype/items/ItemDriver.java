@@ -5,8 +5,10 @@ Then add both the Basic items in Ray's inventory to the list
 As well as Offensive, Protective, and Health items
 
 To do:
-Have Removed items be added to the active room's inventory
-Add/modify feeding alloy which should then remove the treats from the inventory
+
+
+Bug: the Tools.getWholeNumberInput() method and the Arrays don't align perfectly. IE 0 is not a positive number
+        as a result it is not possible to modify the first item in an array using the method
 
  */
 
