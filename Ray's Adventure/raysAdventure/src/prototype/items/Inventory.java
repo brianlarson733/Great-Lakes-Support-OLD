@@ -31,7 +31,7 @@ public class Inventory {
     }
 
     public void InventoryList() {
-        System.out.println("This inventory contains: ");
+        //System.out.println("This inventory contains: ");
         for (int i = 0; i < items.size(); i++) {
             System.out.print("    ");
 

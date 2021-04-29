@@ -8,11 +8,4 @@ public class ConcreteBasicItem extends BasicItem {
         super(description, name);
 
     }
-
-    @Override
-    public void useItem() {
-        System.out.println("This is a test of the local AAHHHHHHHH");
-    }
-
-
 }

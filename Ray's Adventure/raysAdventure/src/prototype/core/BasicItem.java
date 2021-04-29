@@ -21,7 +21,7 @@ public abstract class BasicItem {
     }
 
        //Item Methods
-        public abstract void useItem();
+        //public abstract void useItem();
 
         public void dropItem(){
             //This will drop the item from the user's inventory
