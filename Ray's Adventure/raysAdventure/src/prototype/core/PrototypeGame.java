@@ -59,17 +59,14 @@ public class PrototypeGame extends Game {
     
 	public static void endGame(BasicBeing being) {
 		if(being instanceof Ray) {
-			System.out.println("How sad, Ray's space adventures have come to an end!");
-			endGame = true;
-			
+			System.out.println("How sad, Ray's space adventures have come to an end!");			
 		}
 		else if(being instanceof Bug) {
 			System.out.println("Our hero has saved the day, hurrah!");
 			System.out.println("Now work can begin on all those ship feature"
 					+ " requests you've been receiving from Alloy...");
-			endGame = true;
 		}
-
+		endGame = true;
 	}
 
 
