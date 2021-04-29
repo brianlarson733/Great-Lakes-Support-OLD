@@ -85,23 +85,23 @@ public class PrototypeGame extends Game {
                 Random rand = new Random();
                 int temp = rand.nextInt(2);
                 if (temp == 0) {
-                    ray.changeHealth(-10);
                     System.out.println("The bug just bit you! Ouch!");
+                    ray.changeHealth(-10);
                 }
             }
 			
 			System.out.println("------------------------------------------------------------");
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Ask - 'Who am I'");
-      System.out.println("2 - Ask - 'Where am I?'");
+			System.out.println("2 - Ask - 'Where am I?'");
 			System.out.println("3 - Inspect the room");
 			System.out.println("4 - Inspect the items you are carrying");
-      System.out.println("5 - Go to another room. \n");
+			System.out.println("5 - Go to another room.");
 
+
+      		// this will print out interaction options if there is another being in the room
+	        int choiceNumber = 6;
 	        
-	        int choiceNumber = 5;
-	        
-	        // this will print out interaction options if there is another being in the room
 	        for (int i = 0; i < ray.getLocation().getBeings().size(); i++) {
 	        	// make sure we only try to interact with a being that isn't Ray
 	        	if(!(ray.getLocation().getBeings().get(i) instanceof Ray)) {
@@ -109,6 +109,7 @@ public class PrototypeGame extends Game {
 	        				ray.getLocation().getBeings().get(i).getName());
 	        		choiceNumber++;
 	        	}
+	        System.out.println();
 	     
 	        		
 	        }
@@ -203,13 +204,13 @@ public class PrototypeGame extends Game {
 			}
 			
 			// check if the choice is to interact with the other being
-			else if(choice <= 4+ray.getLocation().getBeings().size()-1) {
+			else if(choice <= choiceNumber) {
 				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().get(choice-5) instanceof Ray) {
-					ray.getLocation().getBeings().get(choice-4).interact();
+				if(ray.getLocation().getBeings().get(choice-6) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-5).interact();
 				}
 				else {
-					ray.getLocation().getBeings().get(choice-5).interact();
+					ray.getLocation().getBeings().get(choice-6).interact();
 				}
 				
 			}
