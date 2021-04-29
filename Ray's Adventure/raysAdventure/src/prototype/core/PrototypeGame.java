@@ -1,9 +1,11 @@
 package prototype.core;
 
+import java.util.Random;
 import main.Game;
 import misc.Tools;
 import prototype.being.Alloy;
 import prototype.being.Ray;
+import prototype.being.Bug;
 import prototype.items.Inventory;
 import prototype.room.*;
 
@@ -29,13 +31,16 @@ public class PrototypeGame extends Game {
 		//Create and Place Beings
 		Ray ray = new Ray(entryRoom);
 		Alloy alloy = new Alloy(cockpit);
+        Bug bug = new Bug(cargoBay);
 
 		//Update Room Beings List
 		entryRoom.beings.add(ray);
-		cockpit.beings.add(alloy);		
+		cockpit.beings.add(alloy);	
+        cargoBay.getBeings().add(bug);
 
 
-		//Instantating Ray's Inventory:
+
+		//Instantiating Ray's Inventory:
 		Inventory rayInventory = new Inventory();
 		rayInventory.BasicInventory();
 
@@ -45,7 +50,7 @@ public class PrototypeGame extends Game {
         System.out.println("You are full of questions, what do you want to do?");
              
 
-		makeChoice(ray, alloy, rayInventory);
+		makeChoice(ray, alloy, bug, rayInventory);
 
 		//Game Conclusion Text
         System.out.println("That was exciting, thanks for playing!");
@@ -53,7 +58,7 @@ public class PrototypeGame extends Game {
     }
 
 
-	public void makeChoice(Ray ray, Alloy alloy, Inventory rayInventory) {
+	public void makeChoice(Ray ray, Alloy alloy, Bug bug, Inventory rayInventory) {
 		
         
         /**
@@ -74,13 +79,25 @@ public class PrototypeGame extends Game {
 		
 		while(true) {
 			
+            //If the bug is present, there is a 50% chance the bug will attack Ray
+            // each time makeChoice is called
+            if (bug.getLocation() == ray.getLocation()) {
+                Random rand = new Random();
+                int temp = rand.nextInt(2);
+                if (temp == 0) {
+                    ray.changeHealth(-10);
+                    System.out.println("The bug just bit you! Ouch!");
+                }
+            }
 			
 			System.out.println("------------------------------------------------------------");
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Ask - 'Who am I'");
-	        System.out.println("2 - Ask - 'Where am I?'");
-	        System.out.println("3 - Inspect the items you are carrying");       
-	        System.out.println("4 - Go to another room.");
+      System.out.println("2 - Ask - 'Where am I?'");
+			System.out.println("3 - Inspect the room");
+			System.out.println("4 - Inspect the items you are carrying");
+      System.out.println("5 - Go to another room. \n");
+
 	        
 	        int choiceNumber = 5;
 	        
@@ -109,14 +126,34 @@ public class PrototypeGame extends Game {
 				ray.getLocation().printDescription();
 				System.out.println();
 			}
+
+			//Displays the contents of the room's inventory
+			//This needs to somehow determine both Ray's location and call the array for that location
+			else if(choice==3) {
+				System.out.println("This room contains:");
+				for (int i = 0; i < ray.getLocation().items.size(); i++) {
+					System.out.print("    ");
+
+					//This is a debugging print and won't be needed later on if we can work out
+					//how to safely implement an inventory management system that takes
+					//into account arrays starting with 0
+					System.out.print(i + ": ");
+
+					//This prints out the item at the i location
+					System.out.println(ray.getLocation().items.get(i));
+				}
+
+				//rayInventory.InventoryList();
+				System.out.println();
+			}
 			
 			// Displays the contents of Ray's inventory.
-			else if(choice==3) {
+			else if(choice==4) {
 				rayInventory.InventoryList();
 				System.out.println();
 			}
 			
-			else if(choice==4) {
+			else if(choice==5) {
 				
 				if(ray.getLocation().getDoors().size() == 1) {
 					System.out.println("You see only 1 door from this room.");
@@ -145,15 +182,23 @@ public class PrototypeGame extends Game {
 					tempRoom.removeBeing(ray);
 					ray.getLocation().addBeing(ray);
 					
+                    // move Alloy with Ray if Alloy is in the same room and if stayPut is false
 					if (alloy.getLocation().equals(tempRoom)) {
 						if(!alloy.getStayPut()) {
 							alloy.changeLocation(ray.getLocation());
 							tempRoom.removeBeing(alloy);
 							ray.getLocation().addBeing(alloy);
+						}
 					}
 					
-							
-					}
+                    // move the bug with Ray if the bug is in the same room
+                    if (bug.getLocation().equals(tempRoom)) {
+                        bug.changeLocation(ray.getLocation());
+                        tempRoom.removeBeing(bug);
+                        ray.getLocation().addBeing(bug);
+                        System.out.println("How frightening! The bug followed you through the door!");
+                        
+                    }
 				}
 			}
 			
