@@ -56,17 +56,18 @@ public class Alloy extends BasicBeing {
 		
 		else if(choice==3) {
 			if(this.getLocation().getBeings().size()<3) {
+				//this can be improved so that choice 3 doesn't display if the bug isn't present
 				System.out.println("There isn't anyone else to attack!");
 			}
 			else {
-				//this is limited to only attacking the next being in the array list (not smart)
-				this.getLocation().getBeings().get(2).changeHealth(-10);
-				System.out.println("That looks like it hurt. Alloy bit " + 
-						this.getLocation().getBeings().get(2).getName() + "!");
-				if (this.getLocation().getBeings().get(2).getHealth() < 1) {
-					System.out.println(this.getLocation().getBeings().get(2).getName() + " has died!");
-					this.getLocation().getBeings().remove(2);
+				int indexOfBug = -1;
+				for(int i = 0; i < this.getLocation().getBeings().size(); i++) {
+					if (this.getLocation().getBeings().get(i) instanceof Bug) {
+						indexOfBug = i;
+					}
 				}
+				System.out.println("That looks like it hurt. Alloy bit the bug!");
+				this.getLocation().getBeings().get(indexOfBug).changeHealth(-20);
 			}
 		}
 		

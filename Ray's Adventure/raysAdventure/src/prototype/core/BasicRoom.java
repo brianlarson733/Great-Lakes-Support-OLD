@@ -43,5 +43,9 @@ public abstract class BasicRoom {
 	public void removeBeing(BasicBeing being) {
 		this.getBeings().remove(being);
 	}
+	
+	public void addItem(BasicItem item) {
+		items.add(item);
+	}
 
 }
