@@ -5,6 +5,8 @@
 package prototype.items;
 
 import java.util.ArrayList;
+import prototype.being.Ray;
+import prototype.core.PrototypeGame;
 
 import misc.Tools;
 
@@ -57,4 +59,86 @@ public class Inventory {
         return items;
     }
 
+    public static void InventoryPickup(Ray ray, Inventory rayInventory){
+        System.out.println("Ray's inventory contains:");
+        rayInventory.InventoryList();
+        System.out.println();
+        System.out.println("--------------------------------------------");
+        System.out.println();
+
+        System.out.println(ray.getLocation() + " contains:");
+        for (int i = 1; i < ray.getLocation().items.size(); i++) {
+            System.out.print("    ");
+            System.out.print(i + ": ");
+            System.out.println(ray.getLocation().items.get(i));
+        }
+        System.out.println();
+        System.out.println("--------------------------------------------");
+        System.out.println("Please identify the item you would like to move from " +
+                ray.getLocation() + "to Ray's inventory");
+
+        int itemMove = Tools.getWholeNumberInput();
+
+        //I don't know how the following line works but it does
+        rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+        ray.getLocation().items.remove(itemMove);
+        System.out.println();
+
+        System.out.println("--------------------------------------------");
+        System.out.println("Ray's inventory now contains:");
+        rayInventory.InventoryList();
+        System.out.println();
+
+        System.out.println("--------------------------------------------");
+        System.out.println("The room's now contains:");
+        for (int i = 0; i < ray.getLocation().items.size(); i++) {
+            System.out.print("    ");
+            System.out.print(i + ": ");
+            System.out.println(ray.getLocation().items.get(i));
+        }
+        System.out.println();
+    }
+
+    public static void InventoryDrop(Ray ray, Inventory rayInventory){
+        System.out.println("Ray's inventory contains:");
+        rayInventory.InventoryList();
+        System.out.println();
+
+        System.out.println(ray.getLocation() + " contains:");
+        for (int i = 1; i < ray.getLocation().items.size(); i++) {
+            System.out.print("    ");
+            System.out.print(i + ": ");
+            System.out.println(ray.getLocation().items.get(i));
+        }
+        System.out.println();
+        System.out.println("--------------------------------------------");
+
+
+        System.out.println("--------------------------------------------");
+        System.out.println("Please identify the item you would like to move from Ray's inventory to " +
+                ray.getLocation());
+
+        int itemMove = Tools.getWholeNumberInput();
+
+        //I don't know how the following line works but it does
+        ray.getLocation().items.add((ConcreteBasicItem) rayInventory.items.get(itemMove));
+        //rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+        rayInventory.items.remove(itemMove);
+        //ray.getLocation().items.remove(itemMove);
+        System.out.println();
+
+        System.out.println("--------------------------------------------");
+        System.out.println("Ray's inventory now contains:");
+        rayInventory.InventoryList();
+        System.out.println();
+
+        System.out.println("--------------------------------------------");
+        System.out.println("The room's now contains:");
+        for (int i = 0; i < ray.getLocation().items.size(); i++) {
+            System.out.print("    ");
+            System.out.print(i + ": ");
+            System.out.println(ray.getLocation().items.get(i));
+        }
+        System.out.println();
+    }
 }

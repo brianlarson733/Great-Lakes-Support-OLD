@@ -16,6 +16,8 @@ Bug: the Tools.getWholeNumberInput() method and the Arrays don't align perfectly
 package prototype.items;
 
 import misc.Tools;
+import prototype.being.Ray;
+import prototype.room.CockpitRoom;
 
 public class ItemDriver {
     public static void main(String args[]) {
@@ -32,9 +34,11 @@ public class ItemDriver {
         System.out.println("What do you want to do?");
         System.out.println("1. Demonstrate creating an array and sub-methods");
         System.out.println("2. Demonstrate how to move items between inventories (arrays)");
+        System.out.println("3. Demonstrate using a method to pick up an item");
+        System.out.println("4. Demonstrate using a method to drop an item");
         int choice = Tools.getWholeNumberInput();
 
-        if(choice ==1) {
+        if (choice == 1) {
             System.out.println("This is a POC for creating arrays and using methods within the array parent class");
 
             //Create the array object
@@ -70,7 +74,7 @@ public class ItemDriver {
             newinventory.InventoryList();
         }
 
-        if(choice ==2) {
+        if (choice == 2) {
             //POC - Testing moving objects between arrays
             System.out.println("This is a POC of how to move items between two Arrays");
 
@@ -113,8 +117,44 @@ public class ItemDriver {
             inventoryTwo.InventoryList();
         }
 
+        if (choice == 3) {
+            System.out.println("Here we go...");
+            //Creating local cockpit room and ray for this testing
+            CockpitRoom cockpit = new CockpitRoom();
+            Ray ray = new Ray(cockpit);
 
+            //Instantiating Room Inventories:
+            ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper", "Pamphlet for the DXP Diamond Bar");
+            ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue", "DXP Diamond Bar Snacks!");
+            ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("This is an empty space", "Empty Space");
+            cockpit.items.add(cockpitBlank);
+            cockpit.items.add(cockpitPamphlet);
+            cockpit.items.add(cockpitSnack);
 
+            //Creating Ray's inventory
+            Inventory rayInventory = new Inventory();
+            rayInventory.BasicInventory();
+            Inventory.InventoryPickup(ray, rayInventory);
+        }
+
+        if (choice == 4) {
+            System.out.println("Here we go...");
+            //Creating local cockpit room and ray for this testing
+            CockpitRoom cockpit = new CockpitRoom();
+            Ray ray = new Ray(cockpit);
+
+            //Instantiating Room Inventories:
+            ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper", "Pamphlet for the DXP Diamond Bar");
+            ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue", "DXP Diamond Bar Snacks!");
+            ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("This is an empty space", "Empty Space");
+            cockpit.items.add(cockpitBlank);
+            cockpit.items.add(cockpitPamphlet);
+            cockpit.items.add(cockpitSnack);
+
+            //Creating Ray's inventory
+            Inventory rayInventory = new Inventory();
+            rayInventory.BasicInventory();
+            Inventory.InventoryDrop(ray, rayInventory);
+        }
     }
-
 }
