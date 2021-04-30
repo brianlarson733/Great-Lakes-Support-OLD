@@ -3,6 +3,7 @@ package prototype.being;
 import misc.Tools;
 import prototype.core.BasicBeing;
 import prototype.core.BasicRoom;
+import prototype.core.PrototypeGame;
 
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class Bug extends BasicBeing {
 		if(choice ==1) {
 			
 			System.out.println("The bug stares back at you with beady, greedy eyes.");
-							
+			PrototypeGame.transitionText();
 		}
 		
 		else if(choice==2) {
@@ -33,6 +34,7 @@ public class Bug extends BasicBeing {
 			//make the bug nibble on Ray's hand, decreasing his health
 			
 			System.out.println("Hmmmm maybe it isn't a good idea to feed the bug");
+			PrototypeGame.transitionText();
 		}
 		
 		else if(choice==3) {
@@ -55,7 +57,7 @@ public class Bug extends BasicBeing {
 				System.out.println("Eek, some of its gooey blood appears to be foaming on the floor.");
 				this.changeHealth(-2);
 			}
-
+			PrototypeGame.transitionText();
 		}
 		
 		

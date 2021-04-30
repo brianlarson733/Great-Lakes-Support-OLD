@@ -1,6 +1,8 @@
 package prototype.core;
 
 import java.util.Random;
+import java.util.Scanner;
+
 import main.Game;
 import misc.Tools;
 import prototype.being.Alloy;
@@ -75,6 +77,14 @@ public class PrototypeGame extends Game {
 		}
 		endGame = true;
 	}
+	
+	public static void transitionText() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Press 'Enter' to continue");
+		scan.nextLine();
+		
+	}
+	
 
 
 	public void makeChoice(Ray ray, Alloy alloy, Bug bug, Inventory rayInventory) {
@@ -103,6 +113,7 @@ public class PrototypeGame extends Game {
                 		System.out.println("The bug just bit you! Ouch!");
                 		ray.changeHealth(-10);
                 	}
+                	transitionText();
 
                 }
             
@@ -256,7 +267,7 @@ public class PrototypeGame extends Game {
                         tempRoom.removeBeing(bug);
                         ray.getLocation().addBeing(bug);
                         System.out.println("How frightening! The bug followed you through the door!");
-                        
+                        PrototypeGame.transitionText();
                     }
 				}
 			}
