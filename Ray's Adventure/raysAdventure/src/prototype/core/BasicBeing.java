@@ -1,5 +1,7 @@
 package prototype.core;
 
+import prototype.being.Alloy;
+
 public abstract class BasicBeing {
     
     private String name;
@@ -38,8 +40,11 @@ public abstract class BasicBeing {
     public void changeHealth(int change) {
     	this.health += change;
     	if(this.getHealth()<=0) {
-    		this.getLocation().removeBeing(this);
     		System.out.println(this.name + " is dead!");
+    		//end game if the being wasn't Alloy (it was the bug or Ray)
+    		if(!(this instanceof Alloy)) {
+    			PrototypeGame.endGame(this);
+    		}
     	}
     }
     
