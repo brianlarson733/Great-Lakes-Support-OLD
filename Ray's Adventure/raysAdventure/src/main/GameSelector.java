@@ -20,7 +20,12 @@ public class GameSelector {
         System.out.println("2 - The Secret of the Diamond Bar Basement \n");
         int[] tempArray = {1, 2};
         int choice = Tools.getWholeNumberInput(tempArray);
-
+        System.out.println(".");
+        System.out.println(".");
+        System.out.println("... The Adventure begins!");
+        System.out.println(".");
+        System.out.println(".");
+        
         switch (choice){
             case 1:
                 prototype.startGame();

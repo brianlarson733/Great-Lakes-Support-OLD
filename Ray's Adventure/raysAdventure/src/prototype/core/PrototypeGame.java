@@ -47,8 +47,35 @@ public class PrototypeGame extends Game {
 		//Introductory Text
         System.out.println("------------------------------------------------------------");
         System.out.println("You find yourself waking up on a vacant-looking space ship:");
-        System.out.println("You are full of questions, what do you want to do?");
-             
+        System.out.println("You are full of questions and your mind feels like its trapped in a fog...");
+        System.out.println("Who am I? What is this place?");
+		
+		while(true){
+		System.out.println("------------------------------------------------------------");
+		System.out.println("What would you like to do?");
+		System.out.println("1 - Ask - 'Who am I'");
+		System.out.println("2 - Ask - 'Where am I?'");
+		System.out.println("3 - Decide to get up and explore");
+		System.out.println();
+		int initchoice = Tools.getWholeNumberInput();
+		System.out.println();
+
+			if(initchoice ==1) {
+					System.out.println("Your name is " + ray.getName() + "\n");
+			}
+				
+			else if(initchoice==2) {
+					System.out.println("You slowly start to remember that you were piloting a ship before something caused your ship to crash into this planet.");
+					System.out.println("You see a plaque near the door that says this room is called: ");
+					ray.getLocation().printName();
+					ray.getLocation().printDescription();
+					System.out.println();
+			}
+			
+			else if (initchoice==3){
+				break;
+			}
+		}
 
 		makeChoice(ray, alloy, bug, rayInventory);
 
@@ -77,6 +104,9 @@ public class PrototypeGame extends Game {
         
 		//condition for breaking the while loop needs to be explored
 		
+		System.out.println("------------------------------------------------------------");
+        System.out.println("You pick yourself up and slowly stare around the room, taking in  your surroundings.");
+        
 		while(true) {
 			
             //If the bug is present, there is a 50% chance the bug will attack Ray
@@ -92,15 +122,14 @@ public class PrototypeGame extends Game {
 			
 			System.out.println("------------------------------------------------------------");
 			System.out.println("What do you want to do?");
-			System.out.println("1 - Ask - 'Who am I'");
-			System.out.println("2 - Ask - 'Where am I?'");
-			System.out.println("3 - Inspect the room");
-			System.out.println("4 - Inspect the items you are carrying");
-			System.out.println("5 - Go to another room.");
+			System.out.println("1 - Ask - 'What room is this?'");
+			System.out.println("2 - Inspect the room");
+			System.out.println("3 - Inspect the items you are carrying");
+			System.out.println("4 - Go to another room.");
 
 
       		// this will print out interaction options if there is another being in the room
-	        int choiceNumber = 6;
+	        int choiceNumber = 5;
 	        
 	        for (int i = 0; i < ray.getLocation().getBeings().size(); i++) {
 	        	// make sure we only try to interact with a being that isn't Ray
@@ -116,12 +145,8 @@ public class PrototypeGame extends Game {
 			System.out.println();
 			int choice = Tools.getWholeNumberInput();
 			System.out.println();
-			
-			if(choice ==1) {
-				System.out.println("Your name is " + ray.getName() + "\n");
-			}
-			
-			else if(choice==2) {
+						
+			if(choice==1) {
 				System.out.println("You see a plaque near the door that says this room is called ");
 				ray.getLocation().printName();
 				ray.getLocation().printDescription();
@@ -130,7 +155,7 @@ public class PrototypeGame extends Game {
 
 			//Displays the contents of the room's inventory
 			//This needs to somehow determine both Ray's location and call the array for that location
-			else if(choice==3) {
+			else if(choice==2) {
 				System.out.println("This room contains:");
 				for (int i = 0; i < ray.getLocation().items.size(); i++) {
 					System.out.print("    ");
@@ -149,12 +174,12 @@ public class PrototypeGame extends Game {
 			}
 			
 			// Displays the contents of Ray's inventory.
-			else if(choice==4) {
+			else if(choice==3) {
 				rayInventory.InventoryList();
 				System.out.println();
 			}
 			
-			else if(choice==5) {
+			else if(choice==4) {
 				
 				if(ray.getLocation().getDoors().size() == 1) {
 					System.out.println("You see only 1 door from this room.");
@@ -206,11 +231,11 @@ public class PrototypeGame extends Game {
 			// check if the choice is to interact with the other being
 			else if(choice <= choiceNumber) {
 				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().get(choice-6) instanceof Ray) {
-					ray.getLocation().getBeings().get(choice-5).interact();
+				if(ray.getLocation().getBeings().get(choice-5) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-4).interact();
 				}
 				else {
-					ray.getLocation().getBeings().get(choice-6).interact();
+					ray.getLocation().getBeings().get(choice-5).interact();
 				}
 				
 			}
