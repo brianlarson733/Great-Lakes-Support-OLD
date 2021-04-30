@@ -36,6 +36,10 @@ public abstract class BasicRoom {
 		return this.beings;
 	}
 
+	public ArrayList<BasicItem> getItems(){
+		return this.items;
+	}
+
 	public void addBeing(BasicBeing being) {
 		this.getBeings().add(being);
 	}
