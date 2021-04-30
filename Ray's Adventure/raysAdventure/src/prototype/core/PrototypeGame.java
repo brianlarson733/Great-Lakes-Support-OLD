@@ -49,6 +49,8 @@ public class PrototypeGame extends Game {
 		//Instantiating Room Inventories:
 		ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper","Pamphlet for the DXP Diamond Bar");
 		ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue","DXP Diamond Bar Snacks!");
+		ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("This is an empty space", "Empty Space");
+		cockpit.items.add(cockpitBlank);
 		cockpit.items.add(cockpitPamphlet);
 		cockpit.items.add(cockpitSnack);
 
@@ -118,12 +120,11 @@ public class PrototypeGame extends Game {
 			System.out.println("2 - Ask - 'Where am I?'");
 			System.out.println("3 - Inspect the room");
 			System.out.println("4 - Inspect the items you are carrying");
-			System.out.println("5 - Pick up an item from the room");
-			System.out.println("6 - Go to another room.");
+			System.out.println("5 - Go to another room.");
 
 
       		// this will print out interaction options if there is another being in the room
-	        int choiceNumber = 7;
+	        int choiceNumber = 6;
 	        
 	        for (int i = 0; i < ray.getLocation().getBeings().size(); i++) {
 	        	// make sure we only try to interact with a being that isn't Ray
@@ -152,7 +153,7 @@ public class PrototypeGame extends Game {
 			//This needs to somehow determine both Ray's location and call the array for that location
 			else if(choice==3) {
 				System.out.println("This room contains:");
-				for (int i = 0; i < ray.getLocation().items.size(); i++) {
+				for (int i = 1; i < ray.getLocation().items.size(); i++) {
 					System.out.print("    ");
 
 					//This is a debugging print and won't be needed later on if we can work out
@@ -163,6 +164,94 @@ public class PrototypeGame extends Game {
 					//This prints out the item at the i location
 					System.out.println(ray.getLocation().items.get(i));
 				}
+
+				System.out.println("Would you like to pick up or drop an item?");
+				System.out.println("1. Pick up");
+				System.out.println("2. Drop");
+				System.out.println("3. No");
+				int itemChoice = Tools.getWholeNumberInput();
+				//Moving an item from the room's inventory to Ray's inventory
+						if(itemChoice==1) {
+								System.out.println(ray.getLocation() + " contains:");
+								for (int i = 1; i < ray.getLocation().items.size(); i++) {
+									System.out.print("    ");
+									System.out.print(i + ": ");
+									System.out.println(ray.getLocation().items.get(i));
+								}
+								System.out.println();
+								System.out.println("--------------------------------------------");
+								System.out.println("Ray's inventory contains:");
+								rayInventory.InventoryList();
+								System.out.println();
+
+								System.out.println("--------------------------------------------");
+								System.out.println("Please identify the item you would like to move from " +
+										ray.getLocation() + "to Ray's inventory");
+
+								int itemMove = Tools.getWholeNumberInput();
+
+								//I don't know how the following line works but it does
+								rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+								ray.getLocation().items.remove(itemMove);
+								System.out.println();
+
+								System.out.println("--------------------------------------------");
+								System.out.println("Ray's inventory now contains:");
+								rayInventory.InventoryList();
+								System.out.println();
+
+								System.out.println("--------------------------------------------");
+								System.out.println("The room's now contains:");
+								for (int i = 0; i < ray.getLocation().items.size(); i++) {
+									System.out.print("    ");
+									System.out.print(i + ": ");
+									System.out.println(ray.getLocation().items.get(i));
+								}
+								System.out.println();
+
+							}
+						else if(itemChoice==2) {
+							System.out.println(ray.getLocation() + " contains:");
+							for (int i = 1; i < ray.getLocation().items.size(); i++) {
+								System.out.print("    ");
+								System.out.print(i + ": ");
+								System.out.println(ray.getLocation().items.get(i));
+							}
+							System.out.println();
+							System.out.println("--------------------------------------------");
+							System.out.println("Ray's inventory contains:");
+							rayInventory.InventoryList();
+							System.out.println();
+
+							System.out.println("--------------------------------------------");
+							System.out.println("Please identify the item you would like to move from Ray's inventory to " +
+									ray.getLocation());
+
+							int itemMove = Tools.getWholeNumberInput();
+
+							//I don't know how the following line works but it does
+							ray.getLocation().items.add((ConcreteBasicItem) rayInventory.items.get(itemMove));
+							//rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+							rayInventory.items.remove(itemMove);
+							//ray.getLocation().items.remove(itemMove);
+							System.out.println();
+
+							System.out.println("--------------------------------------------");
+							System.out.println("Ray's inventory now contains:");
+							rayInventory.InventoryList();
+							System.out.println();
+
+							System.out.println("--------------------------------------------");
+							System.out.println("The room's now contains:");
+							for (int i = 0; i < ray.getLocation().items.size(); i++) {
+								System.out.print("    ");
+								System.out.print(i + ": ");
+								System.out.println(ray.getLocation().items.get(i));
+							}
+							System.out.println();
+						}
+						else if(itemChoice==3) {
+						}
 			}
 			
 			// Displays the contents of Ray's inventory.
@@ -171,48 +260,9 @@ public class PrototypeGame extends Game {
 				System.out.println();
 			}
 
-			//Moving an item from the room's inventory to Ray's inventory
-			else if(choice==5) {
-				System.out.println(ray.getLocation() + " contains:");
-				for (int i = 0; i < ray.getLocation().items.size(); i++) {
-					System.out.print("    ");
-					System.out.print(i + ": ");
-					System.out.println(ray.getLocation().items.get(i));
-					 }
-				System.out.println();
-				System.out.println("--------------------------------------------");
-				System.out.println("Ray's inventory contains:");
-					rayInventory.InventoryList();
-					System.out.println();
 
-				System.out.println("--------------------------------------------");
-				System.out.println("Please identify the item you would like to move from " +
-						ray.getLocation() + "to Ray's inventory");
-
-				int itemMove = Tools.getWholeNumberInput();
-
-				//I don't know how the following line works but it does
-				rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
-				ray.getLocation().items.remove(itemMove);
-				System.out.println();
-
-				System.out.println("--------------------------------------------");
-				System.out.println("Ray's inventory now contains:");
-				rayInventory.InventoryList();
-				System.out.println();
-
-				System.out.println("--------------------------------------------");
-				System.out.println("The room's now contains:");
-				for (int i = 0; i < ray.getLocation().items.size(); i++) {
-					System.out.print("    ");
-					System.out.print(i + ": ");
-					System.out.println(ray.getLocation().items.get(i));
-				}
-				System.out.println();
-
-			}
 			
-			else if(choice==6) {
+			else if(choice==5) {
 				
 				if(ray.getLocation().getDoors().size() == 1) {
 					System.out.println("You see only 1 door from this room.");
@@ -264,11 +314,11 @@ public class PrototypeGame extends Game {
 			// check if the choice is to interact with the other being
 			else if(choice <= choiceNumber) {
 				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().get(choice-7) instanceof Ray) {
-					ray.getLocation().getBeings().get(choice-6).interact();
+				if(ray.getLocation().getBeings().get(choice-6) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-5).interact();
 				}
 				else {
-					ray.getLocation().getBeings().get(choice-7).interact();
+					ray.getLocation().getBeings().get(choice-6).interact();
 				}
 				
 			}
