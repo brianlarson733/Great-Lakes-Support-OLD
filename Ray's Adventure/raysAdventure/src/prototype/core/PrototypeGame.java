@@ -82,10 +82,13 @@ public class PrototypeGame extends Game {
 	
 	public static void transitionText() {
 		Scanner scan = new Scanner(System.in);
+		System.out.println("------------------------------------------------------------");
 		System.out.println("Press 'Enter' to continue");
 		scan.nextLine();
 		
 	}
+	
+	
 	
 
 
@@ -124,6 +127,7 @@ public class PrototypeGame extends Game {
 			}
 
 			System.out.println("------------------------------------------------------------");
+			System.out.println("You are in the " + ray.getLocation().getName());
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Ask - 'Who am I'");
 			System.out.println("2 - Ask - 'Where am I?'");
@@ -191,52 +195,18 @@ public class PrototypeGame extends Game {
 					rayInventory.InventoryList();
 					System.out.println();
 				}
-
-				else if (choice == 5) {
-
-					if (ray.getLocation().getDoors().size() == 1) {
-						System.out.println("You see only 1 door from this room.");
-					} else {
-						System.out.println("You see " + ray.getLocation().getDoors().size() + " doors.");
-					}
-					System.out.println("Please make a selection.");
-					System.out.println("1: Stay in this room.");
-					for (int i = 0; i < ray.getLocation().getDoors().size(); i++) {
-						System.out.print((i + 2) + ": ");
-						ray.getLocation().getDoors().get(i).printName();
-					}
-					int temp = 100;
-					do {
-						System.out.println();
-						temp = Tools.getWholeNumberInput();
-					}
-					while (temp > (ray.getLocation().getDoors().size() + 1));
-					if (temp == 1) {
-						continue;
-					} else {
-						BasicRoom tempRoom = ray.getLocation();
-						ray.changeLocation(ray.getLocation().getDoors().get(temp - 2));
-						tempRoom.removeBeing(ray);
-						ray.getLocation().addBeing(ray);
-
-						// move Alloy with Ray if Alloy is in the same room and if stayPut is false
-						if (alloy.getLocation().equals(tempRoom)) {
-							if (!alloy.getStayPut()) {
-								alloy.changeLocation(ray.getLocation());
-								tempRoom.removeBeing(alloy);
-								ray.getLocation().addBeing(alloy);
-							}
-						}
-
-						// move the bug with Ray if the bug is in the same room
-						if (bug.getLocation().equals(tempRoom)) {
-							bug.changeLocation(ray.getLocation());
-							tempRoom.removeBeing(bug);
-							ray.getLocation().addBeing(bug);
-							System.out.println("How frightening! The bug followed you through the door!");
-							PrototypeGame.transitionText();
-						}
-					}
+			
+			else if(choice==5) {
+				
+				ray.goToAnotherRoom(alloy, bug);
+				
+			}
+			
+			// check if the choice is to interact with the other being
+			else if(choice <= choiceNumber) {
+				// don't interact with Ray in the room's being list
+				if(ray.getLocation().getBeings().get(choice-6) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-5).interact();
 				}
 
 				// check if the choice is to interact with the other being

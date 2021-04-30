@@ -69,7 +69,7 @@ public class Alloy extends BasicBeing {
 					}
 				}
 
-				System.out.println("That looks like it hurt. Alloy bit the bug!");
+				System.out.println("Alloy bit the bug! After the scuffle you see bug parts on the floor");
 				this.getLocation().getBeings().get(indexOfBug).changeHealth(-20);
 			}
 			PrototypeGame.transitionText();
