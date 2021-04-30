@@ -10,7 +10,7 @@ import java.util.Random;
 public class Bug extends BasicBeing {
 
 	public Bug(BasicRoom room) {
-		super("Bug", "An ugly creature.", 25, room);
+		super("a bug", "An ugly creature.", 25, room);
 	}
 
 	public void interact() {
