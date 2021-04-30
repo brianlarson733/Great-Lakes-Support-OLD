@@ -11,6 +11,7 @@ import misc.Tools;
 public class Inventory {
 
     //Sample items for the inventory
+    ConcreteBasicItem blankItem = new ConcreteBasicItem("This is an empty space", "Empty Space");
     ConcreteBasicItem water = new ConcreteBasicItem("Basic Item: This is a water flask", "Water Flask");
     ConcreteBasicItem dehydratedFruit = new ConcreteBasicItem("Basic Item: This is dehydrated fruit", "Dehydrated Fruit");
     ConcreteBasicItem dogTreats = new ConcreteBasicItem("Basic Item: These are dog treats", "Alloy's snacks");
@@ -19,6 +20,7 @@ public class Inventory {
     public ArrayList<ConcreteBasicItem> items = new ArrayList<ConcreteBasicItem>();
 
     public void BasicInventory() {
+        items.add(blankItem);
         items.add(water);
         items.add(dehydratedFruit);
         items.add(dogTreats);
@@ -26,13 +28,13 @@ public class Inventory {
 
     public void InventorySize() {
         System.out.print("There are " );
-        System.out.print(items.size());
+        System.out.print((items.size()-1));
         System.out.println(" items in this inventory");
     }
 
     public void InventoryList() {
         //System.out.println("This inventory contains: ");
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 1; i < items.size(); i++) {
             System.out.print("    ");
 
             //This is a debugging print and won't be needed later on if we can work out
