@@ -52,6 +52,7 @@ public class Alloy extends BasicBeing {
 			//if it is edible, increase health. If it isn't edible, decrease health
 			
 			System.out.println("Bummer, you don't see anything edible for the little guy.");
+			PrototypeGame.transitionText();
 		}
 		
 		else if(choice==3) {
@@ -71,16 +72,19 @@ public class Alloy extends BasicBeing {
 				System.out.println("That looks like it hurt. Alloy bit the bug!");
 				this.getLocation().getBeings().get(indexOfBug).changeHealth(-20);
 			}
+			PrototypeGame.transitionText();
 		}
 		
 		else if(choice==4) {
 			System.out.println("Alloy looks happy to be your companion and walk around with you.");
 			stayPut = false;
+			PrototypeGame.transitionText();
 		}
 		
 		else if(choice==5) {
 			System.out.println("He appears to understand the command. He'll stay put.");
 			stayPut = true;
+			PrototypeGame.transitionText();
 		}
 	}
 	
