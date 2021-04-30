@@ -23,11 +23,18 @@ public abstract class BasicRoom {
 	public void printDescription(){
 		System.out.println(description);
 	}
+	
+	public String getDescription() {
+		return this.description;
+	}
 
+	public String getName() {
+		return this.name;
+	}
 	public void printName(){
 		System.out.println(name);
 	}
-
+	
 	public ArrayList<BasicRoom> getDoors(){
 		return this.doors;
 	}
