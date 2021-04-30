@@ -6,6 +6,7 @@ import misc.Tools;
 import prototype.being.Alloy;
 import prototype.being.Ray;
 import prototype.being.Bug;
+import prototype.items.ConcreteBasicItem;
 import prototype.items.Inventory;
 import prototype.room.*;
 
@@ -15,7 +16,7 @@ public class PrototypeGame extends Game {
 		//Create Rooms
         EntryRoom entryRoom = new EntryRoom();
         CockpitRoom cockpit = new CockpitRoom();
-		EngineRoom engineRoom = new EngineRoom();
+        EngineRoom engineRoom = new EngineRoom();
 		CargoRoom cargoBay = new CargoRoom();
 
 		//Create Layout
@@ -43,6 +44,12 @@ public class PrototypeGame extends Game {
 		//Instantiating Ray's Inventory:
 		Inventory rayInventory = new Inventory();
 		rayInventory.BasicInventory();
+
+		//Instantiating Room Inventories:
+		ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper","Pamphlet for the DXP Diamond Bar");
+		ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue","DXP Diamond Bar Snacks!");
+		cockpit.items.add(cockpitPamphlet);
+		cockpit.items.add(cockpitSnack);
 
 		//Introductory Text
         System.out.println("------------------------------------------------------------");
@@ -96,7 +103,8 @@ public class PrototypeGame extends Game {
 			System.out.println("2 - Ask - 'Where am I?'");
 			System.out.println("3 - Inspect the room");
 			System.out.println("4 - Inspect the items you are carrying");
-			System.out.println("5 - Go to another room.");
+			System.out.println("5 - Pick up an item from the room");
+			System.out.println("6 - Go to another room.");
 
 
       		// this will print out interaction options if there is another being in the room
@@ -143,9 +151,6 @@ public class PrototypeGame extends Game {
 					//This prints out the item at the i location
 					System.out.println(ray.getLocation().items.get(i));
 				}
-
-				//rayInventory.InventoryList();
-				System.out.println();
 			}
 			
 			// Displays the contents of Ray's inventory.
@@ -153,8 +158,49 @@ public class PrototypeGame extends Game {
 				rayInventory.InventoryList();
 				System.out.println();
 			}
-			
+
+			//Moving an item from the room's inventory to Ray's inventory
 			else if(choice==5) {
+				System.out.println(ray.getLocation() + " contains:");
+				for (int i = 0; i < ray.getLocation().items.size(); i++) {
+					System.out.print("    ");
+					System.out.print(i + ": ");
+					System.out.println(ray.getLocation().items.get(i));
+					 }
+				System.out.println();
+				System.out.println("--------------------------------------------");
+				System.out.println("Ray's inventory contains:");
+					rayInventory.InventoryList();
+					System.out.println();
+
+				System.out.println("--------------------------------------------");
+				System.out.println("Please identify the item you would like to move from " +
+						ray.getLocation() + "to Ray's inventory");
+
+				int itemMove = Tools.getWholeNumberInput();
+
+				//I don't know how the following line works but it does
+				rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+				ray.getLocation().items.remove(itemMove);
+				System.out.println();
+
+				System.out.println("--------------------------------------------");
+				System.out.println("Ray's inventory now contains:");
+				rayInventory.InventoryList();
+				System.out.println();
+
+				System.out.println("--------------------------------------------");
+				System.out.println("The room's now contains:");
+				for (int i = 0; i < ray.getLocation().items.size(); i++) {
+					System.out.print("    ");
+					System.out.print(i + ": ");
+					System.out.println(ray.getLocation().items.get(i));
+				}
+				System.out.println();
+
+			}
+			
+			else if(choice==6) {
 				
 				if(ray.getLocation().getDoors().size() == 1) {
 					System.out.println("You see only 1 door from this room.");
@@ -206,11 +252,11 @@ public class PrototypeGame extends Game {
 			// check if the choice is to interact with the other being
 			else if(choice <= choiceNumber) {
 				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().get(choice-6) instanceof Ray) {
-					ray.getLocation().getBeings().get(choice-5).interact();
+				if(ray.getLocation().getBeings().get(choice-7) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-6).interact();
 				}
 				else {
-					ray.getLocation().getBeings().get(choice-6).interact();
+					ray.getLocation().getBeings().get(choice-7).interact();
 				}
 				
 			}
