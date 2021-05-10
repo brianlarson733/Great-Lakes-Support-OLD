@@ -1,13 +1,13 @@
 package prototype.items;
 
-import prototype.core.BasicItem;
-
 public class ProtectiveItem extends ConcreteBasicItem {
-    public ProtectiveItem(String description, String name){
+    public ProtectiveItem(String name, String description){
         //invoking base class Constructor
-        super(description, name);
+        super(name, description);
     }
-    @Override public String toString(){
+    /*@Override public String toString(){
         return ("Protective Item: " + super.toString());
     }
+
+     */
 }

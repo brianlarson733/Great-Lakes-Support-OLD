@@ -7,7 +7,7 @@ public abstract class BasicItem {
 
 
     //Item Constructor
-    public BasicItem(String description, String name) {
+    public BasicItem(String name, String description) {
         this.description = description;
         this.name = name;
     }
@@ -15,9 +15,9 @@ public abstract class BasicItem {
     //establishing toString() method to print info on the items
     public String toString()
     {
-        return (description
-                + " called "
-                + name);
+        return (name
+                + " - "
+                + description);
     }
 
        //Item Methods

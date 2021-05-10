@@ -5,17 +5,19 @@ package prototype.items;
 //  or just dealt with and classes updated accordingly.
 //Either way the toString() building will need to be annotated so that all items work as expected
 public class SpaceSuitItem extends ProtectiveItem {
-    public SpaceSuitItem (String description, String name){
+    public SpaceSuitItem(String name, String description){
         //invoking base class Constructor
-        super(description, name);
+        super(name, description);
     }
 
     //Unique characteristics to a space suit
     String Oxygen = "90%";
 
 
-    @Override public String toString(){
+    /*@Override public String toString(){
         return (super.toString() + ", remaining Oxygen at " + Oxygen + ".");
     }
+
+     */
 
 }

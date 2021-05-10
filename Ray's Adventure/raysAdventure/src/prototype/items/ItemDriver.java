@@ -22,13 +22,13 @@ import prototype.room.CockpitRoom;
 public class ItemDriver {
     public static void main(String args[]) {
 
-        OffensiveItem ns = new OffensiveItem();
+        BugHammer ns = new BugHammer();
 
-        HealthItem nh = new HealthItem("The item appears as a perfect glass sphere with a red liquid inside",
-                "Restorationation");
+        HealthItem nh = new HealthItem("Restorationation", "The item appears as a perfect glass sphere with a red liquid inside"
+        );
 
-        SpaceSuitItem newsuit = new SpaceSuitItem("The space suit has a faded white and blue " +
-                "checkered pattern", "Portal 6.0");
+        SpaceSuitItem newsuit = new SpaceSuitItem("Portal 6.0", "The space suit has a faded white and blue " +
+                "checkered pattern");
 
 
         System.out.println("What do you want to do?");
@@ -124,9 +124,9 @@ public class ItemDriver {
             Ray ray = new Ray(cockpit);
 
             //Instantiating Room Inventories:
-            ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper", "Pamphlet for the DXP Diamond Bar");
-            ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue", "DXP Diamond Bar Snacks!");
-            ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("This is an empty space", "Empty Space");
+            ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Pamphlet for the DXP Diamond Bar", "Colorful folded paper");
+            ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("DXP Diamond Bar Snacks!", "Hard candies in various shades of blue");
+            ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("Empty Space", "This is an empty space");
             cockpit.items.add(cockpitBlank);
             cockpit.items.add(cockpitPamphlet);
             cockpit.items.add(cockpitSnack);
@@ -144,9 +144,9 @@ public class ItemDriver {
             Ray ray = new Ray(cockpit);
 
             //Instantiating Room Inventories:
-            ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper", "Pamphlet for the DXP Diamond Bar");
-            ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue", "DXP Diamond Bar Snacks!");
-            ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("This is an empty space", "Empty Space");
+            ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Pamphlet for the DXP Diamond Bar", "Colorful folded paper");
+            ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("DXP Diamond Bar Snacks!", "Hard candies in various shades of blue");
+            ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("Empty Space", "This is an empty space");
             cockpit.items.add(cockpitBlank);
             cockpit.items.add(cockpitPamphlet);
             cockpit.items.add(cockpitSnack);
