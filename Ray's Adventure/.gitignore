@@ -1,3 +1,5 @@
 .idea
 raysAdventure.iml
 /out/*
+lib/
+../Prototype.jar

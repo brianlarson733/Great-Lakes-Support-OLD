@@ -10,6 +10,7 @@ import prototype.being.Ray;
 import prototype.being.Bug;
 import prototype.items.ConcreteBasicItem;
 import prototype.items.Inventory;
+import prototype.items.BugHammer;
 import prototype.room.*;
 
 public class PrototypeGame extends Game {
@@ -49,12 +50,22 @@ public class PrototypeGame extends Game {
 		rayInventory.BasicInventory();
 
 		//Instantiating Room Inventories:
-		ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Colorful folded paper","Pamphlet for the DXP Diamond Bar");
-		ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("Hard candies in various shades of blue","DXP Diamond Bar Snacks!");
-		ConcreteBasicItem cockpitBlank = new ConcreteBasicItem("This is an empty space", "Empty Space");
-		cockpit.items.add(cockpitBlank);
+		ConcreteBasicItem cockpitPamphlet = new ConcreteBasicItem("Pamphlet for the DXP Diamond Bar", "colorful folded paper");
+		ConcreteBasicItem cockpitSnack = new ConcreteBasicItem("DXP Diamond Bar Snacks!", "hard candies in various shades of blue");
+		ConcreteBasicItem blankSpace = new ConcreteBasicItem("Empty", "there is nothing here");
+		BugHammer bugHammer = new BugHammer();
+
+		entryRoom.items.add(blankSpace);
+
+		cockpit.items.add(blankSpace);
 		cockpit.items.add(cockpitPamphlet);
 		cockpit.items.add(cockpitSnack);
+
+		engineRoom.items.add(blankSpace);
+		engineRoom.items.add(bugHammer);
+
+		cargoBay.items.add(blankSpace);
+
 
 		//Introductory Text
         System.out.println("------------------------------------------------------------");

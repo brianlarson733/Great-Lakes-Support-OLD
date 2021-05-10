@@ -17,6 +17,9 @@ public class Bug extends BasicBeing {
 		System.out.println("1 - Say 'hello, friend!'");
 	    System.out.println("2 - Feed the creature.");
 	    System.out.println("3 - Try to swat or kick the thing to make it go away.");
+
+	    //Implement an if loop to check Ray's inventory to see if it contains the BugHammer
+
 	  
 	    int choice = Tools.getWholeNumberInput();
 		
@@ -59,7 +62,14 @@ public class Bug extends BasicBeing {
 			}
 			PrototypeGame.transitionText();
 		}
-		
+
+		else if(choice==3) {
+			System.out.println("It's not called BugHammer for nothing...");
+			System.out.println("Ray puts on a pair of sunglasses");
+			System.out.println("This bug can be marked as CLOSED");
+			this.changeHealth(-30);
+		}
+
 		
 	}
 	

@@ -1,15 +1,17 @@
 package prototype.items;
 
 //This class serves as a proof of concept for setting values within the derived class
-public class OffensiveItem extends ConcreteBasicItem {
+public class BugHammer extends ConcreteBasicItem {
 
-    public OffensiveItem(){
+    public BugHammer(){
         //super("Light glints off of the monomolecular edge", "Excaliber MKII");
-        super("Light glints of it's flat edge", "Bughammer");
+        super("Bughammer", "light glints of it's flat edge");
         }
 
-    @Override public String toString(){
+    /*@Override public String toString(){
         return ("Offensive Item: " + super.toString());
     }
+
+     */
 
 }

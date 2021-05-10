@@ -6,19 +6,18 @@ package prototype.items;
 
 import java.util.ArrayList;
 import prototype.being.Ray;
-import prototype.core.PrototypeGame;
 
 import misc.Tools;
 
 public class Inventory {
 
     //Sample items for the inventory
-    ConcreteBasicItem blankItem = new ConcreteBasicItem("This is an empty space", "Empty Space");
-    ConcreteBasicItem water = new ConcreteBasicItem("Basic Item: This is a water flask", "Water Flask");
-    ConcreteBasicItem dehydratedFruit = new ConcreteBasicItem("Basic Item: This is dehydrated fruit", "Dehydrated Fruit");
-    ConcreteBasicItem dogTreats = new ConcreteBasicItem("Basic Item: These are dog treats", "Alloy's snacks");
+    ConcreteBasicItem blankItem = new ConcreteBasicItem("Empty Space", "this is an empty space");
+    ConcreteBasicItem water = new ConcreteBasicItem("Water Flask", "this is a full water flask");
+    ConcreteBasicItem dehydratedFruit = new ConcreteBasicItem("Dehydrated Fruit", "this is dehydrated fruit");
+    ConcreteBasicItem dogTreats = new ConcreteBasicItem("Alloy's snacks", "these are dog treats");
 
-    //public ArrayList<ConcreteBasicItem> items;
+    //Crate the items array
     public ArrayList<ConcreteBasicItem> items = new ArrayList<ConcreteBasicItem>();
 
     public void BasicInventory() {
@@ -38,13 +37,7 @@ public class Inventory {
         //System.out.println("This inventory contains: ");
         for (int i = 1; i < items.size(); i++) {
             System.out.print("    ");
-
-            //This is a debugging print and won't be needed later on if we can work out
-            //how to safely implement an inventory management system that takes
-            //into account arrays starting with 0
             System.out.print(i + ": ");
-
-            //This prints out the item at the i location
             System.out.println(items.get(i));
             }
         }
@@ -63,7 +56,7 @@ public class Inventory {
         System.out.println("Ray's inventory contains:");
         rayInventory.InventoryList();
         System.out.println();
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println();
 
         System.out.println(ray.getLocation() + " contains:");
@@ -73,7 +66,7 @@ public class Inventory {
             System.out.println(ray.getLocation().items.get(i));
         }
         System.out.println();
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println("Please identify the item you would like to move from " +
                 ray.getLocation() + "to Ray's inventory");
 
@@ -84,12 +77,12 @@ public class Inventory {
         ray.getLocation().items.remove(itemMove);
         System.out.println();
 
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println("Ray's inventory now contains:");
         rayInventory.InventoryList();
         System.out.println();
 
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println("The room's now contains:");
         for (int i = 0; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
@@ -111,10 +104,7 @@ public class Inventory {
             System.out.println(ray.getLocation().items.get(i));
         }
         System.out.println();
-        System.out.println("--------------------------------------------");
-
-
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println("Please identify the item you would like to move from Ray's inventory to " +
                 ray.getLocation());
 
@@ -127,12 +117,12 @@ public class Inventory {
         //ray.getLocation().items.remove(itemMove);
         System.out.println();
 
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println("Ray's inventory now contains:");
         rayInventory.InventoryList();
         System.out.println();
 
-        System.out.println("--------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         System.out.println("The room's now contains:");
         for (int i = 0; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
