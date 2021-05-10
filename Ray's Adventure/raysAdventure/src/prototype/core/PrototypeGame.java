@@ -18,6 +18,9 @@ public class PrototypeGame extends Game {
 	//end game condition
 	public static boolean endGame = false;
 
+	/**
+	 * This method is called to start the game
+	 */
     public void startGame() {
 		//Create Rooms
         EntryRoom entryRoom = new EntryRoom();
@@ -69,16 +72,21 @@ public class PrototypeGame extends Game {
 
 		//Introductory Text
         System.out.println("------------------------------------------------------------");
-        System.out.println("You find yourself waking up on a vacant-looking space ship:");
-        System.out.println("You are full of questions, what do you want to do?");
-             
+        System.out.println("");
+        System.out.println("You find yourself waking up on a vacant-looking space ship..." + 
+        		"what were you\ndoing here, again? You see the name 'Ray' printed on your" +
+        		" spacesuit. As you\nlook around, you see a plaque above a door calling" +
+        		" this space 'Entry Room'.\nThis doesn't satisfy your questions though...");
+        
+        //this starts the command line interactions with the player
 		makeChoice(ray, alloy, bug, rayInventory);
-
-		//Game Conclusion Text
-        System.out.println("That was exciting, thanks for playing!");
 
     }
 
+    /**
+	 * This method is called to end the game
+	 * @param being is the being that just died, determining how the game ends
+	 */
 	public static void endGame(BasicBeing being) {
 		if(being instanceof Ray) {
 			System.out.println("How sad, Ray's space adventures have come to an end!");			
@@ -91,21 +99,24 @@ public class PrototypeGame extends Game {
 		endGame = true;
 	}
 	
+	/**
+	 * This provides transition text for easier reading
+	 */
 	public static void transitionText() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("------------------------------------------------------------");
+		System.out.println();
 		System.out.println("Press 'Enter' to continue");
 		scan.nextLine();
 		
 	}
-	
-	
-	
 
-
+	/**
+	 * This allows the user to make choices and advance through the game
+	 */
 	public void makeChoice(Ray ray, Alloy alloy, Bug bug, Inventory rayInventory) {
 		
-		while(!endGame) {
+		//this forever loop ensures the game continually presents choices to the user
+		while(true) {
 
 			//If the bug is present, there is a 50% chance the bug will attack either
 			// Ray or Alloy each time makeChoice is called
@@ -128,27 +139,27 @@ public class PrototypeGame extends Game {
 						ray.changeHealth(-10);
 					}
 					transitionText();
-
 				}
 
+				//the game will end if endGame is true
 				if (endGame) {
 					break;
 				}
 
 			}
 
-			System.out.println("------------------------------------------------------------");
-			System.out.println("You are in the " + ray.getLocation().getName());
+			System.out.println();
+			System.out.println("You are in the " + ray.getLocation().getName() + ".");
+			System.out.println();
 			System.out.println("What do you want to do?");
-			System.out.println("1 - Ask - 'Who am I'");
-			System.out.println("2 - Ask - 'Where am I?'");
-			System.out.println("3 - Inspect the room");
-			System.out.println("4 - Inspect the items you are carrying");
-			System.out.println("5 - Go to another room.");
-
+			System.out.println();
+			System.out.println("1 - Inspect the room");
+			System.out.println("2 - Inspect the items you are carrying");
+			System.out.println("3 - Go to another room.");
 
 			// this will print out interaction options if there is another being in the room
-			int choiceNumber = 6;
+			int choiceNumber = 4;
+			int offset = choiceNumber;
 
 			for (int i = 0; i < ray.getLocation().getBeings().size(); i++) {
 				// make sure we only try to interact with a being that isn't Ray
@@ -158,24 +169,15 @@ public class PrototypeGame extends Game {
 					choiceNumber++;
 				}
 			}
+
 			System.out.println();
 			int choice = Tools.getWholeNumberInput();
 			System.out.println();
 
-			if (choice == 1) {
-				System.out.println("Your name is " + ray.getName() + "\n");
-			}
-
-			else if (choice == 2) {
-				System.out.println("You see a plaque near the door that says this room is called ");
-				ray.getLocation().printName();
-				ray.getLocation().printDescription();
-				System.out.println();
-			}
 
 			//Displays the contents of the room's inventory
 			//This needs to somehow determine both Ray's location and call the array for that location
-			else if (choice == 3) {
+			if (choice == 1) {
 				System.out.println("This room contains:");
 				for (int i = 1; i < ray.getLocation().items.size(); i++) {
 					System.out.print("    ");
@@ -201,13 +203,14 @@ public class PrototypeGame extends Game {
 					Inventory.InventoryDrop(ray, rayInventory);
 				}
 			}
-				// Displays the contents of Ray's inventory.
-				else if (choice == 4) {
+			
+			// Displays the contents of Ray's inventory.
+			else if (choice == 2) {
 					rayInventory.InventoryList();
 					System.out.println();
 				}
 			
-			else if(choice==5) {
+			else if(choice==3) {
 				
 				ray.goToAnotherRoom(alloy, bug);
 				
@@ -215,25 +218,20 @@ public class PrototypeGame extends Game {
 			
 			// check if the choice is to interact with the other being
 			else if(choice <= choiceNumber) {
+				
 				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().get(choice-6) instanceof Ray) {
-					ray.getLocation().getBeings().get(choice-5).interact();
+				if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
+					ray.getLocation().getBeings().get(choice-offset+1).interact();
 				}
 
-				// check if the choice is to interact with the other being
-				else if (choice <= choiceNumber) {
-					// don't interact with Ray in the room's being list
-					if (ray.getLocation().getBeings().get(choice - 6) instanceof Ray) {
-						ray.getLocation().getBeings().get(choice - 5).interact();
-					} else {
-						ray.getLocation().getBeings().get(choice - 6).interact();
-					}
 
-				} else {
+				}
+			
+			else {
 					System.out.println("You must be confused, that isn't an option.");
-				}
 			}
 		}
-
 	}
+
 }
+
