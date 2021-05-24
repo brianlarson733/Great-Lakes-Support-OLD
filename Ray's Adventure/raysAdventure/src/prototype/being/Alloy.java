@@ -19,7 +19,6 @@ public class Alloy extends BasicBeing {
 	}
 
 	public void interact() {
-		System.out.println("------------------------------------------------------------");
 		System.out.println("1 - Give Alloy a good head rub.");
 	    System.out.println("2 - Feed Alloy.");
 	    System.out.println("3 - Command Alloy to attack!");
@@ -32,7 +31,7 @@ public class Alloy extends BasicBeing {
 			
 			
 			//Alloy increases in health by 1
-			if (this.getHealth() < 100) {
+			if (this.getHealth() < 50) {
 				this.changeHealth(1);
 				System.out.println("Ahhhh, he really enjoyed that. You notice he looks happier.");
 			}
@@ -41,6 +40,7 @@ public class Alloy extends BasicBeing {
 				System.out.println("He doesn't look like he wants you to pet him anymore.");
 			}
 			
+			PrototypeGame.transitionText();
 		}
 		
 		else if(choice==2) {
