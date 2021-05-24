@@ -36,6 +36,7 @@ public class ItemDriver {
         System.out.println("2. Demonstrate how to move items between inventories (arrays)");
         System.out.println("3. Demonstrate using a method to pick up an item");
         System.out.println("4. Demonstrate using a method to drop an item");
+        System.out.println("5. Testing boolean contains for Javaarray list");
         int choice = Tools.getWholeNumberInput();
 
         if (choice == 1) {
@@ -155,6 +156,28 @@ public class ItemDriver {
             Inventory rayInventory = new Inventory();
             rayInventory.BasicInventory();
             Inventory.InventoryDrop(ray, rayInventory);
+        }
+
+        if (choice == 5) {
+            //Create the array object
+            Inventory newinventory2 = new Inventory();
+            System.out.println("An Inventory has been created");
+
+            //Add the basic items to the inventory
+            newinventory2.BasicInventory();
+            System.out.println("Basic items have been added to the inventory");
+
+            //Add space suit to Ray's inventory
+            newinventory2.items.add(newsuit);
+            System.out.println("Added the Space Suit to the inventory");
+
+            //Boolean check against array
+            boolean ans = newinventory2.items.contains(newsuit);
+
+            if (ans)
+                    System.out.println("Ray's inventory contains the space suit");
+            else
+                System.out.println("Something failed");
         }
     }
 }

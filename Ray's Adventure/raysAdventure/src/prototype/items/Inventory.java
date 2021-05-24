@@ -6,6 +6,7 @@ package prototype.items;
 
 import java.util.ArrayList;
 import prototype.being.Ray;
+import prototype.core.BasicItem;
 
 import misc.Tools;
 
@@ -19,6 +20,8 @@ public class Inventory {
 
     //Crate the items array
     public ArrayList<ConcreteBasicItem> items = new ArrayList<ConcreteBasicItem>();
+
+    static public boolean haveBugHammer;
 
     public void BasicInventory() {
         items.add(blankItem);
@@ -74,8 +77,13 @@ public class Inventory {
 
         //I don't know how the following line works but it does
         rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+        BasicItem tempItem = ray.getLocation().items.get(itemMove);
         ray.getLocation().items.remove(itemMove);
         System.out.println();
+
+        //Boolean to assert that Ray is carrying the BugHammer
+        if (tempItem instanceof BugHammer)
+            haveBugHammer = true;
 
         System.out.println("------------------------------------------------------------");
         System.out.println("Ray's inventory now contains:");
@@ -90,6 +98,7 @@ public class Inventory {
             System.out.println(ray.getLocation().items.get(i));
         }
         System.out.println();
+
     }
 
     public static void InventoryDrop(Ray ray, Inventory rayInventory){
