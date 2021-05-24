@@ -207,11 +207,10 @@ public class PrototypeGame extends Game {
 			
 			// check if the choice is to interact with the other being
 			else if(choice <= choiceNumber) {
-				System.out.println("choice is" + " " + choice);
-				System.out.println("choiceNumber is" + " " + choiceNumber);
+
 				// don't interact with Ray in the room's being list
 				if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
-					System.out.println("here");
+
 					ray.getLocation().getBeings().get(choice-offset+1).interact();
 				}
 				else {
