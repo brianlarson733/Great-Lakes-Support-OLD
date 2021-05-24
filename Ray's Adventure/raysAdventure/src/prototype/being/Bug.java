@@ -4,6 +4,8 @@ import misc.Tools;
 import prototype.core.BasicBeing;
 import prototype.core.BasicRoom;
 import prototype.core.PrototypeGame;
+import prototype.items.Inventory;
+
 
 import java.util.Random;
 
@@ -13,12 +15,18 @@ public class Bug extends BasicBeing {
 		super("a bug", "An ugly creature.", 25, room);
 	}
 
+	//public void interact() {}
+
 	public void interact() {
 		System.out.println("1 - Say 'hello, friend!'");
 	    System.out.println("2 - Feed the creature.");
 	    System.out.println("3 - Try to swat or kick the thing to make it go away.");
 
-	    //Implement an if loop to check Ray's inventory to see if it contains the BugHammer
+
+		//Logic to check Ray's inventory and see if it contains the bugHammer
+	    if (Inventory.haveBugHammer)
+			System.out.println("4 - Swing the BugHammer.");
+
 
 	  
 	    int choice = Tools.getWholeNumberInput();
@@ -63,10 +71,11 @@ public class Bug extends BasicBeing {
 			PrototypeGame.transitionText();
 		}
 
-		else if(choice==3) {
+		else if(choice==4) {
 			System.out.println("It's not called BugHammer for nothing...");
 			System.out.println("Ray puts on a pair of sunglasses");
 			System.out.println("This bug can be marked as CLOSED");
+			System.out.println("");
 			this.changeHealth(-30);
 		}
 
