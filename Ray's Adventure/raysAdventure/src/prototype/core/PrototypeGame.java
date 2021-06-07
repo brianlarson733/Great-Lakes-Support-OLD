@@ -73,7 +73,7 @@ public class PrototypeGame extends Game {
 		//Introductory Text
         System.out.println("------------------------------------------------------------");
         System.out.println("");
-        System.out.println("You find yourself waking up on a vacant-looking space ship..." + 
+        System.out.println("You find yourself waking up in a vacant-looking space ship..." + 
         		"what were you\ndoing here, again? You see the name 'Ray' printed on your" +
         		" spacesuit. As you\nlook around, you see a plaque above a door calling" +
         		" this space 'Entry Room'.\nThis doesn't satisfy your questions though...");
@@ -92,9 +92,9 @@ public class PrototypeGame extends Game {
 			System.out.println("How sad, Ray's space adventures have come to an end!");			
 		}
 		else if(being instanceof Bug) {
-			System.out.println("Our hero has saved the day, hurrah!");
-			System.out.println("Now work can begin on all those ship feature"
-					+ " requests you've been receiving from Alloy...");
+			System.out.println("Our hero has saved the day, hurrah! Now work can"
+					+ " begin on all \nthose ship feature requests you've "
+					+ "been receiving from Alloy...");
 		}
 		endGame = true;
 	}
@@ -116,7 +116,7 @@ public class PrototypeGame extends Game {
 	public void makeChoice(Ray ray, Alloy alloy, Bug bug, Inventory rayInventory) {
 		
 		//this forever loop ensures the game continually presents choices to the user
-		while(true) {
+		while(!endGame) {
 
 			//If the bug is present, there is a 50% chance the bug will attack either
 			// Ray or Alloy each time makeChoice is called
@@ -153,8 +153,8 @@ public class PrototypeGame extends Game {
 			System.out.println();
 			System.out.println("What do you want to do?");
 			System.out.println();
-			System.out.println("1 - Inspect the room");
-			System.out.println("2 - Inspect the items you are carrying");
+			System.out.println("1 - Inspect the room.");
+			System.out.println("2 - Inspect the items you are carrying.");
 			System.out.println("3 - Go to another room.");
 
 			// this will print out interaction options if there is another being in the room
@@ -165,7 +165,7 @@ public class PrototypeGame extends Game {
 				// make sure we only try to interact with a being that isn't Ray
 				if (!(ray.getLocation().getBeings().get(i) instanceof Ray)) {
 					System.out.println(choiceNumber + " - Interact with " +
-							ray.getLocation().getBeings().get(i).getName());
+							ray.getLocation().getBeings().get(i).getName() + ".");
 					choiceNumber++;
 				}
 			}

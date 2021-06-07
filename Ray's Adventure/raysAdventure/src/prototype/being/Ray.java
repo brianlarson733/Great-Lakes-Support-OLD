@@ -118,11 +118,9 @@ public class Ray extends BasicBeing {
 							//go to the next being
 							continue;
 						}
-						
-						System.out.println("You see " +
-								this.getLocation().getBeings().get(i).getName()
-								+ " here.");
-						
+						if(this.getLocation().getBeings().get(i) instanceof Bug) {
+							System.out.println("You see a large bug in the room.");
+						}
 					}
 				}
 
