@@ -61,19 +61,20 @@ public class Inventory {
         System.out.println("Ray's inventory contains:");
         rayInventory.InventoryList();
         System.out.println();
-        System.out.println("------------------------------------------------------------");
-        System.out.println();
 
-        System.out.println(ray.getLocation() + " contains:");
+        /* Commented out due to redundancy for the demo
+        System.out.println(ray.getLocation().getName() + " contains:");
         for (int i = 1; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
             System.out.print(i + ": ");
             System.out.println(ray.getLocation().items.get(i));
         }
+        */
+
         System.out.println();
-        System.out.println("------------------------------------------------------------");
         System.out.println("Please identify the item you would like to move from " +
-                ray.getLocation() + "to Ray's inventory");
+                ray.getLocation().getName() + " to Ray's inventory");
+        System.out.println();
 
         int itemMove = Tools.getWholeNumberInput();
 
@@ -87,12 +88,10 @@ public class Inventory {
         if (tempItem instanceof BugHammer)
             haveBugHammer = true;
 
-        System.out.println("------------------------------------------------------------");
         System.out.println("Ray's inventory now contains:");
         rayInventory.InventoryList();
         System.out.println();
 
-        System.out.println("------------------------------------------------------------");
         System.out.println("The room's now contains:");
         for (int i = 0; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
@@ -108,16 +107,16 @@ public class Inventory {
         rayInventory.InventoryList();
         System.out.println();
 
-        System.out.println(ray.getLocation() + " contains:");
+        System.out.println(ray.getLocation().getName() + " contains:");
         for (int i = 1; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
             System.out.print(i + ": ");
             System.out.println(ray.getLocation().items.get(i));
         }
         System.out.println();
-        System.out.println("------------------------------------------------------------");
         System.out.println("Please identify the item you would like to move from Ray's inventory to " +
-                ray.getLocation());
+                ray.getLocation().getName());
+        System.out.println();
 
         int itemMove = Tools.getWholeNumberInput();
 
@@ -128,17 +127,16 @@ public class Inventory {
         //ray.getLocation().items.remove(itemMove);
         System.out.println();
 
-        System.out.println("------------------------------------------------------------");
         System.out.println("Ray's inventory now contains:");
         rayInventory.InventoryList();
         System.out.println();
 
-        System.out.println("------------------------------------------------------------");
         System.out.println("The room's now contains:");
         for (int i = 0; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
             System.out.print(i + ": ");
             System.out.println(ray.getLocation().items.get(i));
+            System.out.println();
         }
         System.out.println();
     }
