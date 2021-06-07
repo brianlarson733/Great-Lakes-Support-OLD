@@ -12,7 +12,7 @@ import java.util.Random;
 public class Bug extends BasicBeing {
 
 	public Bug(BasicRoom room) {
-		super("a bug", "An ugly creature.", 25, room);
+		super("the bug", "An ugly creature.", 25, room);
 	}
 
 	//public void interact() {}
@@ -21,7 +21,7 @@ public class Bug extends BasicBeing {
 		System.out.println("1 - Say 'hello, friend!'");
 	    System.out.println("2 - Feed the creature.");
 	    System.out.println("3 - Try to swat or kick the thing to make it go away.");
-
+	    System.out.println();
 
 		//Logic to check Ray's inventory and see if it contains the bugHammer
 	    if (Inventory.haveBugHammer)
@@ -71,12 +71,20 @@ public class Bug extends BasicBeing {
 			PrototypeGame.transitionText();
 		}
 
-		else if(choice==4) {
-			System.out.println("It's not called BugHammer for nothing...");
-			System.out.println("Ray puts on a pair of sunglasses");
-			System.out.println("This bug can be marked as CLOSED");
-			System.out.println("");
-			this.changeHealth(-30);
+		else if(choice==4 && Inventory.haveBugHammer) {
+			System.out.println();
+			System.out.println("It's not called 'bug hammer' for nothing..."
+					+ "go ahead and put\non a pair of sunglasses and consider"
+					+ " this bug closed.");
+			PrototypeGame.transitionText();
+			this.changeHealth(-100);
+			
+		}
+		
+		else {
+			System.out.println();
+			System.out.println("That isn't an option!");
+			PrototypeGame.transitionText();
 		}
 
 		

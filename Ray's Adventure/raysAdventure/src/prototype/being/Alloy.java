@@ -20,10 +20,9 @@ public class Alloy extends BasicBeing {
 
 	public void interact() {
 		System.out.println("1 - Give Alloy a good head rub.");
-	    System.out.println("2 - Feed Alloy.");
-	    System.out.println("3 - Command Alloy to attack!");
-	    System.out.println("4 - Command Alloy to stick to your side.");
-	    System.out.println("5 - Command Alloy to stay in this room.");
+	    System.out.println("2 - Command Alloy to attack!");
+	    System.out.println("3 - Command Alloy to stick to your side.");
+	    System.out.println("4 - Command Alloy to stay in this room.");
 	    System.out.println();
 		int choice = Tools.getWholeNumberInput();
 		
@@ -33,10 +32,12 @@ public class Alloy extends BasicBeing {
 			//Alloy increases in health by 1
 			if (this.getHealth() < 50) {
 				this.changeHealth(1);
+				System.out.println("");
 				System.out.println("Ahhhh, he really enjoyed that. You notice he looks happier.");
 			}
 			
 			else {
+				System.out.println("");
 				System.out.println("He doesn't look like he wants you to pet him anymore.");
 			}
 			
@@ -44,21 +45,11 @@ public class Alloy extends BasicBeing {
 		}
 		
 		else if(choice==2) {
-			System.out.println("What do you want to feed him with?");
-
-			//PrototypeGame.rayInventory.getInventory();
-
-			//call the review inventory method to see if anything edible is there
-			//if it is edible, increase health. If it isn't edible, decrease health
-			
-			System.out.println("Bummer, you don't see anything edible for the little guy.");
-			PrototypeGame.transitionText();
-		}
-		
-		else if(choice==3) {
 			//this can be improved so that choice 3 doesn't display if the bug isn't present
 			if(this.getLocation().getBeings().size()<3) {
-				System.out.println("There isn't anyone else to attack!");
+				System.out.println("");
+				System.out.println("Alloy looks confused. Since it's just you and him here "
+						+ "who is there to attack?");
 			}
 			else {
 
@@ -69,19 +60,22 @@ public class Alloy extends BasicBeing {
 					}
 				}
 
+				System.out.println("");
 				System.out.println("Alloy bit the bug! After the scuffle you see bug parts on the floor");
 				this.getLocation().getBeings().get(indexOfBug).changeHealth(-20);
 			}
 			PrototypeGame.transitionText();
 		}
 		
-		else if(choice==4) {
+		else if(choice==3) {
+			System.out.println("");
 			System.out.println("Alloy looks happy to be your companion and walk around with you.");
 			stayPut = false;
 			PrototypeGame.transitionText();
 		}
 		
-		else if(choice==5) {
+		else if(choice==4) {
+			System.out.println("");
 			System.out.println("He appears to understand the command. He'll stay put.");
 			stayPut = true;
 			PrototypeGame.transitionText();
