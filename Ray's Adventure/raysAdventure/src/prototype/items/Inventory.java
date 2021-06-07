@@ -25,9 +25,9 @@ public class Inventory {
 
     public void BasicInventory() {
         items.add(blankItem);
-        items.add(water);
-        items.add(dehydratedFruit);
-        items.add(dogTreats);
+        //items.add(water);
+        //items.add(dehydratedFruit);
+        //items.add(dogTreats);
     }
 
     public void InventorySize() {
@@ -38,12 +38,14 @@ public class Inventory {
 
     public void InventoryList() {
         //System.out.println("This inventory contains: ");
-        for (int i = 1; i < items.size(); i++) {
-            System.out.print("    ");
-            System.out.print(i + ": ");
-            System.out.println(items.get(i));
+
+            for (int i = 1; i < items.size(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                System.out.println(items.get(i));
             }
-        }
+        
+    }
 
     public void InventoryRemove() {
             System.out.println("Which item would you like to drop?");

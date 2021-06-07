@@ -61,8 +61,8 @@ public class PrototypeGame extends Game {
 		entryRoom.items.add(blankSpace);
 
 		cockpit.items.add(blankSpace);
-		cockpit.items.add(cockpitPamphlet);
-		cockpit.items.add(cockpitSnack);
+		//cockpit.items.add(cockpitPamphlet);
+		//cockpit.items.add(cockpitSnack);
 
 		engineRoom.items.add(blankSpace);
 		engineRoom.items.add(bugHammer);
