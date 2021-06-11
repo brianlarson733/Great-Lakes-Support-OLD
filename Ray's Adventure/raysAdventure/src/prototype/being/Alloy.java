@@ -11,7 +11,7 @@ public class Alloy extends BasicBeing {
 	public boolean stayPut = true;
 	
 	public Alloy(BasicRoom room){
-		super("Alloy", "Our hero's faithful companion.", 50, room);
+		super("Alloy", "Our hero's faithful companion.", 30, room);
 	}
 	
 	public boolean getStayPut() {
@@ -31,7 +31,7 @@ public class Alloy extends BasicBeing {
 			
 			//Alloy increases in health by 1
 			if (this.getHealth() < 50) {
-				this.changeHealth(1);
+				this.changeHealth(4);
 				System.out.println("");
 				System.out.println("Ahhhh, he really enjoyed that. You notice he looks happier.");
 			}
@@ -61,7 +61,7 @@ public class Alloy extends BasicBeing {
 				}
 
 				System.out.println("");
-				System.out.println("Alloy bit the bug! After the scuffle you see bug parts on the floor");
+				System.out.println("Alloy bit the bug! After the scuffle you see bug parts on the floor.");
 				this.getLocation().getBeings().get(indexOfBug).changeHealth(-20);
 			}
 			PrototypeGame.transitionText();

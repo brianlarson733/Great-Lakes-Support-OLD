@@ -101,6 +101,7 @@ public class Ray extends BasicBeing {
 			//display beings that are in the room with you
 			if(this.getLocation().getBeings().size()==1) {
 				System.out.println("You don't see anyone else in the room.");
+				System.out.println("");
 			}
 			else {
 				
@@ -111,19 +112,33 @@ public class Ray extends BasicBeing {
 					if (!(this.getLocation().getBeings().get(i) instanceof Ray)) {
 						
 						//Alloy was commanded to stay with you so it notes he is still there
-						if(this.getLocation().getBeings().get(i) instanceof Alloy && !alloy.getStayPut()) {
-							System.out.println("Alloy is still at your side.");
-							System.out.println();
+						if(this.getLocation().getBeings().get(i) instanceof Alloy) {
+							if(!alloy.getStayPut()) {
+								System.out.println("Alloy is still at your side.");
+							}
+							else {
+								System.out.println("You see Alloy in the room!");
+							}
 							
-							//go to the next being
+							System.out.println();
 							continue;
 						}
+						
 						if(this.getLocation().getBeings().get(i) instanceof Bug) {
 							System.out.println("You see a large bug in the room.");
+							System.out.println();
 						}
 					}
 				}
 
+			}
+			
+			if(this.getLocation().getItems().size() > 1) {
+				System.out.println("You see an item in the room that may be worth inspecting.");
+			}
+			
+			else {
+				System.out.println("You don't see any items in the room that interest you.");
 			}
 			
 			PrototypeGame.transitionText();
