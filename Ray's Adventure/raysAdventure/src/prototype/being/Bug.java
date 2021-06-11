@@ -38,13 +38,9 @@ public class Bug extends BasicBeing {
 		}
 		
 		else if(choice==2) {
-			System.out.println("What do you want to feed him with?");
-
-			//call the review inventory method to see if anything edible is there
-			//when feeding the bug, increase the bugs health 
-			//make the bug nibble on Ray's hand, decreasing his health
 			
-			System.out.println("Hmmmm maybe it isn't a good idea to feed the bug");
+			System.out.println("Hmmmm maybe it isn't a good idea to feed the bug? I wouldn't\n"
+					+ "want that thing sticking around if I were you.");
 			PrototypeGame.transitionText();
 		}
 		
