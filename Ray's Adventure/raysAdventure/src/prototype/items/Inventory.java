@@ -38,12 +38,17 @@ public class Inventory {
 
     public void InventoryList() {
         //System.out.println("This inventory contains: ");
-
+        if(items.size() == 1){
+            System.out.println("You aren't carrying any items!");
+        }
+        else{
             for (int i = 1; i < items.size(); i++) {
-                System.out.print("    ");
-                System.out.print(i + ": ");
-                System.out.println(items.get(i));
+            System.out.print("    ");
+            System.out.print(i + ": ");
+            System.out.println(items.get(i));
             }
+
+        }
         
     }
 
