@@ -195,19 +195,19 @@ public class PrototypeGame extends Game {
 						//This prints out the item at the i location
 						System.out.println(ray.getLocation().items.get(i));
 					}
-					//System.out.println("Would you like to pick up an item?");
-					System.out.println("Would you like to pick up or drop an item?");
+					System.out.println("Would you like to pick up an item?");
+					//System.out.println("Would you like to pick up or drop an item?");
 					System.out.println("1. Pick up");
-					System.out.println("2. Drop");
-					//System.out.println("2. No");
-					System.out.println("3. No");
+					//System.out.println("2. Drop");
+					System.out.println("2. No");
+					//System.out.println("3. No");
 					int itemChoice = Tools.getWholeNumberInput();
 					//Moving an item from the room's inventory to Ray's inventory
 					if (itemChoice == 1) {
 						Inventory.InventoryPickup(ray, rayInventory);
-					} else if (itemChoice == 2) {
-						Inventory.InventoryDrop(ray, rayInventory);
-					}
+					} //else if (itemChoice == 2) {
+						//Inventory.InventoryDrop(ray, rayInventory);
+					//}
 				}
 
 			}
