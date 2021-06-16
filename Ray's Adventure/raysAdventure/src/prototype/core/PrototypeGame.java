@@ -179,35 +179,44 @@ public class PrototypeGame extends Game {
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
 				System.out.println("This room contains:");
-				for (int i = 1; i < ray.getLocation().items.size(); i++) {
-					System.out.print("    ");
+				if(ray.getLocation().items.size() == 1){
+					System.out.println("    Nothing!");
+					transitionText();
+				}
+				else{
+					for (int i = 1; i < ray.getLocation().items.size(); i++) {
+						System.out.print("    ");
 
-					//This is a debugging print and won't be needed later on if we can work out
-					//how to safely implement an inventory management system that takes
-					//into account arrays starting with 0
-					System.out.print(i + ": ");
+						//This is a debugging print and won't be needed later on if we can work out
+						//how to safely implement an inventory management system that takes
+						//into account arrays starting with 0
+						System.out.print(i + ": ");
 
-					//This prints out the item at the i location
-					System.out.println(ray.getLocation().items.get(i));
+						//This prints out the item at the i location
+						System.out.println(ray.getLocation().items.get(i));
+					}
+					System.out.println("Would you like to pick up an item?");
+					//System.out.println("Would you like to pick up or drop an item?");
+					System.out.println("1. Pick up");
+					//System.out.println("2. Drop");
+					System.out.println("2. No");
+					//System.out.println("3. No");
+					int itemChoice = Tools.getWholeNumberInput();
+					//Moving an item from the room's inventory to Ray's inventory
+					if (itemChoice == 1) {
+						Inventory.InventoryPickup(ray, rayInventory);
+					} //else if (itemChoice == 2) {
+						//Inventory.InventoryDrop(ray, rayInventory);
+					//}
 				}
 
-				System.out.println("Would you like to pick up or drop an item?");
-				System.out.println("1. Pick up");
-				System.out.println("2. Drop");
-				System.out.println("3. No");
-				int itemChoice = Tools.getWholeNumberInput();
-				//Moving an item from the room's inventory to Ray's inventory
-				if (itemChoice == 1) {
-					Inventory.InventoryPickup(ray, rayInventory);
-				} else if (itemChoice == 2) {
-					Inventory.InventoryDrop(ray, rayInventory);
-				}
 			}
 			
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
 					rayInventory.InventoryList();
 					System.out.println();
+					transitionText();
 				}
 			
 			else if(choice==3) {
