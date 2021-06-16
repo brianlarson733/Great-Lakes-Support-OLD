@@ -5,7 +5,7 @@ public class BugHammer extends ConcreteBasicItem {
 
     public BugHammer(){
         //super("Light glints off of the monomolecular edge", "Excaliber MKII");
-        super("bug hammer", "light glints of it's flat edge");
+        super("BugHammer", "light glints off it's flat edge");
         }
 
     /*@Override public String toString(){

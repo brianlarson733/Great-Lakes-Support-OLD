@@ -21,18 +21,16 @@ public class GameSelector {
         int[] tempArray = {1, 2};
         int choice = Tools.getWholeNumberInput(tempArray);
 
-        switch (choice){
-            case 1:
-                prototype.startGame();
-                break;
-            case 2:
-                System.out.println("There is no Diamond Bar basement...or is there.....");
-                break;
-            default:
-                break;
-        }
-
-
+        switch (choice) {
+                case 1:
+                    prototype.startGame();
+                    break;
+                case 2:
+                    System.out.println("There is no Diamond Bar basement...or is there.....");
+                    break;
+                default:
+                    break;
+                }
 
     }
 }

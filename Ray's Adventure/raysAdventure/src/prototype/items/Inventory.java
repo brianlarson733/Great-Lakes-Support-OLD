@@ -117,6 +117,7 @@ public class Inventory {
                 System.out.print(i + ": ");
                 System.out.println(ray.getLocation().items.get(i));
             }
+
         }
         System.out.println();
 
