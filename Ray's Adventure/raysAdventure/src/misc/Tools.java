@@ -51,6 +51,9 @@ public class Tools {
             //check if user input is in choices, if not reject it
             if (Arrays.binarySearch(choices, toReturn) < 0){
                 toReturn = -1;
+                System.out.println();
+                System.out.println("Please select a valid choice");
+                System.out.println();
             }
         }
         return toReturn;

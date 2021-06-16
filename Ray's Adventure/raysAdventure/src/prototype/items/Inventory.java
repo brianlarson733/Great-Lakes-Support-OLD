@@ -97,7 +97,7 @@ public class Inventory {
         rayInventory.InventoryList();
         System.out.println();
 
-        System.out.println("The room's now contains:");
+        System.out.println("The room now contains:");
         for (int i = 0; i < ray.getLocation().items.size(); i++) {
             System.out.print("    ");
             System.out.print(i + ": ");

@@ -21,12 +21,13 @@ public class Bug extends BasicBeing {
 		System.out.println("1 - Say 'hello, friend!'");
 	    System.out.println("2 - Feed the creature.");
 	    System.out.println("3 - Try to swat or kick the thing to make it go away.");
-	    System.out.println();
+
 
 		//Logic to check Ray's inventory and see if it contains the bugHammer
 	    if (Inventory.haveBugHammer)
 			System.out.println("4 - Swing the BugHammer.");
 
+		System.out.println();
 
 	  
 	    int choice = Tools.getWholeNumberInput();
