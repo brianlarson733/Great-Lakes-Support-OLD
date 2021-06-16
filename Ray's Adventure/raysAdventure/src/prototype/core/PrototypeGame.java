@@ -195,6 +195,8 @@ public class PrototypeGame extends Game {
 						//This prints out the item at the i location
 						System.out.println(ray.getLocation().items.get(i));
 					}
+
+			        System.out.println();
 					System.out.println("Would you like to pick up an item?");
 					//System.out.println("Would you like to pick up or drop an item?");
 					System.out.println("1. Pick up");

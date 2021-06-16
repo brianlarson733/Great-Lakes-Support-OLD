@@ -63,10 +63,7 @@ public class Inventory {
     }
 
     public static void InventoryPickup(Ray ray, Inventory rayInventory){
-        System.out.println("Ray's inventory contains:");
-        rayInventory.InventoryList();
-        System.out.println();
-
+        
         /* Commented out due to redundancy for the demo
         System.out.println(ray.getLocation().getName() + " contains:");
         for (int i = 1; i < ray.getLocation().items.size(); i++) {
@@ -80,6 +77,19 @@ public class Inventory {
         System.out.println("Please identify the item you would like to move from " +
                 ray.getLocation().getName() + " to Ray's inventory");
         System.out.println();
+
+        System.out.println("This room contains:");
+        for (int i = 1; i < ray.getLocation().items.size(); i++) {
+            System.out.print("    ");
+
+            //This is a debugging print and won't be needed later on if we can work out
+            //how to safely implement an inventory management system that takes
+            //into account arrays starting with 0
+            System.out.print(i + ": ");
+
+            //This prints out the item at the i location
+            System.out.println(ray.getLocation().items.get(i));
+        }
 
         int itemMove = Tools.getWholeNumberInput();
 
@@ -98,10 +108,15 @@ public class Inventory {
         System.out.println();
 
         System.out.println("The room's now contains:");
-        for (int i = 0; i < ray.getLocation().items.size(); i++) {
-            System.out.print("    ");
-            System.out.print(i + ": ");
-            System.out.println(ray.getLocation().items.get(i));
+        if(ray.getLocation().items.size() == 1){
+                System.out.println("    Nothing!");
+        }   
+        else{
+            for (int i = 0; i < ray.getLocation().items.size(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                System.out.println(ray.getLocation().items.get(i));
+            }
         }
         System.out.println();
 
