@@ -48,6 +48,7 @@ public abstract class BasicBeing {
     			System.out.println(this.name + " is dead! This won't be fixed...");
     		}
     		System.out.println("");
+
     		//end game if the being wasn't Alloy (it was the bug or Ray)
     		if(!(this instanceof Alloy)) {
     			PrototypeGame.endGame(this);

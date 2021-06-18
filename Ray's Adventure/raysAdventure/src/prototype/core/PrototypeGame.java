@@ -226,12 +226,16 @@ public class PrototypeGame extends Game {
 				ray.goToAnotherRoom(alloy, bug);
 				
 			}
-			
+
 			// check if the choice is to interact with the other being
 			else if(choice <= choiceNumber) {
-
+				
 				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
+				if(ray.getLocation().getBeings().size()==1) {
+					System.out.println("You must be confused, that isn't an option.");
+					PrototypeGame.transitionText();
+				}
+				else if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
 
 					ray.getLocation().getBeings().get(choice-offset+1).interact();
 				}
@@ -242,7 +246,8 @@ public class PrototypeGame extends Game {
 			}
 			
 			else {
-					System.out.println("You must be confused, that isn't an option.");
+				System.out.println("You must be confused, that isn't an option.");
+				PrototypeGame.transitionText();
 			}
 		}
 	}
