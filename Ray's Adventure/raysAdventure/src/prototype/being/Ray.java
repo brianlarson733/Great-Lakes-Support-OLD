@@ -112,12 +112,12 @@ public class Ray extends BasicBeing {
 					if (!(this.getLocation().getBeings().get(i) instanceof Ray)) {
 						
 						//Alloy was commanded to stay with you so it notes he is still there
-						if(this.getLocation().getBeings().get(i) instanceof Alloy) {
+						if(this.getLocation().getBeings().get(i) instanceof Alloy && this.getLocation().getBeings().get(i).getHealth()>0) {
 							if(!alloy.getStayPut()) {
 								System.out.println("Alloy is still at your side.");
 							}
 							else {
-								System.out.println("You see Alloy in the room!");
+								System.out.println("You see your dog Alloy in the room!");
 							}
 							
 							System.out.println();

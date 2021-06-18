@@ -7,7 +7,7 @@ package prototype.items;
 import java.util.ArrayList;
 import prototype.being.Ray;
 import prototype.core.BasicItem;
-
+import prototype.core.PrototypeGame;
 import misc.Tools;
 
 public class Inventory {
@@ -119,7 +119,7 @@ public class Inventory {
             }
 
         }
-        System.out.println();
+        PrototypeGame.transitionText();
 
     }
 
