@@ -1,5 +1,7 @@
 # Ray's Adventure
 
+TEST CHANGE
+
 This directory will be used to develop, test, and release the Chicago Pod's text-based game, Ray's Adventure.
 
 From a high-level administrative perspective, we will each have a Fork of this repository, then use Pull Requests to submit and review code (merged into our local Forks), which can then be reviewed and QA tested before being eventually merged into the master repo.
