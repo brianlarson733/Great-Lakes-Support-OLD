@@ -1,4 +1,4 @@
-package prototype.core;
+package mercury.core;
 
 public abstract class BasicItem {
     //Item fields
@@ -9,12 +9,8 @@ public abstract class BasicItem {
 
     //Item Constructor
     public BasicItem(String name, String description) {
-        description = getDescription();
-        name = getName();
-    }
-
-    //use() method to use item functionality
-    public abstract void use(){
+        description = setDescription(description);
+        name = setName(name);
     }
 
     public String getDescription() {
@@ -23,6 +19,18 @@ public abstract class BasicItem {
 
     public String getName() {
         return this.name;
+    }
+
+    public String setDescription(String description){
+        this.description = description;
+    }
+
+    public String setName(String name){
+        this.name = name;
+    }
+
+    //use() method to use item functionality
+    public abstract void use(){
     }
 
 }
