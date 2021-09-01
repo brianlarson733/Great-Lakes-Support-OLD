@@ -37,7 +37,7 @@ public abstract class BasicLevel {
 				+ " 'Maybe I shoul'dve commited my code more regularly...'");
 			endGame = true;
 		}
-		elseif(ray.health > 0 && userWins == true){
+		else if(ray.health > 0 && userWins == true){
 			System.out.println(victoryText);
 			System.out.println("Success! You've completed this level!");
 			System.out.println("Please save the following Code to move on to the next level.")
