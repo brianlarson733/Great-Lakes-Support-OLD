@@ -1,6 +1,7 @@
 package mercury.core.beings;
 
 import java.util.ArrayList;
+import mercury.core.BasicItem;
 
 public class Ray extends BasicBeing {
 
