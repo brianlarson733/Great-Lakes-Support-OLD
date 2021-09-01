@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Tools {
 	
-    public static int getWholeNumberInput() {
+	public static int getWholeNumberInput() {
         Scanner scanner = new Scanner(System.in);
         String placeholder = "";
         int toReturn = -1;
@@ -57,5 +57,48 @@ public class Tools {
             }
         }
         return toReturn;
+    }
+    
+    /*
+     * It is assumed that choices is filled with Strings
+     */
+    public static int getWholeNumberInput(String[] choices) {
+
+        Scanner scanner = new Scanner(System.in);
+        
+        //the original string the user enters
+        String userInput = "";
+        
+        //will be the input string converted to an int
+        int userInputInt = -1;
+
+        //user input must be an integer greater than or equal to 1
+        while ((userInputInt < 1) | (userInputInt != (int) userInputInt)){
+
+            System.out.println("Please enter a number from the following"
+                    + " choices: ");
+
+            //print out the available choices from the String array
+            
+            for (int i=0; i < choices.length ; i++){
+                System.out.println((i+1) + ": " + choices[i]);
+            }
+            
+            //get user the user input and verify it is an int
+            userInput = scanner.nextLine();
+            try {
+            	userInputInt = Integer.parseInt(userInput);
+            }
+            catch (NumberFormatException e) {}
+
+            //check if user input is in choices, if not reject it
+            if (Arrays.binarySearch(choices, userInputInt) < 0){
+            	userInputInt = -1;
+                System.out.println();
+                System.out.println("Please select a valid choice");
+                System.out.println();
+            }
+        }
+        return userInputInt;
     }
 }

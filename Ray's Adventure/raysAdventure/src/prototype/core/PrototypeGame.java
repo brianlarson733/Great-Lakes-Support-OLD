@@ -15,6 +15,9 @@ import prototype.room.*;
 
 public class PrototypeGame extends Game {
 	
+	//not needed as prototype only has one levelSelector
+	public void levelSelector() {}
+
 	//end game condition
 	public static boolean endGame = false;
 
@@ -251,6 +254,7 @@ public class PrototypeGame extends Game {
 			}
 		}
 	}
+
 
 }
 
