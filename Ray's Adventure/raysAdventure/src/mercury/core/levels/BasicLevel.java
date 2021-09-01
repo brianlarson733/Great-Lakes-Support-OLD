@@ -5,13 +5,9 @@ import java.util.Scanner;
 
 import main.Game;
 import misc.Tools;
-import mercury.being.Alloy;
-import mercury.being.Ray;
-import mercury.being.Bug;
-import prototype.items.ConcreteBasicItem;
-import prototype.items.Inventory;
-import prototype.items.BugHammer;
-import prototype.room.*;
+import mercury.being.*;
+import mercury.items.*
+import mercury.room.*;
 
 public abstract class BasicLevel {
 	
@@ -19,6 +15,7 @@ public abstract class BasicLevel {
 	public static boolean endGame;
 	public static boolean userWins;
 
+	//constructor for BasicLevel
 	public BasicLevel(boolean endGame, boolean userWins){
 		this.endGame = false;
 		this.userWins = false;
@@ -33,18 +30,22 @@ public abstract class BasicLevel {
 
     /**
 	 * This method is called to end the game
-	 * @param being is the being that just died, determining how the game ends
 	 */
-	public static void endLevel(BasicBeing being) {
-		if(being instanceof Ray) {
-			System.out.println("How sad, Ray's space adventures have come to an end!");			
+	public static void endLevel(Ray ray, boolean userWins) {
+		if(ray.health <= 0){
+			System.out.println("Oh no! You've suffered a mortal wound! As the world fades to black, your last thought is,"
+				+ " 'Maybe I shoul'dve commited my code more regularly...'");
+			endGame = true;
 		}
-		else if(being instanceof Bug) {
-			System.out.println("Our hero has saved the day, hurrah! Now work can"
-					+ " begin on all \nthose ship feature requests you've "
-					+ "been receiving from Alloy...");
+		elseif(ray.health > 0 && userWins == true){
+			System.out.println(victoryText);
+			System.out.println("Success! You've completed this level!");
+			System.out.println("Please save the following Code to move on to the next level.")
+			System.out.println("You can also use this code to return to the next level the next time you start the game")
+			System.out.println(levelCode);
+
 		}
-		endGame = true;
+
 	}
 	
 	/**
@@ -61,8 +62,7 @@ public abstract class BasicLevel {
 	/**
 	 * This allows the user to make choices and advance through the game
 	 */
-	public void makeDecision(Ray ray, Alloy alloy, Bug bug, Inventory rayInventory) {
-		
+	public abstract void makeDecision() {		
 	
 	}
 
