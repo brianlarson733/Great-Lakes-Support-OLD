@@ -52,6 +52,9 @@ public abstract class BasicRoom {
 		this.doors.remove(room);
 	}
 	
+	public String getDescription() {
+		return this.description;
+	}
 	public void printDescription() {
 		System.out.print(description);
 	}
@@ -59,6 +62,9 @@ public abstract class BasicRoom {
 		this.description = description;
 	}
 	
+	public String getName() {
+		return this.name;
+	}
 	public void printName() {
 		System.out.print(name);
 	}
