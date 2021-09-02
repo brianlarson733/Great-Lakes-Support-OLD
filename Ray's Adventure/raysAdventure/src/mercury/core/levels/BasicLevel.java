@@ -6,7 +6,7 @@ import java.util.Scanner;
 import main.Game;
 import misc.Tools;
 import mercury.being.*;
-import mercury.items.*
+import mercury.items.*;
 import mercury.room.*;
 
 public abstract class BasicLevel {

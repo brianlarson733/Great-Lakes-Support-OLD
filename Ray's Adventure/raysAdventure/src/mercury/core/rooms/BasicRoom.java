@@ -58,7 +58,10 @@ public abstract class BasicRoom {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public String getName() {
+		return this.name;
+	}
 	public void printName() {
 		System.out.print(name);
 	}

@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import mercury.core.BasicItem;
 import mercury.core.rooms.BasicRoom;
 import misc.Tools;
-import prototype.core.PrototypeGame;
-import prototype.items.BugHammer;
-import prototype.items.ConcreteBasicItem;
-import prototype.items.Inventory;
+
 
 public class Ray extends BasicBeing {
+
 
     /** Creates Array for Ray's inventory */
     private ArrayList<BasicItem> rayInventory = new ArrayList<>();
@@ -43,19 +41,23 @@ public class Ray extends BasicBeing {
     public void changeLocation(BasicRoom newLocation) {
         super.changeLocation(newLocation);
     }
+
     /** pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
      * this is code from the prototype Inventory class
      * This code needs to be heavy updated to align with the new implementation
                 */
-                public static void pickUpItem(mercury.beings.Ray, Inventory rayInventory){
+                public void pickUpItem(Ray rayInventory, BasicRoom location){
 
                     System.out.println();
                     System.out.println("Please identify the item you would like to move from " +
-                            Ray.getLocation().printName() + " to Ray's inventory");
-                    System.out.println();
+                            this.location.getName());
 
+                            //+ "to Ray's Inventory");
+
+                    System.out.println();
+                    /*
                     System.out.println("This room contains:");
-                    for (int i = 1; i < ray.getLocation().items.size(); i++) {
+                    for (int i = 1; i < rayInventory.size(); i++) {
                         System.out.print("    ");
 
                         //This is a debugging print and won't be needed later on if we can work out
@@ -96,7 +98,7 @@ public class Ray extends BasicBeing {
 
                     }
                     PrototypeGame.transitionText();
-
+                    */
                 }
 
     //dropItem - Remove item from Ray’s inventory, Add item to current room’s items

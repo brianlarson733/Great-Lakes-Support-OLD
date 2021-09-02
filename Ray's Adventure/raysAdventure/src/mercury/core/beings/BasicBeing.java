@@ -5,7 +5,7 @@ import mercury.core.rooms.BasicRoom;
 public abstract class BasicBeing {
     private String name;
     private int health;
-    private BasicRoom location;
+    public BasicRoom location;
 
     /** Getter for Health */
     public int getHealth(){
@@ -17,15 +17,15 @@ public abstract class BasicBeing {
         this.health = newHealth;
     }
 
-    /** Getter for Location */
-    public BasicRoom getLocation (BasicRoom location){
+    /** Getter for Location
+    public String BasicRoom getLocation (BasicRoom location){
         return this.location;
-    }
+    } */
 
-    /** Setter for Location */
+    /** Setter for Location
     public void setLocation (BasicRoom newLocation){
         this.location = newLocation;
-    }
+    } */
 
     /** Constructors for all instance variables */
     public BasicBeing (String name, int health, BasicRoom location){
@@ -46,4 +46,5 @@ public abstract class BasicBeing {
     public void changeLocation(BasicRoom newLocation) {
         this.location = newLocation;
     }
+
 }

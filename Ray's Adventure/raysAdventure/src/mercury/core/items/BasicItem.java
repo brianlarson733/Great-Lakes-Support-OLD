@@ -1,4 +1,4 @@
-package mercury.core;
+package mercury.core.items;
 
 public abstract class BasicItem {
     //Item fields
