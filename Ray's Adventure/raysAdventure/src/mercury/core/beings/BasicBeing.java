@@ -27,17 +27,22 @@ public abstract class BasicBeing {
         this.location = newLocation;
     }
 
-    //Constructors for all instance variables
+    /** Constructors for all instance variables */
+    public BasicBeing (String name, int health, BasicRoom location){
+        this.name = name;
+        this.health = health;
+        this.location = location;
+    }
 
     /** Interact abstract method */
     abstract public void interact();
 
-    //Change Health
+    /** Change Health */
     public void changeHealth(int change) {
         this.health += change;
     }
 
-    //Change location class
+    /** Change location class */
     public void changeLocation(BasicRoom newLocation) {
         this.location = newLocation;
     }
