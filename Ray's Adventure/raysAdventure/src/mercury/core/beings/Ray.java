@@ -1,7 +1,7 @@
 package mercury.core.beings;
 
 import java.util.ArrayList;
-import mercury.core.BasicItem;
+import mercury.core.items.BasicItem;
 import mercury.core.rooms.BasicRoom;
 import misc.Tools;
 
@@ -10,7 +10,11 @@ public class Ray extends BasicBeing {
 
 
     /** Creates Array for Ray's inventory */
-    private ArrayList<BasicItem> rayInventory = new ArrayList<>();
+    public ArrayList<BasicItem> rayInventory = new ArrayList<BasicItem>();
+    /* The IDE wants to add water as a parameter to this class, this needs to be investigated further
+    BasicItem water = new BasicItem("Water bottle", "This is a bottle of water");
+    rayInventory.add(water);
+     */
 
     /**
      * Constructors for all instance variables
@@ -46,41 +50,36 @@ public class Ray extends BasicBeing {
      * this is code from the prototype Inventory class
      * This code needs to be heavy updated to align with the new implementation
                 */
-                public void pickUpItem(Ray rayInventory, BasicRoom location){
+    public void pickUpItem(BasicRoom location){
 
-                    System.out.println();
-                    System.out.println("Please identify the item you would like to move from " +
-                            this.location.getName());
+         System.out.println();
+         System.out.println("Please identify the item you would like to move from " +
+              this.location.getName() + "to Ray's inventory:") ;
+         System.out.println();
 
-                            //+ "to Ray's Inventory");
+         System.out.println("This room contains:");
+              for (int i = 1; i < rayInventory.size(); i++) {
+         System.out.print("    ");
 
-                    System.out.println();
-                    /*
-                    System.out.println("This room contains:");
-                    for (int i = 1; i < rayInventory.size(); i++) {
-                        System.out.print("    ");
+         //This is a debugging print and won't be needed later on if we can work out
+         //how to safely implement an inventory management system that takes
+         //into account arrays starting with 0
+         System.out.print(i + ": ");
 
-                        //This is a debugging print and won't be needed later on if we can work out
-                        //how to safely implement an inventory management system that takes
-                        //into account arrays starting with 0
-                        System.out.print(i + ": ");
+         //This prints out the item at the i location
+         System.out.println(rayInventory.get(i));
+              }
 
-                        //This prints out the item at the i location
-                        System.out.println(ray.getLocation().items.get(i));
-                    }
+         int itemMove = Tools.getWholeNumberInput();
 
-                    int itemMove = Tools.getWholeNumberInput();
+         //I don't know how the following line works but it does
+         rayInventory.add((BasicItem) getLocation().getItem(itemMove));
+         prototype.core.BasicItem tempItem = getLocation().getItem(itemMove);
+         getLocation().removeItem(itemMove);
+         System.out.println();
 
-                    //I don't know how the following line works but it does
-                    rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
-                    prototype.core.BasicItem tempItem = ray.getLocation().items.get(itemMove);
-                    ray.getLocation().items.remove(itemMove);
-                    System.out.println();
 
-                    //Boolean to assert that Ray is carrying the BugHammer
-                    if (tempItem instanceof BugHammer)
-                        haveBugHammer = true;
-
+/*
                     System.out.println("Ray's inventory now contains:");
                     rayInventory.InventoryList();
                     System.out.println();
@@ -101,9 +100,15 @@ public class Ray extends BasicBeing {
                     */
                 }
 
+
+
     //dropItem - Remove item from Ray’s inventory, Add item to current room’s items
         //Modify the code from Prototype-Inventory
 
     //inspectInventory - List out all items in Ray’s inventory
         //Modify the code from Prototype-Inventory
+
+    /** Ray being class
+     *  This needs to extend the BasicBeing changehealth class
+     *  and include code for ending the game if Ray dies*/
 }
