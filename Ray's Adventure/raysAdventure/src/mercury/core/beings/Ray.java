@@ -74,39 +74,87 @@ public class Ray extends BasicBeing {
 
          //I don't know how the following line works but it does
          rayInventory.add((BasicItem) getLocation().getItem(itemMove));
-         prototype.core.BasicItem tempItem = getLocation().getItem(itemMove);
+         BasicItem tempItem = getLocation().getItem(itemMove);
          getLocation().removeItem(itemMove);
          System.out.println();
 
+         System.out.println("Ray's inventory now contains:");
+         inspectInventory();
+         System.out.println();
 
-/*
-                    System.out.println("Ray's inventory now contains:");
-                    rayInventory.InventoryList();
-                    System.out.println();
-
-                    System.out.println("The room now contains:");
-                    if(ray.getLocation().items.size() == 1){
-                        System.out.println("    Nothing!");
+         /* This seems extraneous and likely can be removed
+         System.out.println("The room now contains:");
+         if(ray.getLocation().items.size() == 1){
+            System.out.println("    Nothing!");
+            }
+            else{
+                for (int i = 0; i < ray.getLocation().items.size(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                System.out.println(ray.getLocation().items.get(i));
                     }
-                    else{
-                        for (int i = 0; i < ray.getLocation().items.size(); i++) {
-                            System.out.print("    ");
-                            System.out.print(i + ": ");
-                            System.out.println(ray.getLocation().items.get(i));
-                        }
-
-                    }
-                    PrototypeGame.transitionText();
-                    */
                 }
+            }
 
+          */
+
+    public void dropItem(BasicRoom location){
+        System.out.println("Ray's inventory contains:");
+        inspectInventory();
+        System.out.println();
+
+            System.out.println(getLocation().getName() + " contains:");
+            for (int i = 1; i < getLocation().size(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                System.out.println(getLocation().rayInventory.get(i));
+            }
+            System.out.println();
+            System.out.println("Please identify the item you would like to move from Ray's inventory to " +
+                    ray.getLocation().getName());
+            System.out.println();
+
+            int itemMove = Tools.getWholeNumberInput();
+
+            //I don't know how the following line works but it does
+            ray.getLocation().items.add((ConcreteBasicItem) rayInventory.items.get(itemMove));
+            //rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
+            rayInventory.items.remove(itemMove);
+            //ray.getLocation().items.remove(itemMove);
+            System.out.println();
+
+            System.out.println("Ray's inventory now contains:");
+            rayInventory.InventoryList();
+            System.out.println();
+
+            System.out.println("The room now contains:");
+            for (int i = 0; i < ray.getLocation().items.size(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                System.out.println(ray.getLocation().items.get(i));
+                System.out.println();
+            }
+            System.out.println();
+        }
+        }
 
 
     //dropItem - Remove item from Ray’s inventory, Add item to current room’s items
         //Modify the code from Prototype-Inventory
 
-    //inspectInventory - List out all items in Ray’s inventory
-        //Modify the code from Prototype-Inventory
+    public void inspectInventory(){
+        if(rayInventory.size() == 1){
+            System.out.println("You aren't carrying any items!");
+            }
+        else{
+            for (int i = 1; i < rayInventory.size(); i++) {
+            System.out.print("    ");
+            System.out.print(i + ": ");
+            System.out.println(rayInventory.get(i));
+                }
+            }
+        }
+
 
     /** Ray being class
      *  This needs to extend the BasicBeing changehealth class
