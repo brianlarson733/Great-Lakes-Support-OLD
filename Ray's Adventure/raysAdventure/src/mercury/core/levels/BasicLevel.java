@@ -63,7 +63,7 @@ public abstract class BasicLevel {
 	/**
 	 * This allows the user to make choices and advance through the game
 	 */
-	public void makeDecision(Ray ray, Alloy alloy) {		
+	public void makeDecision(Ray ray) {		
 		while(!endLevel){
 
 
@@ -94,30 +94,23 @@ public abstract class BasicLevel {
 				}
 				else{
 					for (int i = 0; i < ray.getLocation().items.size(); i++) {
-						System.out.print("    ");
 						int num = i+1;
-						//This is a debugging print and won't be needed later on if we can work out
-						//how to safely implement an inventory management system that takes
-						//into account arrays starting with 0
 						System.out.print(num + ": ");
 
 						//This prints out the item at the i location
 						System.out.println(ray.getLocation().items.get(i));
 					}
 
+					transitionText();
 			        System.out.println();
-					System.out.println("Would you like to pick up an item?");
-					//System.out.println("Would you like to pick up or drop an item?");
-					System.out.println("1. Pick up");
-					System.out.println("2. Drop");
-					//System.out.println("2. No");
-					System.out.println("3. No");
-					int itemChoice = Tools.getWholeNumberInput();
+					System.out.println("Would you like to do something with one of the items in the room?");
+					String[] itemChoices = {"Pick up","Drop", "No"};
+					int itemChoice = Tools.getWholeNumberInput(itemChoices);
 					//Moving an item from the room's inventory to Ray's inventory
 					if (itemChoice == 1) {
-						Inventory.InventoryPickup(ray, rayInventory);
+						Ray.InventoryPickup(ray, rayInventory);
 					} else if (itemChoice == 2) {
-						Inventory.InventoryDrop(ray, rayInventory);
+						Ray.InventoryDrop(ray, rayInventory);
 					}
 				}
 
@@ -125,7 +118,7 @@ public abstract class BasicLevel {
 			
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
-					rayInventory.InventoryList();
+					Ray.InventoryList();
 					System.out.println();
 					transitionText();
 				}
@@ -135,32 +128,12 @@ public abstract class BasicLevel {
 				ray.goToAnotherRoom(alloy, bug);
 				
 			}
-				
-
-				int choiceNumber = 4;
-				int offset = choiceNumber;
-
-
-
-				for (int i = 0; i < ray.getLocation().getBeings().size(); i++) {
-					// make sure we only try to interact with a being that isn't Ray
-					if (!(ray.getLocation().getBeings().get(i) instanceof Ray)) {
-						System.out.println(choiceNumber + " - Interact with " +
-								ray.getLocation().getBeings().get(i).getName() + ".");
-						choiceNumber++;
-					}
-				}
-
 
 			// check if the choice is to interact with the other being
-			else if(choice <= choiceNumber) {
+			else if(choice == 4) {
 				
-				// don't interact with Ray in the room's being list
-				if(ray.getLocation().getBeings().size()==1) {
-					System.out.println("You must be confused, that isn't an option.");
-					PrototypeGame.transitionText();
-				}
-				else if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
+
+				if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
 
 					ray.getLocation().getBeings().get(choice-offset+1).interact();
 				}
