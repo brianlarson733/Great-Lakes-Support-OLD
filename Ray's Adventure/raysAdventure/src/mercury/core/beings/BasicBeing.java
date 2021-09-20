@@ -17,10 +17,10 @@ public abstract class BasicBeing {
         this.health = newHealth;
     }
 
-    /** Getter for Location
-    public String BasicRoom getLocation (BasicRoom location){
+
+    public BasicRoom getLocation(){
         return this.location;
-    } */
+    }
 
     /** Setter for Location
     public void setLocation (BasicRoom newLocation){
@@ -37,7 +37,10 @@ public abstract class BasicBeing {
     /** Interact abstract method */
     abstract public void interact();
 
-    /** Change Health */
+    /** Change Health
+     * This needs to be expanded
+     * If the being's health drops to 0 or below 0 the being
+     * needs to be removed from the location's beings list*/
     public void changeHealth(int change) {
         this.health += change;
     }

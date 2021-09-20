@@ -15,12 +15,14 @@ public class NateDriver {
         public TestingRoom(ArrayList<BasicItem> items, ArrayList<BasicBeing> beings, ArrayList<BasicRoom> doors, String description, String name) {
             super(items, beings, doors, description, name);
         }
+
     }
 
+    BasicRoom testRoom = new TestingRoom();
+    Ray testRay = new Ray("testRay", 100, testroom);
 
-    public void main(String args[]) {
 
-        BasicRoom testRoom = new TestingRoom();
-        Ray testRay = new Ray(testRay, 100, testroom);
+    public static void main(String args[]) {
+
     }
 }
