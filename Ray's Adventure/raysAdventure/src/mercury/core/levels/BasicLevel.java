@@ -104,13 +104,11 @@ public abstract class BasicLevel {
 					transitionText();
 			        System.out.println();
 					System.out.println("Would you like to do something with one of the items in the room?");
-					String[] itemChoices = {"Pick up","Drop", "No"};
+					String[] itemChoices = {"Pick up an Item", "No"};
 					int itemChoice = Tools.getWholeNumberInput(itemChoices);
 					//Moving an item from the room's inventory to Ray's inventory
 					if (itemChoice == 1) {
-						Ray.InventoryPickup(ray, rayInventory);
-					} else if (itemChoice == 2) {
-						Ray.InventoryDrop(ray, rayInventory);
+						Ray.pickUpItem(ray.getLocation());
 					}
 				}
 
@@ -118,19 +116,28 @@ public abstract class BasicLevel {
 			
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
-					Ray.InventoryList();
+					Ray.inspectInventory();
 					System.out.println();
 					transitionText();
+					System.out.println();
+					System.out.println("Would you like to do something with one of the items in your inventory?");
+					String[] itemChoices = {"Drop an Item", "Use an Item","No"};
+					int itemChoice = Tools.getWholeNumberInput(itemChoices);
+					if(itemChoice == 1){
+						Ray.dropItem(ray.getLocation());
+					}else if(itemChoice == 2){
+						//use item method
+					}
 				}
 			
-			else if(choice==3) {
+			else if(choice == 3) {
 				
 				ray.goToAnotherRoom(alloy, bug);
 				
 			}
 
 			// check if the choice is to interact with the other being
-			else if(choice == 4) {
+			else if(choice == 4 && ray.getLocation().getBeings().size() > 1) {
 				
 
 				if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
@@ -145,7 +152,7 @@ public abstract class BasicLevel {
 			
 			else {
 				System.out.println("You must be confused, that isn't an option.");
-				PrototypeGame.transitionText();
+				transitionText();
 			}
 
 
