@@ -23,8 +23,8 @@ public class Ray extends BasicBeing {
      * @param health
      * @param location
      */
-    public Ray(String name, int health, BasicRoom location) {
-        super(name, health, location);
+    public Ray(BasicRoom location) {
+        super("Ray", 100, location);
     }
 
     /**

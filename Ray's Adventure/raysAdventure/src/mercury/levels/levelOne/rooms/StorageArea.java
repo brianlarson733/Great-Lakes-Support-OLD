@@ -1,6 +1,12 @@
 package mercury.levels.levelOne.rooms;
 
-public class EngineRoom extends StorageArea {
+import java.util.ArrayList;
+
+import mercury.core.beings.BasicBeing;
+import mercury.core.items.BasicItem;
+import mercury.core.rooms.BasicRoom;
+
+public class StorageArea extends BasicRoom {
 
     //Constructor for StorageArea
     public StorageArea() {
