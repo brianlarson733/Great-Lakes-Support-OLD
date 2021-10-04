@@ -2,8 +2,8 @@ package mercury.core.rooms;
 
 import java.util.*;
 
-import prototype.core.BasicBeing;
-import prototype.core.BasicItem;
+import mercury.core.beings.BasicBeing;
+import mercury.core.items.BasicItem;
 
 public abstract class BasicRoom {
 	
@@ -25,11 +25,11 @@ public abstract class BasicRoom {
 	public BasicItem getItem(int index) {
 		return items.get(index);
 	}
-	public void addItem(BasicItem item) {
-		this.items.add(item);
+	public void addItem(int index) {
+		this.items.add(index);
 	}
-	public void removeItem(BasicItem item) {
-		this.items.remove(item);
+	public void removeItem(int index) {
+		this.items.remove(index);
 	}
 	
 	public BasicBeing getBeing(int index) {

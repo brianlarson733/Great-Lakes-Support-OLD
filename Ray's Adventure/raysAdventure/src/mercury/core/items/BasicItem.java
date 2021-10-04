@@ -13,6 +13,7 @@ public abstract class BasicItem {
         this.name = name;
     }
 
+
     //use() method to use item functionality
     public abstract void use(){
     }
