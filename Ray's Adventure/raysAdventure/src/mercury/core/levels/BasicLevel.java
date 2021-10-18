@@ -1,42 +1,43 @@
-package mercury.core;
+package mercury.core.levels;
 
 import java.util.Random;
 import java.util.Scanner;
 
 import main.Game;
 import misc.Tools;
-import mercury.being.*;
-import mercury.items.*;
-import mercury.room.*;
+import mercury.core.MercuryGame;
+import mercury.core.beings.*;
+import mercury.core.items.*;
+import mercury.core.rooms.*;
 
 public abstract class BasicLevel {
 	
 	//end game condition
 	public boolean endLevel;
 	public boolean userWins;
+	public int levelCode;
 
 	//constructor for BasicLevel
-	public BasicLevel(){
+	public BasicLevel(int levelCode){
 		this.endLevel = false;
 		this.userWins = false;
+		this.levelCode = levelCode;
 	}
 
 	/**
 	 * This method is called to start the Level
 	 */
-    public abstract void startLevel() {
-
-    }
+    public abstract void startLevel();
 
     /**
 	 * This method is called to end the game
 	 */
-	public static void endLevel(boolean endLevel, boolean userWins) {
+	public static void endLevel(boolean endLevel, boolean userWins, int levelCode) {
 		if(userWins == true){
 			System.out.println("Success! You've completed this level!");
 			System.out.println("Please save the following Code to move on to the next level.")
 			System.out.println("You can also use this code to return to the next level the next time you start the game")
-			System.out.println(MercuryGame.levelCodes[levelChoice - 1]);
+			System.out.println(levelCode + "");
 			transitionText();
 			MercuryGame.levelSelector();
 		}

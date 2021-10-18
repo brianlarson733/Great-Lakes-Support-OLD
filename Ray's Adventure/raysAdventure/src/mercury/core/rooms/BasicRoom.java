@@ -25,8 +25,8 @@ public abstract class BasicRoom {
 	public BasicItem getItem(int index) {
 		return items.get(index);
 	}
-	public void addItem(int index) {
-		this.items.add(index);
+	public void addItem(BasicItem item) {
+		this.items.add(item);
 	}
 	public void removeItem(int index) {
 		this.items.remove(index);

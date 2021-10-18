@@ -23,7 +23,9 @@ import mercury.levels.levelOne.items.InvisibleWrench;
 
 public class LevelOne extends BasicLevel {
 
-	public LevelOne(boolean endGame, boolean userWins) {}
+	public LevelOne() {
+		super(5313);
+	}
 
 	public void startLevel() {
 		
