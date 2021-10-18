@@ -31,6 +31,9 @@ public abstract class BasicRoom {
 	public void removeItem(int index) {
 		this.items.remove(index);
 	}
+	public int getItemSize(){
+		return this.items.size();
+	}
 	
 	public BasicBeing getBeing(int index) {
 		return beings.get(index);

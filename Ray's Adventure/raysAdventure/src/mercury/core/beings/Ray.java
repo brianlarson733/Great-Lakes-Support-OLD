@@ -50,37 +50,37 @@ public class Ray extends BasicBeing {
      * this is code from the prototype Inventory class
      * This code needs to be heavy updated to align with the new implementation
                 */
-    public void pickUpItem(BasicRoom location){
+    public void pickUpItem(BasicRoom location) {
 
-         System.out.println();
-         System.out.println("Please identify the item you would like to move from " +
-              this.location.getName() + "to Ray's inventory:") ;
-         System.out.println();
+        System.out.println();
+        System.out.println("Please identify the item you would like to move from " +
+                this.location.getName() + "to Ray's inventory:");
+        System.out.println();
 
-         System.out.println("This room contains:");
-              for (int i = 1; i < rayInventory.size(); i++) {
-         System.out.print("    ");
+        System.out.println("This room contains:");
+        for (int i = 1; i < rayInventory.size(); i++) {
+            System.out.print("    ");
 
-         //This is a debugging print and won't be needed later on if we can work out
-         //how to safely implement an inventory management system that takes
-         //into account arrays starting with 0
-         System.out.print(i + ": ");
+            //This is a debugging print and won't be needed later on if we can work out
+            //how to safely implement an inventory management system that takes
+            //into account arrays starting with 0
+            System.out.print(i + ": ");
 
-         //This prints out the item at the i location
-         System.out.println(rayInventory.get(i));
-              }
+            //This prints out the item at the i location
+            System.out.println(rayInventory.get(i));
+        }
 
-         int itemMove = Tools.getWholeNumberInput();
+        int itemMove = Tools.getWholeNumberInput();
 
-         //I don't know how the following line works but it does
-         rayInventory.add((BasicItem) getLocation().getItem(itemMove));
-         BasicItem tempItem = getLocation().getItem(itemMove);
-         getLocation().removeItem(itemMove);
-         System.out.println();
+        //I don't know how the following line works but it does
+        rayInventory.add((BasicItem) getLocation().getItem(itemMove));
+        BasicItem tempItem = getLocation().getItem(itemMove);
+        getLocation().removeItem(itemMove);
+        System.out.println();
 
-         System.out.println("Ray's inventory now contains:");
-         inspectInventory();
-         System.out.println();
+        System.out.println("Ray's inventory now contains:");
+        inspectInventory();
+        System.out.println();
 
          /* This seems extraneous and likely can be removed
          System.out.println("The room now contains:");
@@ -97,41 +97,41 @@ public class Ray extends BasicBeing {
             }
 
           */
+    }
 
     public void dropItem(BasicRoom location){
+
         System.out.println("Ray's inventory contains:");
         inspectInventory();
         System.out.println();
 
             System.out.println(getLocation().getName() + " contains:");
-            for (int i = 1; i < getLocation().size(); i++) {
+            for (int i = 1; i < getLocation().getItemSize(); i++) {
                 System.out.print("    ");
                 System.out.print(i + ": ");
-                System.out.println(getLocation().rayInventory.get(i));
+                System.out.println(rayInventory.get(i));
             }
             System.out.println();
             System.out.println("Please identify the item you would like to move from Ray's inventory to " +
-                    ray.getLocation().getName());
+                    getLocation().getName());
             System.out.println();
 
             int itemMove = Tools.getWholeNumberInput();
 
             //I don't know how the following line works but it does
-            ray.getLocation().items.add((ConcreteBasicItem) rayInventory.items.get(itemMove));
-            //rayInventory.items.add((ConcreteBasicItem) ray.getLocation().items.get(itemMove));
-            rayInventory.items.remove(itemMove);
-            //ray.getLocation().items.remove(itemMove);
+            getLocation().addItem((BasicItem) rayInventory.get(itemMove));
+            rayInventory.remove(itemMove);
             System.out.println();
 
             System.out.println("Ray's inventory now contains:");
-            rayInventory.InventoryList();
+            inspectInventory();
             System.out.println();
 
             System.out.println("The room now contains:");
-            for (int i = 0; i < ray.getLocation().items.size(); i++) {
+            for (int i = 0; i < getLocation().getItemSize(); i++) {
                 System.out.print("    ");
                 System.out.print(i + ": ");
-                System.out.println(ray.getLocation().items.get(i));
+                System.out.println(getLocation().getItem(i));
                 System.out.println();
             }
             System.out.println();
