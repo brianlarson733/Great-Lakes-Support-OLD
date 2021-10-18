@@ -13,6 +13,14 @@ import mercury.levels.levelOne.rooms.MainCorridor;
 import mercury.levels.levelOne.rooms.MedicalBay;
 import mercury.levels.levelOne.rooms.StorageArea;
 
+import mercury.levels.levelOne.items.Map;
+import mercury.levels.levelOne.items.Bolt;
+import mercury.levels.levelOne.items.Candies;
+import mercury.levels.levelOne.items.Book;
+import mercury.levels.levelOne.items.Spacesuit;
+import mercury.levels.levelOne.items.Goggles;
+import mercury.levels.levelOne.items.InvisibleWrench;
+
 public class LevelOne extends BasicLevel {
 
 	public LevelOne(boolean endGame, boolean userWins) {}
