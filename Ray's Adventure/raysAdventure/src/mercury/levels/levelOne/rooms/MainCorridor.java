@@ -1,5 +1,11 @@
 package mercury.levels.levelOne.rooms;
 
+import java.util.ArrayList;
+
+import mercury.core.beings.BasicBeing;
+import mercury.core.items.BasicItem;
+import mercury.core.rooms.BasicRoom;
+
 public class MainCorridor extends BasicRoom {
 
     //Constructor for MainCorridor

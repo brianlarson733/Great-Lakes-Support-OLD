@@ -1,7 +1,25 @@
 package mercury.levels.levelOne;
 import java.util.Random;
 
+import mercury.core.beings.*;
 import mercury.core.levels.BasicLevel;
+import mercury.levels.levelOne.beings.Bug;
+import mercury.levels.levelOne.rooms.CargoBay;
+import mercury.levels.levelOne.rooms.Cockpit;
+import mercury.levels.levelOne.rooms.CrewLounge;
+import mercury.levels.levelOne.rooms.CrewQuarters;
+import mercury.levels.levelOne.rooms.EngineRoom;
+import mercury.levels.levelOne.rooms.MainCorridor;
+import mercury.levels.levelOne.rooms.MedicalBay;
+import mercury.levels.levelOne.rooms.StorageArea;
+
+import mercury.levels.levelOne.items.Map;
+import mercury.levels.levelOne.items.Bolt;
+import mercury.levels.levelOne.items.Candies;
+import mercury.levels.levelOne.items.Book;
+import mercury.levels.levelOne.items.Spacesuit;
+import mercury.levels.levelOne.items.Goggles;
+import mercury.levels.levelOne.items.InvisibleWrench;
 
 public class LevelOne extends BasicLevel {
 
@@ -83,7 +101,7 @@ public class LevelOne extends BasicLevel {
 		mainCorridor.getDoor(rand.nextInt(5)).addItem(invisibleWrench);
 		
 		
-		makeDecision(ray,alloy);
+		BasicLevel.makeDecision(ray);
 	}
 	
 	

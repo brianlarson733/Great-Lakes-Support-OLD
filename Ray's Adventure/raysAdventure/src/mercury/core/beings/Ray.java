@@ -16,9 +16,15 @@ public class Ray extends BasicBeing {
     rayInventory.add(water);
      */
 
-
+    /**
+     * Constructors for all instance variables
+     *
+     * @param name
+     * @param health
+     * @param location
+     */
     public Ray(BasicRoom location) {
-        super("ray", 100, location);
+        super("Ray", 100, location);
     }
 
     /**
