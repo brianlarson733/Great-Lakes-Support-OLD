@@ -135,8 +135,8 @@ public class Ray extends BasicBeing {
                 System.out.println();
             }
             System.out.println();
-        }
-        }
+    }
+        
 
 
     //dropItem - Remove item from Ray’s inventory, Add item to current room’s items

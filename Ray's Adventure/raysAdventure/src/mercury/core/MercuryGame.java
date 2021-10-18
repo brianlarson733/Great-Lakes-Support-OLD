@@ -3,11 +3,13 @@ import java.util.*;
 
 import main.Game;
 import mercury.levels.levelOne.LevelOne;
+import mercury.levels.levelThree.LevelThree;
+import mercury.levels.levelTwo.LevelTwo;
 import misc.Tools;
 
 public class MercuryGame extends Game {
 
-	private int[] levelCodes = new int[] {5313,9913,8543};
+	public static int[] levelCodes = new int[] {5313,9913,8543};
 	
 	private LevelOne levelOne = new LevelOne();
 	
@@ -19,7 +21,7 @@ public class MercuryGame extends Game {
 			
 		switch (userInput) {
 		case 1:
-			LevelOne.startLevel();
+			levelOne.startLevel();
 			break;
 		case 2:
 			levelSelector();
@@ -31,14 +33,17 @@ public class MercuryGame extends Game {
 	}
 
 	@Override
-	public void levelSelector(LevelOne levelOne, LevelTwo levelTwo, LevelThree levelThree) {
+	public void levelSelector() {
+		LevelOne levelOne = new LevelOne();
+		LevelTwo levelTwo = new LevelTwo();
+		LevelThree levelThree = new LevelThree();
 		System.out.println("Which level would you like to choose?");
 		String[] choices = {"Level 1", "Level 2", "Level 3", "Exit"};
 		int levelChoice = Tools.getWholeNumberInput(choices);
 		
 		//user wants to exit game
 		if(levelChoice == 4) {
-			break;
+			return;
 		}
 		
 		System.out.println("Please enter the code for " + choices[levelChoice].toLowerCase());
