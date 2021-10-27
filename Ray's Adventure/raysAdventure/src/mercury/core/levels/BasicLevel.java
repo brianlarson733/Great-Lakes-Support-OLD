@@ -13,7 +13,7 @@ import mercury.core.rooms.*;
 public abstract class BasicLevel {
 	
 	//end game condition
-	public boolean endLevel;
+	public static boolean endLevel;
 	public boolean userWins;
 	public int levelCode;
 
@@ -35,15 +35,15 @@ public abstract class BasicLevel {
 	public static void endLevel(boolean endLevel, boolean userWins, int levelCode) {
 		if(userWins == true){
 			System.out.println("Success! You've completed this level!");
-			System.out.println("Please save the following Code to move on to the next level.")
-			System.out.println("You can also use this code to return to the next level the next time you start the game")
+			System.out.println("Please save the following Code to move on to the next level.");
+			System.out.println("You can also use this code to return to the next level the next time you start the game");
 			System.out.println(levelCode + "");
 			transitionText();
 			MercuryGame.levelSelector();
 		}
 		else {
 			System.out.println("Oh no! You've suffered a mortal wound! As the world fades to black, your last thought is,"
-				+ " 'Maybe I shoul'dve commited my code more regularly...'");
+				+ " 'Maybe I should've commited my code more regularly...'");
 			System.out.println("How sad, Ray's space adventures have come to an end!");			
 			endLevel = true;
 		}
@@ -64,7 +64,7 @@ public abstract class BasicLevel {
 	/**
 	 * This allows the user to make choices and advance through the game
 	 */
-	public void makeDecision(Ray ray) {		
+	public static void makeDecision(Ray ray) {		
 		while(!endLevel){
 
 
