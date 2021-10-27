@@ -101,10 +101,8 @@ public class LevelOne extends BasicLevel {
 		
 		InvisibleWrench invisibleWrench = new InvisibleWrench();
 		mainCorridor.getDoor(rand.nextInt(5)).addItem(invisibleWrench);
-		
-		
+				
 		BasicLevel.makeDecision(ray);
 	}
-	
-	
+		
 }

@@ -9,8 +9,6 @@ import misc.Tools;
 
 public class MercuryGame extends Game {
 
-	public static int[] levelCodes = new int[] {5313,9913,8543};
-	
 	private LevelOne levelOne = new LevelOne();
 	
 	public void startGame() {
@@ -32,13 +30,15 @@ public class MercuryGame extends Game {
 		
 	}
 
-	@Override
-	public void levelSelector() {
+	public static void levelSelector() {
+		
 		LevelOne levelOne = new LevelOne();
 		LevelTwo levelTwo = new LevelTwo();
 		LevelThree levelThree = new LevelThree();
+		
 		System.out.println("Which level would you like to choose?");
 		String[] choices = {"Level 1", "Level 2", "Level 3", "Exit"};
+		
 		int levelChoice = Tools.getWholeNumberInput(choices);
 		
 		//user wants to exit game
@@ -47,25 +47,27 @@ public class MercuryGame extends Game {
 		}
 		
 		System.out.println("Please enter the code for " + choices[levelChoice].toLowerCase());
-			
 		int userCodeInput = Tools.getWholeNumberInput();
-			
-		switch (userCodeInput) {
-		case 5313:
-			levelOne.startLevel();
-			break;
-			
-		case 9913:
-			levelTwo.startLevel();
-			break;
-			
-		case 8543:
-			levelThree.startLevel();
-			break;
-			
-		default:
+		
+		if (levelChoice==1) {
+			if (levelOne.levelCode==userCodeInput) {
+				levelOne.startLevel();
+			}
+		}
+		else if (levelChoice==2) {
+			if (levelTwo.levelCode==userCodeInput) {
+				levelTwo.startLevel();
+			}
+		}
+		else if (levelChoice==3) {
+			if (levelThree.levelCode==userCodeInput) {
+				levelThree.startLevel();
+			}
+		}
+		
+		else {
 			System.out.println("Sorry, that isn't a valid level code.");
-			break;
+			return;
 		}
 	}
 }
