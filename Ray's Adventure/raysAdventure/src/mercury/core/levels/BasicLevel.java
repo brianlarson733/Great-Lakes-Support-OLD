@@ -133,7 +133,7 @@ public abstract class BasicLevel {
 			
 			else if(choice == 3) {
 				
-				ray.goToAnotherRoom(alloy, bug);
+				ray.changeLocation(alloy, bug);
 				
 			}
 
