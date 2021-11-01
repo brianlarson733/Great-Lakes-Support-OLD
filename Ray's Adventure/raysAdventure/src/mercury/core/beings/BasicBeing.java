@@ -47,7 +47,9 @@ public abstract class BasicBeing {
 
     /** Change location class */
     public void changeLocation(BasicRoom newLocation) {
+        this.location.removeBeing(this);
         this.location = newLocation;
+        this.location.addBeing(this);
     }
 
 }

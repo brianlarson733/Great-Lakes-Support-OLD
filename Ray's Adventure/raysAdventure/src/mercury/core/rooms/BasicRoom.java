@@ -31,6 +31,10 @@ public abstract class BasicRoom {
 	public void removeItem(int index) {
 		this.items.remove(index);
 	}
+	public void removeItem(BasicItem item) {
+		this.items.remove(item);
+	}
+	
 	public int getItemSize(){
 		return this.items.size();
 	}
