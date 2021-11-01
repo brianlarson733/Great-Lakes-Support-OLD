@@ -42,6 +42,7 @@ public class Ray extends BasicBeing {
      * @param newLocation
      */
     @Override
+    //This needs to be expanded to show the options
     public void changeLocation(BasicRoom newLocation) {
         super.changeLocation(newLocation);
     }
