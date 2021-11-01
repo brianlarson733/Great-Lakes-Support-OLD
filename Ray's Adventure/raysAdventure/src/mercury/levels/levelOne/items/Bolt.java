@@ -5,7 +5,7 @@ public class Bolt extends BasicItem {
 
     //constructor for Bolt
     public Bolt() {
-        super (new "Bolt", "A bog standard, bulk machined hardware bolt")
+        super ("Bolt", "A bog standard, bulk machined hardware bolt");
     }
 
     //use() method to use item functionality
