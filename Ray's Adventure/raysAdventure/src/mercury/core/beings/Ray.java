@@ -161,9 +161,8 @@ public class Ray extends BasicBeing {
      *  This needs to extend the BasicBeing changehealth class
      *  and include code for ending the game if Ray dies*/
 
-    public class rayChangeHealth (int change) {
-
-        Ray.heatlh
+    public void rayChangeHealth() {
+       //Check to confirm if this method is needed
     }
 }
 
