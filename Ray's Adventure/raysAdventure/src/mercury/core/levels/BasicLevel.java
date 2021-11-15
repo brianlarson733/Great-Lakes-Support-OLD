@@ -132,22 +132,28 @@ public abstract class BasicLevel {
 				}
 			
 			else if(choice == 3) {
-				
-				ray.changeLocation(alloy, bug);
+				//method to inspect doors in the room
+				System.out.println();
+				transitionText();
+				System.out.println();
+				System.out.println("What room would you like to move to?");
+				String[] roomChoices = ray.getLocation().doors;
+				int roomChoice = Tools.getWholeNumberInput(roomChoices);
+				ray.changeLocation(doors[roomChoice]);
+
 				
 			}
 
 			// check if the choice is to interact with the other being
 			else if(choice == 4 && ray.getLocation().getBeings().size() > 1) {
-				
-
-				if(ray.getLocation().getBeings().get(choice-offset) instanceof Ray) {
-
-					ray.getLocation().getBeings().get(choice-offset+1).interact();
-				}
-				else {
-					ray.getLocation().getBeings().get(choice-offset).interact();
-				}
+				//method to inspect beings in the room
+				System.out.println();
+				transitionText();
+				System.out.println();
+				System.out.println("Who would you like to interact with?");
+				String[] beingChoices = ray.getLocation().beings;
+				int beingChoice = Tools.getWholeNumberInput(beingChoices);
+				//method to interact with being chosen					
 
 			}
 			
