@@ -3,6 +3,8 @@ import mercury.core.items.BasicItem;
 
 public class Goggles extends BasicItem {
 
+    public boolean alloyEdible = false;
+
     //constructor for Goggles
     public Goggles() {
         super ("Goggles", "Old fashioned aviator goggles. These would look great with a leather jacket.");

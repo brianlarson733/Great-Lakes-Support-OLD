@@ -3,6 +3,8 @@ import mercury.core.items.BasicItem;
 
 public class InvisibleWrench extends BasicItem {
 
+    public boolean alloyEdible = false;
+
     //constructor for InvisibleWrench
     public InvisibleWrench() {
         super ("InvisibleWrench", "Now that you have the goggles on, you can see a perfectly bog standard bulk machined hardware wrench.");
