@@ -39,6 +39,13 @@ public abstract class BasicRoom {
 		return this.items.size();
 	}
 	
+	public void printItems() {
+        System.out.println("This room contains:");
+		for (int i = 0; i < items.size(); i++) {
+			System.out.println((i+1) + ") " + items.get(i).name + ": " + items.get(i).description);
+		}
+	}
+	
 	public BasicBeing getBeing(int index) {
 		return beings.get(index);
 	}

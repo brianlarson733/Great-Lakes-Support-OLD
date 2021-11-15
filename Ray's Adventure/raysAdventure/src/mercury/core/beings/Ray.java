@@ -11,10 +11,6 @@ public class Ray extends BasicBeing {
 
     /** Creates Array for Ray's inventory */
     public ArrayList<BasicItem> rayInventory = new ArrayList<BasicItem>();
-    /* The IDE wants to add water as a parameter to this class, this needs to be investigated further
-    BasicItem water = new BasicItem("Water bottle", "This is a bottle of water");
-    rayInventory.add(water);
-     */
 
     /**
      * Constructors for all instance variables
@@ -30,74 +26,44 @@ public class Ray extends BasicBeing {
     /**
      * This method is not called as Ray doesn't need to interact with Ray
      */
-    public void interact() {
-    }
-
-    /** Constructor to initialize rayInventory - redundant with the above array creation
-     * Not implemented */
-
+    public void interact() {}
 
     /** Change location override from mercury BasicBeing
-     * This needs to be reviewed to verify that its accurate
      * @param newLocation
      */
     @Override
-    //This needs to be expanded to show the options
     public void changeLocation(BasicRoom newLocation) {
         super.changeLocation(newLocation);
     }
 
-    /** pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
-     * this is code from the prototype Inventory class
-     * This code needs to be heavy updated to align with the new implementation
-                */
+    /** 
+     * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
+     */
     public void pickUpItem(BasicRoom location) {
 
+        this.location.printItems();
         System.out.println();
-        System.out.println("Please identify the item you would like to move from " +
-                this.location.getName() + "to Ray's inventory:");
+        System.out.println("Please identify the item you would like to pick up from this room.");
         System.out.println();
-
-        System.out.println("This room contains:");
-        for (int i = 1; i < rayInventory.size(); i++) {
-            System.out.print("    ");
-
-            //This is a debugging print and won't be needed later on if we can work out
-            //how to safely implement an inventory management system that takes
-            //into account arrays starting with 0
-            System.out.print(i + ": ");
-
-            //This prints out the item at the i location
-            System.out.println(rayInventory.get(i));
+        
+        int userChoice = 0;
+        
+        while(true) {
+        	
+        	userChoice = Tools.getWholeNumberInput();
+        	
+        	if (userChoice < this.location.getItemSize()) {
+        		break;
+        	}
+        	System.out.println("Sorry, that isn't a valid option");
         }
+        
+        rayInventory.add(this.location.getItem(userChoice-1));
+        this.location.removeItem(userChoice-1);
 
-        int itemMove = Tools.getWholeNumberInput();
-
-        //I don't know how the following line works but it does
-        rayInventory.add((BasicItem) getLocation().getItem(itemMove));
-        BasicItem tempItem = getLocation().getItem(itemMove);
-        getLocation().removeItem(itemMove);
         System.out.println();
-
-        System.out.println("Ray's inventory now contains:");
         inspectInventory();
         System.out.println();
-
-         /* This seems extraneous and likely can be removed
-         System.out.println("The room now contains:");
-         if(ray.getLocation().items.size() == 1){
-            System.out.println("    Nothing!");
-            }
-            else{
-                for (int i = 0; i < ray.getLocation().items.size(); i++) {
-                System.out.print("    ");
-                System.out.print(i + ": ");
-                System.out.println(ray.getLocation().items.get(i));
-                    }
-                }
-            }
-
-          */
     }
 
     public void dropItem(BasicRoom location){
@@ -144,17 +110,18 @@ public class Ray extends BasicBeing {
         //Modify the code from Prototype-Inventory
 
     public void inspectInventory(){
-        if(rayInventory.size() == 1){
-            System.out.println("You aren't carrying any items!");
+        if(rayInventory.size() == 0){
+            System.out.println("Ray isn't carrying any items!");
             }
+        
         else{
-            for (int i = 1; i < rayInventory.size(); i++) {
-            System.out.print("    ");
-            System.out.print(i + ": ");
-            System.out.println(rayInventory.get(i));
-                }
-            }
+        	System.out.println("Ray's inventory contains:");
+	    	for (int i = 0; i < rayInventory.size(); i++) {
+	    		System.out.println((i+1) + ") " + rayInventory.get(i).name + ": " + rayInventory.get(i).description);
+	    	}
+        	
         }
+    }
 
 
     /** Ray being class
