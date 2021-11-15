@@ -3,6 +3,7 @@ import mercury.core.items.BasicItem;
 
 public class Candies extends BasicItem {
 
+    public boolean alloyEdible = true;
     //constructor for Candies
     public Candies() {
         super ("Candies", "Brightly colored sticky candy. Yum!");

@@ -3,6 +3,8 @@ import mercury.core.items.BasicItem;
 
 public class Spacesuit extends BasicItem {
 
+    public boolean alloyEdible = false;
+
     //constructor for Spacesuit
     public Spacesuit() {
         super ("Spacesuit", "A silver body suit with a domed glass helmet, like a fishbowl.");

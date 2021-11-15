@@ -3,6 +3,7 @@ import mercury.core.items.BasicItem;
 
 public class Book extends BasicItem {
 
+    public boolean alloyEdible = true;
     //constructor for Book
     public Book() {
         super ("Book", "A little paperback novel that you've been working through for far too long.");

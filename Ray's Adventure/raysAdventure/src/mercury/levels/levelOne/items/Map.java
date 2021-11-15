@@ -3,6 +3,8 @@ import mercury.core.items.BasicItem;
 
 public class Map extends BasicItem {
 
+    public boolean alloyEdible = false;
+
     //constructor for Map
     public Map() {
 
