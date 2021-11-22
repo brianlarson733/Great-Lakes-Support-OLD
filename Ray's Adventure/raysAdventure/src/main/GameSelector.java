@@ -3,11 +3,19 @@ import prototype.core.*;
 import mercury.core.MercuryGame;
 import misc.*;
 
+/**
+ * This class allows the user to select which game they want to play. This contains the
+ * main() method to start all games.
+ * @author blars
+ */
 public class GameSelector {
 
     public static void main (String[] args) {
-
+    	
+    	// create an instance of the prototype 
     	PrototypeGame prototype = new PrototypeGame();
+    	
+    	// create an instance of Mercury
     	MercuryGame mercury = new MercuryGame();
     	
         System.out.println();
