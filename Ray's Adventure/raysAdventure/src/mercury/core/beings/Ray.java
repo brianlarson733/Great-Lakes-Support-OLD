@@ -109,6 +109,30 @@ public class Ray extends BasicBeing {
     //dropItem - Remove item from Ray’s inventory, Add item to current room’s items
         //Modify the code from Prototype-Inventory
 
+    public void useItem(BasicRoom location){
+
+        System.out.println("Ray's inventory contains:");
+        inspectInventory();
+        System.out.println();
+
+            System.out.println(getLocation().getName() + " contains:");
+            for (int i = 1; i < getLocation().getItemSize(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                System.out.println(rayInventory.get(i));
+            }
+            System.out.println();
+            System.out.println("Please identify the item you would like to use from Ray's inventory");
+            System.out.println();
+
+            int itemUse = Tools.getWholeNumberInput();
+
+            //I don't know how the following line works but it does
+            rayInventory.get(itemUse).use();
+            System.out.println();
+    }
+
+
     public void inspectInventory(){
         if(rayInventory.size() == 0){
             System.out.println("Ray isn't carrying any items!");

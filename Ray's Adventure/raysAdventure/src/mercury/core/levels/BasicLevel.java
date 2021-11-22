@@ -127,7 +127,7 @@ public abstract class BasicLevel {
 					if(itemChoice == 1){
 						Ray.dropItem(ray.getLocation());
 					}else if(itemChoice == 2){
-						//use item method
+						Ray.useItem(ray.getLocation());
 					}
 				}
 			
