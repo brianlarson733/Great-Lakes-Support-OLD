@@ -52,7 +52,7 @@ public class Ray extends BasicBeing {
         	
         	userChoice = Tools.getWholeNumberInput();
         	
-        	if (userChoice < this.location.getItemSize()) {
+        	if (userChoice <= this.location.getItemsSize()) {
         		break;
         	}
         	System.out.println("Sorry, that isn't a valid option");
@@ -68,46 +68,32 @@ public class Ray extends BasicBeing {
 
     public void dropItem(BasicRoom location){
 
-        System.out.println("Ray's inventory contains:");
         inspectInventory();
         System.out.println();
 
-            System.out.println(getLocation().getName() + " contains:");
-            for (int i = 1; i < getLocation().getItemSize(); i++) {
-                System.out.print("    ");
-                System.out.print(i + ": ");
-                System.out.println(rayInventory.get(i));
-            }
-            System.out.println();
-            System.out.println("Please identify the item you would like to move from Ray's inventory to " +
-                    getLocation().getName());
-            System.out.println();
+        System.out.println("Please identify the item you would like to drop");
+        System.out.println();
 
-            int itemMove = Tools.getWholeNumberInput();
-
-            //I don't know how the following line works but it does
-            getLocation().addItem((BasicItem) rayInventory.get(itemMove));
-            rayInventory.remove(itemMove);
-            System.out.println();
-
-            System.out.println("Ray's inventory now contains:");
-            inspectInventory();
-            System.out.println();
-
-            System.out.println("The room now contains:");
-            for (int i = 0; i < getLocation().getItemSize(); i++) {
-                System.out.print("    ");
-                System.out.print(i + ": ");
-                System.out.println(getLocation().getItem(i));
-                System.out.println();
-            }
-            System.out.println();
-    }
+        int userChoice = 0;
         
+        while(true) {
+        	
+        	userChoice = Tools.getWholeNumberInput();
+        	
+        	if (userChoice <= rayInventory.size()) {
+        		break;
+        	}
+        	System.out.println("Sorry, that isn't a valid option");
+        }
+        
+        BasicItem itemToDrop = rayInventory.get(userChoice-1);
+        
+        getLocation().addItem(itemToDrop);
+        rayInventory.remove(itemToDrop);
+        System.out.println("Okay, you dropped " + itemToDrop.name);
+           
+    }
 
-
-    //dropItem - Remove item from Ray’s inventory, Add item to current room’s items
-        //Modify the code from Prototype-Inventory
 
     public void inspectInventory(){
         if(rayInventory.size() == 0){
