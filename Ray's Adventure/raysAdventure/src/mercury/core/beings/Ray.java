@@ -113,7 +113,7 @@ public class Ray extends BasicBeing {
         System.out.println();
 
             System.out.println(getLocation().getName() + " contains:");
-            for (int i = 1; i < getLocation().getItemSize(); i++) {
+            for (int i = 1; i < getLocation().getItemsSize(); i++) {
                 System.out.print("    ");
                 System.out.print(i + ": ");
                 System.out.println(rayInventory.get(i));
