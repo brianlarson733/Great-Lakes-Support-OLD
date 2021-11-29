@@ -1,9 +1,10 @@
 package mercury.core.beings;
 
-import java.util.ArrayList;
 import mercury.core.items.BasicItem;
 import mercury.core.rooms.BasicRoom;
 import misc.Tools;
+
+import java.util.ArrayList;
 
 
 public class Ray extends BasicBeing {
@@ -45,9 +46,11 @@ public class Ray extends BasicBeing {
         System.out.println();
         System.out.println("Please identify the item you would like to pick up from this room.");
         System.out.println();
-        
+
+ // userChoice lets the user select an item numerically from the room's items
         int userChoice = 0;
-        
+
+ // this forever loop ensures that the user selects a valid number
         while(true) {
         	
         	userChoice = Tools.getWholeNumberInput();
@@ -57,15 +60,20 @@ public class Ray extends BasicBeing {
         	}
         	System.out.println("Sorry, that isn't a valid option");
         }
-        
+
+ // adds userChoice to Ray's inventory and removes it from the room's items
         rayInventory.add(this.location.getItem(userChoice-1));
         this.location.removeItem(userChoice-1);
 
+// prints out Ray's inventory
         System.out.println();
         inspectInventory();
         System.out.println();
     }
 
+    /**
+     * dropItem - Remove item from Rays’s items, Add item to current room’s inventory
+     */
     public void dropItem(BasicRoom location){
 
         inspectInventory();
@@ -74,6 +82,7 @@ public class Ray extends BasicBeing {
         System.out.println("Please identify the item you would like to drop");
         System.out.println();
 
+        // similar userChoice variable as above
         int userChoice = 0;
         
         while(true) {
@@ -85,16 +94,21 @@ public class Ray extends BasicBeing {
         	}
         	System.out.println("Sorry, that isn't a valid option");
         }
-        
+        // grab the object reference to item that will be dropped
         BasicItem itemToDrop = rayInventory.get(userChoice-1);
         
         getLocation().addItem(itemToDrop);
         rayInventory.remove(itemToDrop);
+
+        // confirm item removal
         System.out.println("Okay, you dropped " + itemToDrop.name);
            
     }
 
 
+    /**
+     * inspectInventory - Look at Ray's Items
+     */
     public void inspectInventory(){
         if(rayInventory.size() == 0){
             System.out.println("Ray isn't carrying any items!");
