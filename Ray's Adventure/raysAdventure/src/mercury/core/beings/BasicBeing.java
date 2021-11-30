@@ -14,7 +14,7 @@ public abstract class BasicBeing {
 
     /**Setter for Health */
     public void setHealth(int newHealth){
-        this.health = newHealth;
+        this.health = this.health + newHealth;
     }
 
 
