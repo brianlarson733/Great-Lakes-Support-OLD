@@ -46,6 +46,13 @@ public abstract class BasicRoom {
 			System.out.println((i+1) + ") " + items.get(i).name + ": " + items.get(i).description);
 		}
 	}
+
+	public void printDoors() {
+        System.out.println("You see doors leading to:");
+		for (int i = 0; i < doors.size(); i++) {
+			System.out.println((i+1) + ") " + doors.get(i).name + ": " + items.get(i).description);
+		}
+	}
 	
 	public void printBeings() {
         if (beings.size()==1) {

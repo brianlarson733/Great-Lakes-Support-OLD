@@ -154,15 +154,20 @@ public abstract class BasicLevel {
 					}
 				}
 			
+			// Displays room doors
 			else if(choice == 3) {
 				//method to inspect doors in the room
+				ray.getLocation().printDoors();
 				System.out.println();
 				transitionText();
 				System.out.println();
 				System.out.println("What room would you like to move to?");
-				String[] roomChoices = ray.getLocation().doors;
-				int roomChoice = Tools.getWholeNumberInput(roomChoices);
-				ray.changeLocation(doors[roomChoice]);
+				int roomChoice = Tools.getWholeNumberInput();
+				while(roomChoice > ray.getLocation().doors.size()){
+					System.out.println("Please select a valid number");
+					roomChoice = Tools.getWholeNumberInput();
+				}
+				ray.changeLocation(doors.get(roomChoice-1));
 
 				
 			}
@@ -175,9 +180,13 @@ public abstract class BasicLevel {
         transitionText();
         
 				System.out.println("Who would you like to interact with?");
-				String[] beingChoices = ray.getLocation().beings;
-				int beingChoice = Tools.getWholeNumberInput(beingChoices);
-				//method to interact with being chosen					
+				int beingChoice = Tools.getWholeNumberInput();
+				while(beingChoice > ray.getLocation().beings.size()){
+					System.out.println("Please select a valid number");
+					beingChoice = Tools.getWholeNumberInput();
+				}
+				//method to interact with being chosen
+
 
 			}
 			
