@@ -106,27 +106,35 @@ public class Ray extends BasicBeing {
     }
 
 
+    /**
+     * useItem - Uses an item from Ray's inventory
+     */
+
     public void useItem(BasicRoom location){
 
-        System.out.println("Ray's inventory contains:");
+//first inspect the inventory
+
         inspectInventory();
         System.out.println();
+        System.out.println("Please identify the item you would like to use from Ray's inventory");
+        System.out.println();
 
-            System.out.println(getLocation().getName() + " contains:");
-            for (int i = 1; i < getLocation().getItemSize(); i++) {
-                System.out.print("    ");
-                System.out.print(i + ": ");
-                System.out.println(rayInventory.get(i));
+// Use userChoice variable from above to ensure that the user input is valid
+        int userChoice = 0;
+
+        while(true) {
+
+            userChoice = Tools.getWholeNumberInput();
+
+            if (userChoice <= rayInventory.size()) {
+                break;
             }
-            System.out.println();
-            System.out.println("Please identify the item you would like to use from Ray's inventory");
-            System.out.println();
+            System.out.println("Sorry, that isn't a valid option");
+        }
 
-            int itemUse = Tools.getWholeNumberInput();
-
-            //I don't know how the following line works but it does
-            rayInventory.get(itemUse).use();
-            System.out.println();
+//I changed this line to include the userChoice variable from above
+        rayInventory.get(userChoice-1).use();
+        System.out.println();
     }
 
 
