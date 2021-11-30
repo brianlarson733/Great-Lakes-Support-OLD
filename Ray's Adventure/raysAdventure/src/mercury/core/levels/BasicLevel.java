@@ -1,5 +1,7 @@
 package mercury.core.levels;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,21 +34,22 @@ public abstract class BasicLevel {
     /**
 	 * This method is called to end the game
 	 */
-	public static void endLevel(boolean endLevel, boolean userWins, int levelCode) {
+	public static void endLevel(boolean userWins, int levelCode) {
 		if(userWins == true){
 			System.out.println("Success! You've completed this level!");
-			System.out.println("Please save the following Code to move on to the next level.");
-			System.out.println("You can also use this code to return to the next level the next time you start the game");
-			System.out.println(levelCode + "");
+			System.out.println("Please save the following code to move on to the next level.");
+			System.out.println("You can also use this code to return to the next level the next time you start the game:");
+			System.out.println(levelCode);
 			transitionText();
 			MercuryGame.levelSelector();
 		}
 		else {
-			System.out.println("Oh no! You've suffered a mortal wound! As the world fades to black, your last thought is,"
+			System.out.println("Oh no! You've suffered a mortal wound! As the world fades to black, your last thought is"
 				+ " 'Maybe I should've commited my code more regularly...'");
 			System.out.println("How sad, Ray's space adventures have come to an end!");			
-			endLevel = true;
-		}
+			transitionText();
+			MercuryGame.levelSelector();
+			}
 
 	}
 	
@@ -67,18 +70,30 @@ public abstract class BasicLevel {
 	public static void makeDecision(Ray ray) {		
 		while(!endLevel){
 
-
-			System.out.println();
 			System.out.println("You are in the " + ray.getLocation().getName() + ".");
+			ray.getLocation().printBeings();
 			System.out.println();
 			System.out.println("What do you want to do?");
 			System.out.println();
-			String[] choices = {"Inspect the room", "Inspect the items you are carrying", "Go to another room"};
+			
+			// create list of choices for the user
+			ArrayList<String> choices = new ArrayList<String>(Arrays.asList(
+					"Inspect the room", "Inspect the items you are carrying", "Go to another room"));
+
+			// this will add the interact option if there is a being in the room
+			if(ray.getLocation().beings.size() > 1 ){
+				choices.add("Interact with beings in the room");	
+
+			}
+			else {
+				String[] choices = {"Inspect the room", "Inspect the items you are carrying", "Go to another room"};	
+			};
+			
+			
+			
 
 			// this will print out interaction options if there is another being in the room
-			if(ray.getLocation().getBeings().size() > 1 ){
-				String[] choices = {"Inspect the room", "Inspect the items you are carrying", "Go to another room","Interact with beings in the room"};	
-			}
+			
 
 			System.out.println();
 			int choice = Tools.getWholeNumberInput(choices);
@@ -109,7 +124,7 @@ public abstract class BasicLevel {
 					int itemChoice = Tools.getWholeNumberInput(itemChoices);
 					//Moving an item from the room's inventory to Ray's inventory
 					if (itemChoice == 1) {
-						Ray.pickUpItem(ray.getLocation());
+						ray.pickUpItem();
 					}
 				}
 
@@ -117,19 +132,24 @@ public abstract class BasicLevel {
 			
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
-					Ray.inspectInventory();
+					ray.printInventory();
 					System.out.println();
 					transitionText();
 					System.out.println();
 
+					//only ask the player to do something with the inventory if the inventory is non-empty
 					if(ray.rayInventory.size() != 0){
+						
 						System.out.println("Would you like to do something with one of the items in your inventory?");
 						String[] itemChoices = {"Drop an Item", "Use an Item","No"};
 						int itemChoice = Tools.getWholeNumberInput(itemChoices);
+						
 						if(itemChoice == 1){
-							Ray.dropItem(ray.getLocation());
-						}else if(itemChoice == 2){
-							Ray.useItem(ray.getLocation());
+							ray.dropItem();
+						}
+						
+						else if(itemChoice == 2){
+							ray.useItem();
 						}
 					}
 				}
@@ -153,12 +173,12 @@ public abstract class BasicLevel {
 			}
 
 			// check if the choice is to interact with the other being
-			else if(choice == 4 && ray.getLocation().getBeings().size() > 1) {
-				//method to inspect beings in the room
+        
+			else if(choice == 4) {
+
 				ray.getLocation().printBeings();
-				System.out.println();
-				transitionText();
-				System.out.println();
+        transitionText();
+        
 				System.out.println("Who would you like to interact with?");
 				int beingChoice = Tools.getWholeNumberInput();
 				while(beingChoice > ray.getLocation().beings.size()){

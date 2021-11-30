@@ -37,8 +37,8 @@ public class LevelOne extends BasicLevel {
 		CrewLounge crewLounge = new CrewLounge();
 		CargoBay cargoBay = new CargoBay();
 		EngineRoom engineRoom = new EngineRoom();
-		StorageArea storageAreaCrewQuarters = new StorageArea();
-		StorageArea storageAreaEngineRoom = new StorageArea();
+		StorageArea storageAreaCrewQuarters = new StorageArea("Crew quarters storage area");
+		StorageArea storageAreaEngineRoom = new StorageArea("Engine room storage area");
 		
 		//connect rooms
 		mainCorridor.addDoor(cockpit);

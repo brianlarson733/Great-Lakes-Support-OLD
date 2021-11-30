@@ -46,7 +46,7 @@ public class MercuryGame extends Game {
 			return;
 		}
 		
-		System.out.println("Please enter the code for " + choices[levelChoice].toLowerCase());
+		System.out.println("Please enter the code for " + choices[levelChoice-1].toLowerCase());
 		int userCodeInput = Tools.getWholeNumberInput();
 		
 		if (levelChoice==1) {
