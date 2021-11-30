@@ -40,7 +40,7 @@ public class Ray extends BasicBeing {
     /** 
      * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
      */
-    public void pickUpItem(BasicRoom location) {
+    public void pickUpItem() {
 
         this.location.printItems();
         System.out.println();
@@ -67,16 +67,16 @@ public class Ray extends BasicBeing {
 
 // prints out Ray's inventory
         System.out.println();
-        inspectInventory();
+        printInventory();
         System.out.println();
     }
 
     /**
      * dropItem - Remove item from Rays’s items, Add item to current room’s inventory
      */
-    public void dropItem(BasicRoom location){
+    public void dropItem(){
 
-        inspectInventory();
+        printInventory();
         System.out.println();
 
         System.out.println("Please identify the item you would like to drop");
@@ -110,11 +110,11 @@ public class Ray extends BasicBeing {
      * useItem - Uses an item from Ray's inventory
      */
 
-    public void useItem(BasicRoom location){
+    public void useItem(){
 
 //first inspect the inventory
 
-        inspectInventory();
+        printInventory();
         System.out.println();
         System.out.println("Please identify the item you would like to use from Ray's inventory");
         System.out.println();
@@ -141,7 +141,7 @@ public class Ray extends BasicBeing {
     /**
      * inspectInventory - Look at Ray's Items
      */
-    public void inspectInventory(){
+    public void printInventory(){
         if(rayInventory.size() == 0){
             System.out.println("Ray isn't carrying any items!");
             }

@@ -8,8 +8,8 @@ import mercury.core.items.BasicItem;
 
 public abstract class BasicRoom {
 	
-	private ArrayList<BasicItem> items;
-	private ArrayList<BasicBeing> beings;
+	public ArrayList<BasicItem> items;
+	public ArrayList<BasicBeing> beings;
 	private ArrayList<BasicRoom> doors;
 	private String description = "";
 	private String name = "";
