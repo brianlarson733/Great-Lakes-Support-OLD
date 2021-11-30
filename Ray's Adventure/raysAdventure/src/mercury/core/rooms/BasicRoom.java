@@ -3,6 +3,7 @@ package mercury.core.rooms;
 import java.util.*;
 
 import mercury.core.beings.BasicBeing;
+import mercury.core.beings.Ray;
 import mercury.core.items.BasicItem;
 
 public abstract class BasicRoom {
@@ -44,6 +45,19 @@ public abstract class BasicRoom {
 		for (int i = 0; i < items.size(); i++) {
 			System.out.println((i+1) + ") " + items.get(i).name + ": " + items.get(i).description);
 		}
+	}
+	
+	public void printBeings() {
+        if (beings.size()==1) {
+        	System.out.println("You are the only one in the room.");
+        }
+        else {
+        	System.out.println("You see in the room:");
+        	for (int i = 0; i < beings.size(); i++) {
+    			if(!(beings.get(i) instanceof Ray))
+    				System.out.println(beings.get(i).name);
+    		}
+        }
 	}
 	
 	public BasicBeing getBeing(int index) {
