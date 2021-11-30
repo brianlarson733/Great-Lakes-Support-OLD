@@ -1,9 +1,9 @@
 package mercury.core.rooms;
 
-import java.util.*;
-
 import mercury.core.beings.BasicBeing;
 import mercury.core.items.BasicItem;
+
+import java.util.ArrayList;
 
 public abstract class BasicRoom {
 	
@@ -38,11 +38,21 @@ public abstract class BasicRoom {
 	public int getItemsSize(){
 		return this.items.size();
 	}
-	
+
+	//prints items in room
 	public void printItems() {
-        System.out.println("This room contains:");
-		for (int i = 0; i < items.size(); i++) {
-			System.out.println((i+1) + ") " + items.get(i).name + ": " + items.get(i).description);
+
+	//accounts for edge cases where room is empty
+		if (items.isEmpty()) {
+			System.out.println("This room is empty");
+		}
+
+	//gets the list of items
+		else {
+			System.out.println("This room contains:");
+			for (int i = 0; i < items.size(); i++) {
+				System.out.println((i + 1) + ") " + items.get(i).name + ": " + items.get(i).description);
+			}
 		}
 	}
 	
