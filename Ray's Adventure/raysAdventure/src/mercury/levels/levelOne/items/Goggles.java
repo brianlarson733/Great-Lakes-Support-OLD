@@ -3,7 +3,7 @@ import mercury.core.items.BasicItem;
 
 public class Goggles extends BasicItem {
 
-    public boolean alloyEdible = false;
+    public boolean edible = false;
 
     //constructor for Goggles
     public Goggles() {
