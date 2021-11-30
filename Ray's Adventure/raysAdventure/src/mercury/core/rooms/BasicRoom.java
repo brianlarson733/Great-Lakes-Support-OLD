@@ -59,6 +59,11 @@ public abstract class BasicRoom {
 	public BasicRoom getDoor(int index) {
 		return doors.get(index);
 	}
+
+	public ArrayList<BasicRoom> getDoors() {
+		return this.doors;
+	}
+
 	public void addDoor(BasicRoom room) {
 		this.doors.add(room);
 	}

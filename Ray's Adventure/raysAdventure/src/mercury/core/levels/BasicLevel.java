@@ -121,13 +121,16 @@ public abstract class BasicLevel {
 					System.out.println();
 					transitionText();
 					System.out.println();
-					System.out.println("Would you like to do something with one of the items in your inventory?");
-					String[] itemChoices = {"Drop an Item", "Use an Item","No"};
-					int itemChoice = Tools.getWholeNumberInput(itemChoices);
-					if(itemChoice == 1){
-						Ray.dropItem(ray.getLocation());
-					}else if(itemChoice == 2){
-						Ray.useItem(ray.getLocation());
+
+					if(ray.rayInventory.size() != 0){
+						System.out.println("Would you like to do something with one of the items in your inventory?");
+						String[] itemChoices = {"Drop an Item", "Use an Item","No"};
+						int itemChoice = Tools.getWholeNumberInput(itemChoices);
+						if(itemChoice == 1){
+							Ray.dropItem(ray.getLocation());
+						}else if(itemChoice == 2){
+							Ray.useItem(ray.getLocation());
+						}
 					}
 				}
 			
