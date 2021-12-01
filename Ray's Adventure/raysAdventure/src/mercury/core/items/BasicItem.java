@@ -4,7 +4,7 @@ public abstract class BasicItem {
     //Item fields
     public String description;
     public String name;
-
+    public boolean edible;
 
 
     //Item Constructor

@@ -155,6 +155,49 @@ public class Ray extends BasicBeing {
         }
     }
 
+    /**
+     * listEdible - List's edible items within Ray's inventory
+     */
+        public void edibleInteraction(){
+
+            //This creates an integer to keep track of the number of edible item's in Ray's inventory
+            int edibleCount = 0;
+
+            //This lists out the edible item's within Ray's inventory
+            System.out.println("Alloy can eat the following items:");
+            for (int i = 1; i < getLocation().getItemsSize(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                if (rayInventory.get(i).edible == true) {
+                    System.out.println(rayInventory.get(i));
+                    edibleCount = edibleCount+1;
+                }
+            }
+
+            //This asks for user input and checks against the number of edible items
+            System.out.println();
+            System.out.println("Which item should Alloy eat?");
+
+            int edibleChoice = 0;
+            while(true) {
+                edibleChoice = Tools.getWholeNumberInput();
+                if (edibleChoice <= edibleCount) {
+                    break;
+                }
+                System.out.println("Sorry, that isn't a valid option");
+            }
+
+            // grab the object reference to item that will be dropped
+            BasicItem itemToConsume = rayInventory.get(edibleChoice-1);
+
+            //This confirms the item that Alloy eats
+            System.out.println("Alloy eats the " + itemToConsume.name);
+
+            //This removes the consumed item from Ray's inventory
+            rayInventory.remove(itemToConsume);
+        }
+
+
 
     /** Ray being class
      *  This needs to extend the BasicBeing changehealth class
