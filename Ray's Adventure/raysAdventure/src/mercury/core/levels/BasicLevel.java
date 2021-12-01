@@ -103,20 +103,12 @@ public abstract class BasicLevel {
 			//Displays the contents of the room's inventory
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
-				System.out.println("This room contains:");
-				if(ray.getLocation().items.size() == 0){
-					System.out.println("Nothing!");
-					transitionText();
-				}
-				else{
-					for (int i = 0; i < ray.getLocation().items.size(); i++) {
-						int num = i+1;
-						System.out.print(num + ": ");
+				ray.getLocation.printItems();
 
-						//This prints out the item at the i location
-						System.out.println(ray.getLocation().items.get(i));
+					if (ray.getLocation().items.size() == 0) {
+						transitionText();
 					}
-
+					else {
 					transitionText();
 			        System.out.println();
 					System.out.println("Would you like to do something with one of the items in the room?");
@@ -129,7 +121,7 @@ public abstract class BasicLevel {
 				}
 
 			}
-			
+}
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
 					ray.printInventory();
