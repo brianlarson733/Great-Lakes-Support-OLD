@@ -10,7 +10,7 @@ public abstract class BasicRoom {
 	
 	public ArrayList<BasicItem> items;
 	public ArrayList<BasicBeing> beings;
-	private ArrayList<BasicRoom> doors;
+	public ArrayList<BasicRoom> doors;
 	private String description = "";
 	private String name = "";
 	
