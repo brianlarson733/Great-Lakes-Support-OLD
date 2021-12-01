@@ -2,9 +2,7 @@ package mercury.core.beings;
 
 import mercury.core.items.BasicItem;
 import mercury.core.rooms.BasicRoom;
-import mercury.core.beings.Ray;
 import misc.Tools;
-import java.util.ArrayList;
 
 import java.util.Random;
 
@@ -39,41 +37,12 @@ public class Alloy extends BasicBeing {
 				stayPut = false;
 				break;
 			case 3:
-				//List items that are edible
-				//Make this a class/method within Ray
-					System.out.println("Alloy can eat the following items:");
-					for (int i = 1; i < getLocation().getItemsSize(); i++) {
-						System.out.print("    ");
-						System.out.print(i + ": ");
-						//the following requires an instantiated version of "rayInventory"
-						//so a constructor is likely needed
-						if (Ray.rayInventory.get(i.edible) == true) {
-							System.out.println(Ray.rayInventory.get(i));
-						}
-					}
-
-				//Provide action to eat one of the items
-				//Make this a class/method within Ray
-					System.out.println("Which item should Alloy eat?");
-					//this needs to be updated so that it limits at the number of edible items
-					while(true) {
-
-						userChoice = Tools.getWholeNumberInput();
-
-						if (userChoice <= Ray.rayInventory.size()) {
-							break;
-						}
-						System.out.println("Sorry, that isn't a valid option");
-					}
-				//Remove the item from Ray's inventory
-				//Make this a class/method within Ray
-					BasicItem itemToDrop = Ray.rayInventory.get(userChoice-1);
-					Ray.rayInventory.remove(itemToDrop);
+				//List items that are edible, consume edible item, remove item from Ray's inventory
+				Ray.edibleInteraction();
 				break;
 			case 4:
 				System.out.println("Alloy's tail wags as Ray pets his head");
-				//this.health = this.health + 5;
-				//The above needs to be updated to work as expected
+				setHealth(5);
 				break;
 			case 5:
 				Random rand = new Random();

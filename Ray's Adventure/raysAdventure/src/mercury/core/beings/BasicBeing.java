@@ -3,7 +3,7 @@ package mercury.core.beings;
 import mercury.core.rooms.BasicRoom;
 
 public abstract class BasicBeing {
-    private String name;
+    public String name;
     private int health;
     public BasicRoom location;
 
@@ -14,7 +14,7 @@ public abstract class BasicBeing {
 
     /**Setter for Health */
     public void setHealth(int newHealth){
-        this.health = newHealth;
+        this.health = this.health + newHealth;
     }
 
 

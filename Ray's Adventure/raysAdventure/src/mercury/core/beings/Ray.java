@@ -40,7 +40,7 @@ public class Ray extends BasicBeing {
     /** 
      * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
      */
-    public void pickUpItem(BasicRoom location) {
+    public void pickUpItem() {
 
         //accounts for edge cases where room is empty
         if (this.location.getItemsSize() == 0) {
@@ -72,23 +72,23 @@ public class Ray extends BasicBeing {
             this.location.removeItem(userChoice - 1);
 
 // prints out Ray's inventory
-            System.out.println();
-            inspectInventory();
-            System.out.println();
-        }
+        System.out.println();
+        printInventory();
+        System.out.println();
+
     }
 
     /**
      * dropItem - Remove item from Rays’s items, Add item to current room’s inventory
      */
-    public void dropItem(BasicRoom location) {
+    public void dropItem() {
 
         //accounts for edge cases where Ray's inventory is empty
         if (rayInventory.size() == 0) {
             System.out.println("This room is empty");
         } else {
 
-            inspectInventory();
+            printInventory();
             System.out.println();
 
             System.out.println("Please identify the item you would like to drop");
@@ -123,7 +123,7 @@ public class Ray extends BasicBeing {
      * useItem - Uses an item from Ray's inventory
      */
 
-    public void useItem(BasicRoom location) {
+    public void useItem() {
 
         //accounts for edge cases where Ray's inventory is empty
         if (rayInventory.size() == 0) {
@@ -132,7 +132,7 @@ public class Ray extends BasicBeing {
 
 //first inspect the inventory
 
-            inspectInventory();
+            printInventory()
             System.out.println();
             System.out.println("Please identify the item you would like to use from Ray's inventory");
             System.out.println();
@@ -160,7 +160,7 @@ public class Ray extends BasicBeing {
     /**
      * inspectInventory - Look at Ray's Items
      */
-    public void inspectInventory(){
+    public void printInventory(){
         if(rayInventory.size() == 0){
             System.out.println("Ray isn't carrying any items!");
             }
@@ -173,6 +173,49 @@ public class Ray extends BasicBeing {
         	
         }
     }
+
+    /**
+     * listEdible - List's edible items within Ray's inventory
+     */
+        public void edibleInteraction(){
+
+            //This creates an integer to keep track of the number of edible item's in Ray's inventory
+            int edibleCount = 0;
+
+            //This lists out the edible item's within Ray's inventory
+            System.out.println("Alloy can eat the following items:");
+            for (int i = 1; i < getLocation().getItemsSize(); i++) {
+                System.out.print("    ");
+                System.out.print(i + ": ");
+                if (rayInventory.get(i).edible == true) {
+                    System.out.println(rayInventory.get(i));
+                    edibleCount = edibleCount+1;
+                }
+            }
+
+            //This asks for user input and checks against the number of edible items
+            System.out.println();
+            System.out.println("Which item should Alloy eat?");
+
+            int edibleChoice = 0;
+            while(true) {
+                edibleChoice = Tools.getWholeNumberInput();
+                if (edibleChoice <= edibleCount) {
+                    break;
+                }
+                System.out.println("Sorry, that isn't a valid option");
+            }
+
+            // grab the object reference to item that will be dropped
+            BasicItem itemToConsume = rayInventory.get(edibleChoice-1);
+
+            //This confirms the item that Alloy eats
+            System.out.println("Alloy eats the " + itemToConsume.name);
+
+            //This removes the consumed item from Ray's inventory
+            rayInventory.remove(itemToConsume);
+        }
+
 
 
     /** Ray being class
