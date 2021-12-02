@@ -36,108 +36,7 @@ public class Ray extends BasicBeing {
     public void changeLocation(BasicRoom newLocation) {
         super.changeLocation(newLocation);
     }
-
-    /** 
-     * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
-     */
-    public void pickUpItem() {
-
-        this.location.printItems();
-        System.out.println();
-        System.out.println("Please identify the item you would like to pick up from this room.");
-        System.out.println();
-
- // userChoice lets the user select an item numerically from the room's items
-        int userChoice = 0;
-
- // this forever loop ensures that the user selects a valid number
-        while(true) {
-        	
-        	userChoice = Tools.getWholeNumberInput();
-        	
-        	if (userChoice <= this.location.getItemsSize()) {
-        		break;
-        	}
-        	System.out.println("Sorry, that isn't a valid option");
-        }
-
- // adds userChoice to Ray's inventory and removes it from the room's items
-        rayInventory.add(this.location.getItem(userChoice-1));
-        this.location.removeItem(userChoice-1);
-
-// prints out Ray's inventory
-        System.out.println();
-        printInventory();
-        System.out.println();
-    }
-
-    /**
-     * dropItem - Remove item from Rays’s items, Add item to current room’s inventory
-     */
-    public void dropItem(){
-
-        printInventory();
-        System.out.println();
-
-        System.out.println("Please identify the item you would like to drop");
-        System.out.println();
-
-        // similar userChoice variable as above
-        int userChoice = 0;
-        
-        while(true) {
-        	
-        	userChoice = Tools.getWholeNumberInput();
-        	
-        	if (userChoice <= rayInventory.size()) {
-        		break;
-        	}
-        	System.out.println("Sorry, that isn't a valid option");
-        }
-        // grab the object reference to item that will be dropped
-        BasicItem itemToDrop = rayInventory.get(userChoice-1);
-        
-        getLocation().addItem(itemToDrop);
-        rayInventory.remove(itemToDrop);
-
-        // confirm item removal
-        System.out.println("Okay, you dropped " + itemToDrop.name);
-           
-    }
-
-
-    /**
-     * useItem - Uses an item from Ray's inventory
-     */
-
-    public void useItem(){
-
-//first inspect the inventory
-
-        printInventory();
-        System.out.println();
-        System.out.println("Please identify the item you would like to use from Ray's inventory");
-        System.out.println();
-
-// Use userChoice variable from above to ensure that the user input is valid
-        int userChoice = 0;
-
-        while(true) {
-
-            userChoice = Tools.getWholeNumberInput();
-
-            if (userChoice <= rayInventory.size()) {
-                break;
-            }
-            System.out.println("Sorry, that isn't a valid option");
-        }
-
-//I changed this line to include the userChoice variable from above
-        rayInventory.get(userChoice-1).use();
-        System.out.println();
-    }
-
-
+    
     /**
      * inspectInventory - Look at Ray's Items
      */
@@ -154,6 +53,128 @@ public class Ray extends BasicBeing {
         	
         }
     }
+
+    /** 
+     * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
+     */
+    public void pickUpItem() {
+
+        //accounts for edge cases where room is empty
+        if (this.location.getItemsSize() == 0) {
+            System.out.println("This room is empty");
+        } else {
+
+            this.location.printItems();
+            System.out.println();
+            System.out.println("Please identify the item you would like to pick up from this room.");
+            System.out.println();
+
+            // userChoice lets the user select an item numerically from the room's items
+            int userChoice = 0;
+
+            // this forever loop ensures that the user selects a valid number
+            while (true) {
+
+                userChoice = Tools.getWholeNumberInput();
+
+                if (userChoice <= this.location.getItemsSize()) {
+                    break;
+                }
+                System.out.println("Sorry, that isn't a valid option");
+            }
+
+
+            // adds userChoice to Ray's inventory and removes it from the room's items
+            rayInventory.add(this.location.getItem(userChoice - 1));
+            this.location.removeItem(userChoice - 1);
+
+// prints out Ray's inventory
+            System.out.println();
+            printInventory();
+            System.out.println();
+
+        }
+    }
+
+    /**
+     * dropItem - Remove item from Rays’s items, Add item to current room’s inventory
+     */
+    public void dropItem() {
+
+        //accounts for edge cases where Ray's inventory is empty
+        if (rayInventory.size() == 0) {
+            System.out.println("Sorry, Ray doesn't currently have any items");
+        } else {
+
+            printInventory();
+            System.out.println();
+
+            System.out.println("Please identify the item you would like to drop");
+            System.out.println();
+
+            // similar userChoice variable as above
+            int userChoice = 0;
+
+            while (true) {
+
+                userChoice = Tools.getWholeNumberInput();
+
+                if (userChoice <= rayInventory.size()) {
+                    break;
+                }
+                System.out.println("Sorry, that isn't a valid option");
+            }
+            // grab the object reference to item that will be dropped
+            BasicItem itemToDrop = rayInventory.get(userChoice - 1);
+
+            getLocation().addItem(itemToDrop);
+            rayInventory.remove(itemToDrop);
+
+            // confirm item removal
+            System.out.println("Okay, you dropped " + itemToDrop.name);
+
+        }
+    }
+
+
+    /**
+     * useItem - Uses an item from Ray's inventory
+     */
+
+    public void useItem() {
+
+        //accounts for edge cases where Ray's inventory is empty
+        if (rayInventory.size() == 0) {
+            System.out.println("Sorry, Ray doesn't currently have any items");
+        } else {
+
+        	//	first inspect the inventory
+
+            printInventory();
+            System.out.println();
+            System.out.println("Please identify the item you would like to use from Ray's inventory");
+            System.out.println();
+
+// Use userChoice variable from above to ensure that the user input is valid
+            int userChoice = 0;
+
+            while (true) {
+
+                userChoice = Tools.getWholeNumberInput();
+
+                if (userChoice <= rayInventory.size()) {
+                    break;
+                }
+                System.out.println("Sorry, that isn't a valid option");
+            }
+
+//I changed this line to include the userChoice variable from above
+            rayInventory.get(userChoice - 1).use();
+            System.out.println();
+        }
+    }
+
+
 
     /**
      * listEdible - List's edible items within Ray's inventory

@@ -11,7 +11,7 @@ public class Alloy extends BasicBeing {
 	public boolean stayPut = true;
 	int userChoice = 0;
 
-	public Alloy(BasicRoom location, boolean stayPut, BasicBeing Ray) {
+	public Alloy(BasicRoom location) {
 		super("Alloy", 50, location);
 		//A pass by reference needs to be implemented here to call the actual values in Ray
 		Ray ray = new Ray();
