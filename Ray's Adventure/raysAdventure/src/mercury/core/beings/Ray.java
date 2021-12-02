@@ -36,6 +36,23 @@ public class Ray extends BasicBeing {
     public void changeLocation(BasicRoom newLocation) {
         super.changeLocation(newLocation);
     }
+    
+    /**
+     * inspectInventory - Look at Ray's Items
+     */
+    public void printInventory(){
+        if(rayInventory.size() == 0){
+            System.out.println("Ray isn't carrying any items!");
+            }
+        
+        else{
+        	System.out.println("Ray's inventory contains:");
+	    	for (int i = 0; i < rayInventory.size(); i++) {
+	    		System.out.println((i+1) + ") " + rayInventory.get(i).name + ": " + rayInventory.get(i).description);
+	    	}
+        	
+        }
+    }
 
     /** 
      * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
@@ -72,10 +89,11 @@ public class Ray extends BasicBeing {
             this.location.removeItem(userChoice - 1);
 
 // prints out Ray's inventory
-        System.out.println();
-        printInventory();
-        System.out.println();
+            System.out.println();
+            printInventory();
+            System.out.println();
 
+        }
     }
 
     /**
@@ -85,7 +103,7 @@ public class Ray extends BasicBeing {
 
         //accounts for edge cases where Ray's inventory is empty
         if (rayInventory.size() == 0) {
-            System.out.println("This room is empty");
+            System.out.println("Sorry, Ray doesn't currently have any items");
         } else {
 
             printInventory();
@@ -127,12 +145,12 @@ public class Ray extends BasicBeing {
 
         //accounts for edge cases where Ray's inventory is empty
         if (rayInventory.size() == 0) {
-            System.out.println("This room is empty");
+            System.out.println("Sorry, Ray doesn't currently have any items");
         } else {
 
-//first inspect the inventory
+        	//	first inspect the inventory
 
-            printInventory()
+            printInventory();
             System.out.println();
             System.out.println("Please identify the item you would like to use from Ray's inventory");
             System.out.println();
@@ -157,22 +175,6 @@ public class Ray extends BasicBeing {
     }
 
 
-    /**
-     * inspectInventory - Look at Ray's Items
-     */
-    public void printInventory(){
-        if(rayInventory.size() == 0){
-            System.out.println("Ray isn't carrying any items!");
-            }
-        
-        else{
-        	System.out.println("Ray's inventory contains:");
-	    	for (int i = 0; i < rayInventory.size(); i++) {
-	    		System.out.println((i+1) + ") " + rayInventory.get(i).name + ": " + rayInventory.get(i).description);
-	    	}
-        	
-        }
-    }
 
     /**
      * listEdible - List's edible items within Ray's inventory
