@@ -10,9 +10,12 @@ public class Alloy extends BasicBeing {
 
 	public boolean stayPut = true;
 	int userChoice = 0;
+	Ray ray;
 
-	public Alloy(BasicRoom location, boolean stayPut) {
+
+	public Alloy(BasicRoom location, Ray ray) {
 		super("Alloy", 50, location);
+		this.ray=ray;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -38,7 +41,7 @@ public class Alloy extends BasicBeing {
 				break;
 			case 3:
 				//List items that are edible, consume edible item, remove item from Ray's inventory
-				Ray.edibleInteraction();
+				ray.edibleInteraction();
 				break;
 			case 4:
 				System.out.println("Alloy's tail wags as Ray pets his head");
@@ -47,12 +50,17 @@ public class Alloy extends BasicBeing {
 			case 5:
 				Random rand = new Random();
 				int rand_int1 = rand.nextInt(3);
-				if (rand_int1 == 3){
+
+				//If Alloy is in a specific room (tbd) find an item to help move the story forward
+				if (){
+
+				}
+				else if (rand_int1 == 3){
 					System.out.println("Alloy sniffs and finds a questionable item for Ray's inspection");
 					System.out.println("It smells and is a bit slimy...");
 						}
 
-				//If Alloy is in a specific room (tbd) find an item to help move the story forward
+
 				break;
 
 		}

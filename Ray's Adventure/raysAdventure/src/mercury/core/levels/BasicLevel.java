@@ -85,12 +85,6 @@ public abstract class BasicLevel {
 				choices.add("Interact with beings in the room");	
 
 			}
-			else {
-				String[] choices = {"Inspect the room", "Inspect the items you are carrying", "Go to another room"};	
-			};
-			
-			
-			
 
 			// this will print out interaction options if there is another being in the room
 			
@@ -159,7 +153,7 @@ public abstract class BasicLevel {
 					System.out.println("Please select a valid number");
 					roomChoice = Tools.getWholeNumberInput();
 				}
-				ray.changeLocation(doors.get(roomChoice-1));
+				ray.changeLocation(ray.getLocation().doors.get(roomChoice-1));
 
 				
 			}
@@ -167,18 +161,30 @@ public abstract class BasicLevel {
 			// check if the choice is to interact with the other being
         
 			else if(choice == 4) {
-
-				ray.getLocation().printBeings();
-        transitionText();
-        
 				System.out.println("Who would you like to interact with?");
-				int beingChoice = Tools.getWholeNumberInput();
-				while(beingChoice > ray.getLocation().beings.size()){
-					System.out.println("Please select a valid number");
-					beingChoice = Tools.getWholeNumberInput();
-				}
-				//method to interact with being chosen
+				
+				//logic to take input of being name
 
+				Scanner scanner = new Scanner(System.in);
+				boolean beingMatch = false;
+				while(!beingMatch){
+					System.out.println("Please enter the name of the being to interact with it: ")
+					String interactBeing = scanner.nextLine(); //Read user input for being to interact with
+					for (int i = 0; i < ray.getLocation().beings.size(); i++) {
+	    				if(!(ray.getLocation().beings.get(i) instanceof Ray)) {
+    						if(interactBeing == ray.getLocation().beings.get(i).name) {
+    							beingMatch = true;
+	    					}
+		    			}
+					}
+					if(beingMatch != true){
+						System.out.println("That is not a valid name for a being. Please try again");
+						System.out.println();
+					}
+				}
+				
+				//method to interact with being chosen
+	        	
 
 			}
 			
@@ -186,8 +192,6 @@ public abstract class BasicLevel {
 				System.out.println("You must be confused, that isn't an option.");
 				transitionText();
 			}
-
-
 
 
 		}
