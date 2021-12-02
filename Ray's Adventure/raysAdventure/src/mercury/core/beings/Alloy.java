@@ -13,6 +13,8 @@ public class Alloy extends BasicBeing {
 
 	public Alloy(BasicRoom location) {
 		super("Alloy", 50, location);
+		//A pass by reference needs to be implemented here to call the actual values in Ray
+		Ray ray = new Ray();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -38,7 +40,7 @@ public class Alloy extends BasicBeing {
 				break;
 			case 3:
 				//List items that are edible, consume edible item, remove item from Ray's inventory
-				Ray.edibleInteraction();
+				ray.edibleInteraction();
 				break;
 			case 4:
 				System.out.println("Alloy's tail wags as Ray pets his head");
