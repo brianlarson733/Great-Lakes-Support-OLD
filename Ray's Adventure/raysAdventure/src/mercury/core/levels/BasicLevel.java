@@ -175,6 +175,7 @@ public abstract class BasicLevel {
 
 				Scanner scanner = new Scanner(System.in);
 				boolean beingMatch = false;
+				int matchIndex = 0;
 				while(!beingMatch){
 					System.out.println("Please enter the name of the being to interact with it: ")
 					String interactBeing = scanner.nextLine(); //Read user input for being to interact with
@@ -182,6 +183,7 @@ public abstract class BasicLevel {
 	    				if(!(ray.getLocation().beings.get(i) instanceof Ray)) {
     						if(interactBeing == ray.getLocation().beings.get(i).name) {
     							beingMatch = true;
+    							matchIndex = i;
 	    					}
 		    			}
 					}
@@ -192,7 +194,9 @@ public abstract class BasicLevel {
 				}
 				
 				//method to interact with being chosen
-	        	
+	        	ray.getLocation().beings.get(matchIndex).interact();
+
+
 
 			}
 			
