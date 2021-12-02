@@ -11,7 +11,7 @@ public class Alloy extends BasicBeing {
 	public boolean stayPut = true;
 	int userChoice = 0;
 
-	public Alloy(BasicRoom location, boolean stayPut) {
+	public Alloy(BasicRoom location) {
 		super("Alloy", 50, location);
 		// TODO Auto-generated constructor stub
 	}

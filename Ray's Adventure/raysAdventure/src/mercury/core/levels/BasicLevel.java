@@ -85,12 +85,7 @@ public abstract class BasicLevel {
 				choices.add("Interact with beings in the room");	
 
 			}
-			else {
-				String[] choices = {"Inspect the room", "Inspect the items you are carrying", "Go to another room"};	
-			};
-			
-			
-			
+		
 
 			// this will print out interaction options if there is another being in the room
 			
@@ -167,7 +162,7 @@ public abstract class BasicLevel {
 					System.out.println("Please select a valid number");
 					roomChoice = Tools.getWholeNumberInput();
 				}
-				ray.changeLocation(doors.get(roomChoice-1));
+				ray.changeLocation(ray.getLocation().doors.get(roomChoice-1));
 
 				
 			}
@@ -187,15 +182,12 @@ public abstract class BasicLevel {
 				}
 				//method to interact with being chosen
 
-
 			}
 			
 			else {
 				System.out.println("You must be confused, that isn't an option.");
 				transitionText();
 			}
-
-
 
 
 		}
