@@ -86,8 +86,6 @@ public abstract class BasicLevel {
 
 			}
 
-			// this will print out interaction options if there is another being in the room
-			
 
 			System.out.println();
 			int choice = Tools.getWholeNumberInput(choices);
@@ -98,6 +96,7 @@ public abstract class BasicLevel {
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
 				System.out.println("This room contains:");
+				// check if there are items in the room
 				if(ray.getLocation().items.size() == 0){
 					System.out.println("Nothing!");
 					transitionText();
@@ -137,11 +136,11 @@ public abstract class BasicLevel {
 						System.out.println("Would you like to do something with one of the items in your inventory?");
 						String[] itemChoices = {"Drop an Item", "Use an Item","No"};
 						int itemChoice = Tools.getWholeNumberInput(itemChoices);
-						
+						//moves item from Ray's inventory to the room's inventory
 						if(itemChoice == 1){
 							ray.dropItem();
 						}
-						
+						//implements items use method
 						else if(itemChoice == 2){
 							ray.useItem();
 						}
@@ -150,35 +149,37 @@ public abstract class BasicLevel {
 			
 			// Displays room doors
 			else if(choice == 3) {
-				//method to inspect doors in the room
+				//method to list doors in the room
 				ray.getLocation().printDoors();
 				System.out.println();
 				transitionText();
 				System.out.println();
 				System.out.println("What room would you like to move to?");
+				//Takes numbered input of the door the user would like to go through
 				int roomChoice = Tools.getWholeNumberInput();
+				//method to check door choice is valid
 				while(roomChoice > ray.getLocation().doors.size()){
 					System.out.println("Please select a valid number");
 					roomChoice = Tools.getWholeNumberInput();
 				}
+				//method to change Ray's location to selected room
 				ray.changeLocation(ray.getLocation().doors.get(roomChoice-1));
 
 				
 			}
 
 			// check if the choice is to interact with the other being
-        
-			else if(choice == 4) {
+        	else if(choice == 4) {
 				System.out.println("Who would you like to interact with?");
 				
 				//logic to take input of being name
-
 				Scanner scanner = new Scanner(System.in);
 				boolean beingMatch = false;
 				int matchIndex = 0;
-				while(!beingMatch){
-					System.out.println("Please enter the name of the being to interact with it: ")
+				while(!beingMatch){ //while loop to repeat menu if entered name is not a match
+					System.out.println("Please enter the name of the being to interact with: ")
 					String interactBeing = scanner.nextLine(); //Read user input for being to interact with
+					//for loop to check if entered name is a match for any ofthe beings in the room
 					for (int i = 0; i < ray.getLocation().beings.size(); i++) {
 	    				if(!(ray.getLocation().beings.get(i) instanceof Ray)) {
     						if(interactBeing == ray.getLocation().beings.get(i).name) {
@@ -187,6 +188,7 @@ public abstract class BasicLevel {
 	    					}
 		    			}
 					}
+					//if entered name is still not a match, print error, and then repeat while loop
 					if(beingMatch != true){
 						System.out.println("That is not a valid name for a being. Please try again");
 						System.out.println();
@@ -195,8 +197,6 @@ public abstract class BasicLevel {
 				
 				//method to interact with being chosen
 	        	ray.getLocation().beings.get(matchIndex).interact();
-
-
 
 			}
 			
