@@ -72,7 +72,7 @@ public class LevelOne extends BasicLevel {
 		//random starting location for Alloy 
 		Random rand = new Random();
 		int randomInt = rand.nextInt(5);
-		Alloy alloy = new Alloy(mainCorridor.getDoor(randomInt));
+		Alloy alloy = new Alloy(mainCorridor.getDoor(randomInt), ray);
 		mainCorridor.getDoor(randomInt).addBeing(alloy);
 		
 		//random starting location for the bug
