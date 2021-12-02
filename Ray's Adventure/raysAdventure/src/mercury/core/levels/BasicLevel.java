@@ -177,7 +177,7 @@ public abstract class BasicLevel {
 				boolean beingMatch = false;
 				int matchIndex = 0;
 				while(!beingMatch){
-					System.out.println("Please enter the name of the being to interact with it: ")
+					System.out.println("Please enter the name of the being to interact with it: ");
 					String interactBeing = scanner.nextLine(); //Read user input for being to interact with
 					for (int i = 0; i < ray.getLocation().beings.size(); i++) {
 	    				if(!(ray.getLocation().beings.get(i) instanceof Ray)) {

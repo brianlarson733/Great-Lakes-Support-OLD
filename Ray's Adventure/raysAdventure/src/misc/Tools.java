@@ -92,7 +92,7 @@ public class Tools {
             catch (NumberFormatException e) {}
 
             //check if user input is in choices, if not reject it
-            if (Arrays.binarySearch(choices, userInputInt) < 0){
+            if (userInputInt < 1 || userInputInt > choices.length){
             	userInputInt = -1;
                 System.out.println();
                 System.out.println("Please select a valid choice");
