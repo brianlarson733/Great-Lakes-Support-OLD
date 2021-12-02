@@ -85,7 +85,6 @@ public abstract class BasicLevel {
 				choices.add("Interact with beings in the room");	
 
 			}
-					
 
 			// this will print out interaction options if there is another being in the room
 			
@@ -195,15 +194,12 @@ public abstract class BasicLevel {
 				//method to interact with being chosen
 	        	
 
-
 			}
 			
 			else {
 				System.out.println("You must be confused, that isn't an option.");
 				transitionText();
 			}
-
-
 
 
 		}
