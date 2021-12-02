@@ -12,11 +12,8 @@ public class Alloy extends BasicBeing {
 	int userChoice = 0;
 	Ray ray;
 
-<<<<<<< HEAD
+
 	public Alloy(BasicRoom location, Ray ray) {
-=======
-	public Alloy(BasicRoom location) {
->>>>>>> upstream/develop
 		super("Alloy", 50, location);
 		this.ray=ray;
 		// TODO Auto-generated constructor stub
