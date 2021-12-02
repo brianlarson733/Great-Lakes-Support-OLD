@@ -44,6 +44,7 @@ public class MercuryGame extends Game {
 		
 		//user wants to exit game
 		if(levelChoice == 4) {
+			System.out.println("Okay, bye!");	
 			return;
 		}
 		
@@ -63,7 +64,8 @@ public class MercuryGame extends Game {
 		else if (levelChoice==3) {
 			if (levelThree.levelCode==userCodeInput) {
 				levelThree.startLevel();
-			}
+			}	
+		
 		}
 		
 		else {

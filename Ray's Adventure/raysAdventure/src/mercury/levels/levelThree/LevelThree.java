@@ -11,7 +11,7 @@ public class LevelThree extends BasicLevel {
 	@Override
 	public void startLevel() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Pardon our dust, this level is currently under construction! Stay tuned.");
 	}
 
 }
