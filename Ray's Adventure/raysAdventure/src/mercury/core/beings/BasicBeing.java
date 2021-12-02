@@ -12,13 +12,7 @@ public abstract class BasicBeing {
         return this.health;
     }
 
-    /**Setter for Health */
-    public void setHealth(int newHealth){
-        this.health = this.health + newHealth;
-    }
-
-
-    public BasicRoom getLocation(){
+ public BasicRoom getLocation(){
         return this.location;
     }
 
