@@ -2,6 +2,7 @@ package mercury.core.beings;
 
 import mercury.core.items.BasicItem;
 import mercury.core.rooms.BasicRoom;
+import mercury.levels.levelOne.rooms.CargoBay;
 import misc.Tools;
 
 import java.util.Random;
@@ -38,6 +39,8 @@ public class Alloy extends BasicBeing {
 				break;
 			case 2:
 				stayPut = false;
+				//Update Ray to reference Alloy
+				//Implement some form of code so that Alloy follows Ray if stayPut=false
 				break;
 			case 3:
 				//List items that are edible, consume edible item, remove item from Ray's inventory
@@ -45,15 +48,16 @@ public class Alloy extends BasicBeing {
 				break;
 			case 4:
 				System.out.println("Alloy's tail wags as Ray pets his head");
-				setHealth(5);
+				changeHealth(5);
 				break;
 			case 5:
 				Random rand = new Random();
 				int rand_int1 = rand.nextInt(3);
 
-				//If Alloy is in a specific room (tbd) find an item to help move the story forward
-				if (){
-
+				//Query the hidden items list, note this is broken
+				if (getLocation().hiddenItems == true){
+					//Query hidden item list
+					//If hidden item is present in same room, add item to Ray's inventory
 				}
 				else if (rand_int1 == 3){
 					System.out.println("Alloy sniffs and finds a questionable item for Ray's inspection");

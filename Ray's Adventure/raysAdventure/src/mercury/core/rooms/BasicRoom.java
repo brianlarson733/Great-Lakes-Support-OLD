@@ -9,14 +9,16 @@ import java.util.ArrayList;
 public abstract class BasicRoom {
 	
 	public ArrayList<BasicItem> items;
+	public ArrayList<BasicItem> hiddenItems;
 	public ArrayList<BasicBeing> beings;
 	public ArrayList<BasicRoom> doors;
 	private String description = "";
 	private String name = "";
 	
-	public BasicRoom(ArrayList<BasicItem> items, ArrayList<BasicBeing> beings, ArrayList<BasicRoom> doors, 
+	public BasicRoom(ArrayList<BasicItem> items, ArrayList<BasicItem> hiddenItems, ArrayList<BasicBeing> beings, ArrayList<BasicRoom> doors,
 			String description, String name) {
 		this.items=items;
+		this.hiddenItems=hiddenItems;
 		this.beings=beings;
 		this.doors=doors;
 		setDescription(description);
@@ -29,6 +31,7 @@ public abstract class BasicRoom {
 	public void addItem(BasicItem item) {
 		this.items.add(item);
 	}
+
 	public void removeItem(int index) {
 		this.items.remove(index);
 	}
@@ -38,6 +41,20 @@ public abstract class BasicRoom {
 	
 	public int getItemsSize(){
 		return this.items.size();
+	}
+
+	//Hidden Item handling methods
+	public BasicItem getHidddenItem(int index) {
+		return hiddenItems.get(index);
+	}
+	public void addHiddenItem(BasicItem hiddenItems) {
+		this.hiddenItems.add(hiddenItems);
+	}
+	public void removeHiddenItem(int index) {
+		this.hiddenItems.remove(index);
+	}
+	public void removeHiddenItem(BasicItem item) {
+		this.hiddenItems.remove(item);
 	}
 
 	//prints items in room
