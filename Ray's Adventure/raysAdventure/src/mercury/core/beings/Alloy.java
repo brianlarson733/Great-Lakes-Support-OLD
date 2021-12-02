@@ -10,11 +10,12 @@ public class Alloy extends BasicBeing {
 
 	public boolean stayPut = true;
 	int userChoice = 0;
+	Ray ray;
 
-	public Alloy(BasicRoom location) {
+
+	public Alloy(BasicRoom location, Ray ray) {
 		super("Alloy", 50, location);
-		//A pass by reference needs to be implemented here to call the actual values in Ray
-		Ray ray = new Ray();
+		this.ray=ray;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -49,12 +50,17 @@ public class Alloy extends BasicBeing {
 			case 5:
 				Random rand = new Random();
 				int rand_int1 = rand.nextInt(3);
-				if (rand_int1 == 3){
+
+				//If Alloy is in a specific room (tbd) find an item to help move the story forward
+				if (){
+
+				}
+				else if (rand_int1 == 3){
 					System.out.println("Alloy sniffs and finds a questionable item for Ray's inspection");
 					System.out.println("It smells and is a bit slimy...");
 						}
 
-				//If Alloy is in a specific room (tbd) find an item to help move the story forward
+
 				break;
 
 		}
