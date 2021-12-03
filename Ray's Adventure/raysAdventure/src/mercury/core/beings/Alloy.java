@@ -39,45 +39,38 @@ public class Alloy extends BasicBeing {
 				break;
 			case 2:
 				stayPut = false;
-				//Update Ray to reference Alloy
-				//Implement some form of code so that Alloy follows Ray if stayPut=false
-				break;
+				/** To do for case 2:
+					Update Ray to reference Alloy
+					Implement some form of code so that Alloy follows Ray if stayPut=false
+				*/
+				 break;
 			case 3:
-				//List items that are edible, consume edible item, remove item from Ray's inventory
+				//This method lists items that are edible, consumes edible items, removes items from Ray's inventory
 				ray.edibleInteraction();
 				break;
 			case 4:
+				//This method secretly adds health to Alloy
 				System.out.println("Alloy's tail wags as Ray pets his head");
 				changeHealth(5);
 				break;
 			case 5:
+				/**
+				Query the hidden items list and check if any hidden item(s) are present in the room that Alloy
+				 	and Ray are in. If so, show those item(s0 to Ray and add them to Ray's inventory
+
+				If no hidden items are present then use the following code as Alloy potentially finds...something
+				 	in the room.
+				 */
 				Random rand = new Random();
 				int rand_int1 = rand.nextInt(3);
-				/**
-				//Query the hidden items list, note this is broken
-				if (getLocation().hiddenItems == true){
-					//Query hidden item list
-					//If hidden item is present in same room, add item to Ray's inventory
-				 */
-				//If Alloy is in a specific room (tbd) find an item to help move the story forward
-				/**
-				 *
-
-				if (){
-
-				}
-				else if (rand_int1 == 3){
+				if (rand_int1 == 3) {
 					System.out.println("Alloy sniffs and finds a questionable item for Ray's inspection");
 					System.out.println("It smells and is a bit slimy...");
+
+				}else {
+					System.out.println("Alloy sits down next to you without finding anything in the room");
 						}
-
-				*/
 				break;
-
 		}
-
-		//Add logic for scanner input and passing user selection
-		//Add logic for each of the actions
-
 	}
 }
