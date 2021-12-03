@@ -96,7 +96,7 @@ public abstract class BasicLevel {
 			//Displays the contents of the room's inventory
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
-				ray.getLocation.printItems();
+				ray.getLocation().printItems();
 
 
 					if (ray.getLocation().items.size() == 0) {
@@ -115,7 +115,7 @@ public abstract class BasicLevel {
 				}
 
 			}
-}
+
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
 					ray.printInventory();
@@ -170,7 +170,7 @@ public abstract class BasicLevel {
 				boolean beingMatch = false;
 				int matchIndex = 0;
 				while(!beingMatch){ //while loop to repeat menu if entered name is not a match
-					System.out.println("Please enter the name of the being to interact with: ")
+					System.out.println("Please enter the name of the being to interact with: ");
 
 					String interactBeing = scanner.nextLine(); //Read user input for being to interact with
 					//for loop to check if entered name is a match for any ofthe beings in the room
