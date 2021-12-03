@@ -62,7 +62,7 @@ public abstract class BasicRoom {
 
 	//accounts for edge cases where room is empty
 		if (items.isEmpty()) {
-			System.out.println("This room is empty");
+			System.out.println("This room is empty.");
 		}
 
 	//gets the list of items

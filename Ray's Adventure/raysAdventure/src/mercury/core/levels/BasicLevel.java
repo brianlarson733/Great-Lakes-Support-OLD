@@ -71,9 +71,25 @@ public abstract class BasicLevel {
 	public static void makeDecision(Ray ray) {		
 		while(!endLevel){
 
-			System.out.println("You are in the " + ray.getLocation().getName() + ".");
-			ray.getLocation().printBeings();
 			System.out.println();
+			System.out.println("You are in the " + ray.getLocation().getName() + ".");
+
+			
+			if(ray.getLocation().beings.size() > 1) {
+				System.out.println();
+				System.out.println("It appears you aren't alone in this room.");
+			}
+			else {
+				System.out.println();
+				System.out.println("You don't see anyone else in the room.");
+			}
+
+			if(ray.getLocation().getItemsSize() > 0) {
+				System.out.println();
+				System.out.println("There may be an item in the room worth inspecting.");
+			}
+			transitionText();
+			
 			System.out.println("What do you want to do?");
 			System.out.println();
 			
@@ -87,8 +103,6 @@ public abstract class BasicLevel {
 
 			}
 
-
-			System.out.println();
 			int choice = Tools.getWholeNumberInput(choices);
 			System.out.println();
 
@@ -119,7 +133,6 @@ public abstract class BasicLevel {
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
 					ray.printInventory();
-					System.out.println();
 					transitionText();
 					System.out.println();
 
@@ -145,9 +158,8 @@ public abstract class BasicLevel {
 				//method to list doors in the room
 				ray.getLocation().printDoors();
 				System.out.println();
-				transitionText();
-				System.out.println();
 				System.out.println("What room would you like to move to?");
+				System.out.println();
 				//Takes numbered input of the door the user would like to go through
 				int roomChoice = Tools.getWholeNumberInput();
 				//method to check door choice is valid

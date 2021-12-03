@@ -12,8 +12,10 @@ public class MercuryGame extends Game {
 	private LevelOne levelOne = new LevelOne();
 	
 	public void startGame() {
-			
+		
+		System.out.println();
 		System.out.println("Welcome to the Mercury game! A solar system of adventure awaits.");
+		System.out.println();
 		String[] choices = {"Start the adventure from the beginning", "Enter a level code", "Exit"};
 		int userInput = Tools.getWholeNumberInput(choices);
 			
