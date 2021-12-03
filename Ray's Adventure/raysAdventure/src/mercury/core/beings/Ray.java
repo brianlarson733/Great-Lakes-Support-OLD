@@ -6,6 +6,8 @@ import misc.Tools;
 
 import java.util.ArrayList;
 
+import static mercury.core.levels.BasicLevel.endLevel;
+
 
 public class Ray extends BasicBeing {
 
@@ -36,23 +38,24 @@ public class Ray extends BasicBeing {
     public void changeLocation(BasicRoom newLocation) {
         super.changeLocation(newLocation);
     }
-    
+
     /**
-     * inspectInventory - Look at Ray's Items
+     * printInventory - Look at Ray's Items
      */
     public void printInventory(){
         if(rayInventory.size() == 0){
             System.out.println("Ray isn't carrying any items!");
-            }
-        
+        }
+
         else{
-        	System.out.println("Ray's inventory contains:");
-	    	for (int i = 0; i < rayInventory.size(); i++) {
-	    		System.out.println((i+1) + ") " + rayInventory.get(i).name + ": " + rayInventory.get(i).description);
-	    	}
-        	
+            System.out.println("Ray's inventory contains:");
+            for (int i = 0; i < rayInventory.size(); i++) {
+                System.out.println((i+1) + ") " + rayInventory.get(i).name + ": " + rayInventory.get(i).description);
+            }
+
         }
     }
+
 
     /** 
      * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
@@ -221,11 +224,15 @@ public class Ray extends BasicBeing {
 
 
     /** Ray being class
-     *  This needs to extend the BasicBeing changehealth class
+     *  This needs to extend the BasicBeing setHealth class
      *  and include code for ending the game if Ray dies*/
 
-    public void rayChangeHealth() {
-       //Check to confirm if this method is needed
+    public void rayChangeHealth(int i) {
+       changeHealth(i);
+       if (this.getHealth() <= 0) {
+           //this doesn't work because we can't call a levelCode here
+           endLevel(false);
+       }
     }
 }
 

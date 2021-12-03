@@ -34,18 +34,19 @@ public abstract class BasicLevel {
     /**
 	 * This method is called to end the game
 	 */
-	public static void endLevel(boolean userWins, int levelCode) {
+    //right now the level code is not being presented to the user so that rayChangeHealth can end the level without having a level code
+	public static void endLevel(boolean userWins) {
 		if(userWins == true){
 			System.out.println("Success! You've completed this level!");
 			System.out.println("Please save the following code to move on to the next level.");
 			System.out.println("You can also use this code to return to the next level the next time you start the game:");
-			System.out.println(levelCode);
+			//System.out.println(levelCode);
 			transitionText();
 			MercuryGame.levelSelector();
 		}
 		else {
 			System.out.println("Oh no! You've suffered a mortal wound! As the world fades to black, your last thought is"
-				+ " 'Maybe I should've commited my code more regularly...'");
+				+ " 'Maybe I should've committed my code more regularly...'");
 			System.out.println("How sad, Ray's space adventures have come to an end!");			
 			transitionText();
 			MercuryGame.levelSelector();
@@ -97,20 +98,12 @@ public abstract class BasicLevel {
 			//Displays the contents of the room's inventory
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
-				System.out.println("This room contains:");
-				if(ray.getLocation().items.size() == 0){
-					System.out.println("Nothing!");
-					transitionText();
-				}
-				else{
-					for (int i = 0; i < ray.getLocation().items.size(); i++) {
-						int num = i+1;
-						System.out.print(num + ": ");
+				ray.getLocation.printItems();
 
-						//This prints out the item at the i location
-						System.out.println(ray.getLocation().items.get(i));
+					if (ray.getLocation().items.size() == 0) {
+						transitionText();
 					}
-
+					else {
 					transitionText();
 			        System.out.println();
 					System.out.println("Would you like to do something with one of the items in the room?");
@@ -123,7 +116,7 @@ public abstract class BasicLevel {
 				}
 
 			}
-			
+}
 			// Displays the contents of Ray's inventory.
 			else if (choice == 2) {
 					ray.printInventory();
