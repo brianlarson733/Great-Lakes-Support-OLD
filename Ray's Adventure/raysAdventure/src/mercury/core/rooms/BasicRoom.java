@@ -77,7 +77,7 @@ public abstract class BasicRoom {
 	public void printDoors() {
         System.out.println("You see doors leading to:");
 		for (int i = 0; i < doors.size(); i++) {
-			System.out.println((i+1) + ") " + doors.get(i).name + ": " + items.get(i).description);
+			System.out.println((i+1) + ") " + doors.get(i).name + ": " + doors.get(i).description);
 		}
 	}
 	
