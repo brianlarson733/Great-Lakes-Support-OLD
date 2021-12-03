@@ -52,6 +52,9 @@ public class Alloy extends BasicBeing {
 				int rand_int1 = rand.nextInt(3);
 
 				//If Alloy is in a specific room (tbd) find an item to help move the story forward
+				/**
+				 * 
+				 
 				if (){
 
 				}
@@ -60,7 +63,7 @@ public class Alloy extends BasicBeing {
 					System.out.println("It smells and is a bit slimy...");
 						}
 
-
+				*/
 				break;
 
 		}

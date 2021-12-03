@@ -38,6 +38,7 @@ public class GameSelector {
                     break;
                 case 2:
                     mercury.startGame();
+                    break;
                 case 3:
                 	System.out.println("There is no Diamond Bar basement...or is there.....");
                     break;
