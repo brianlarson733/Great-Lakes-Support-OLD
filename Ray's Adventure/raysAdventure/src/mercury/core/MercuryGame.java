@@ -25,6 +25,7 @@ public class MercuryGame extends Game {
 			levelSelector();
 			break;
 		case 3:
+			System.out.println("Okay, bye!");
 			break;
 		}
 		

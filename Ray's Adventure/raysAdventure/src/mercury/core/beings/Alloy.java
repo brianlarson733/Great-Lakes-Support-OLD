@@ -58,13 +58,19 @@ public class Alloy extends BasicBeing {
 				if (getLocation().hiddenItems == true){
 					//Query hidden item list
 					//If hidden item is present in same room, add item to Ray's inventory
+				//If Alloy is in a specific room (tbd) find an item to help move the story forward
+				/**
+				 * 
+				 
+				if (){
+
 				}
 				else if (rand_int1 == 3){
 					System.out.println("Alloy sniffs and finds a questionable item for Ray's inspection");
 					System.out.println("It smells and is a bit slimy...");
 						}
 
-
+				*/
 				break;
 
 		}
