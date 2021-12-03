@@ -10,7 +10,7 @@ public class StorageArea extends BasicRoom {
 
     //Constructor for StorageArea
     public StorageArea(String name) {
-        super (new ArrayList<BasicItem>(), new ArrayList<BasicBeing>(), new ArrayList<BasicRoom>(),
+        super (new ArrayList<BasicItem>(), new ArrayList<BasicItem>(), new ArrayList<BasicBeing>(), new ArrayList<BasicRoom>(),
                 "This is a little extra space for a little extra stuff.", name);
     }
 }
