@@ -68,7 +68,7 @@ public abstract class BasicLevel {
 	/**
 	 * This allows the user to make choices and advance through the game
 	 */
-	public static void makeDecision(Ray ray) {		
+	public static void makeDecision(Ray ray, Alloy alloy) {
 		while(!endLevel){
 
 			System.out.println();
@@ -171,6 +171,11 @@ public abstract class BasicLevel {
 				}
 				//method to change Ray's location to selected room
 				ray.changeLocation(ray.getLocation().doors.get(roomChoice-1));
+
+                //method for Alloy to follow Ray if stayPut=false
+                if (!alloy.stayPut){
+                    alloy.changeLocation((ray.getLocation()));
+                }
 
 				
 			}
