@@ -15,6 +15,8 @@ public class Ray extends BasicBeing {
     /** Creates Array for Ray's inventory */
     public ArrayList<BasicItem> rayInventory = new ArrayList<BasicItem>();
 
+    Alloy alloy;
+
     /**
      * Constructors for all instance variables
      *
@@ -22,8 +24,9 @@ public class Ray extends BasicBeing {
      * @param health
      * @param location
      */
-    public Ray(BasicRoom location) {
+    public Ray(BasicRoom location, Alloy alloy) {
         super("Ray", 100, location);
+        this.alloy=alloy;
     }
 
     /**

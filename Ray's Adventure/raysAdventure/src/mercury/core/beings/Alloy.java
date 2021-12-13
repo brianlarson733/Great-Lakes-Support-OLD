@@ -20,6 +20,14 @@ public class Alloy extends BasicBeing {
 		// TODO Auto-generated constructor stub
 	}
 
+	/** Change location override from mercury BasicBeing
+	 * @param newLocation
+	 */
+	@Override
+	public void changeLocation(BasicRoom newLocation) {
+		super.changeLocation(newLocation);
+	}
+
 	@Override
 	public void interact() {
 		// TODO Auto-generated method stub
@@ -39,10 +47,6 @@ public class Alloy extends BasicBeing {
 				break;
 			case 2:
 				stayPut = false;
-				/** To do for case 2:
-					Update Ray to reference Alloy
-					Implement some form of code so that Alloy follows Ray if stayPut=false
-				*/
 				 break;
 			case 3:
 				//This method lists items that are edible, consumes edible items, removes items from Ray's inventory
