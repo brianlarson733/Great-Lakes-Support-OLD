@@ -120,7 +120,7 @@ public abstract class BasicLevel {
 					transitionText();
 			        System.out.println();
 					System.out.println("Would you like to do something with one of the items in the room?");
-					String[] itemChoices = {"Pick up an Item", "No"};
+					String[] itemChoices = {"Pick up an item", "No"};
 					int itemChoice = Tools.getWholeNumberInput(itemChoices);
 					//Moving an item from the room's inventory to Ray's inventory
 					if (itemChoice == 1) {
@@ -140,14 +140,16 @@ public abstract class BasicLevel {
 					if(ray.rayInventory.size() != 0){
 						
 						System.out.println("Would you like to do something with one of the items in your inventory?");
-						String[] itemChoices = {"Drop an Item", "Use an Item","No"};
+						String[] itemChoices = {"Drop an item", "Use an item","No"};
 						int itemChoice = Tools.getWholeNumberInput(itemChoices);
 						//moves item from Ray's inventory to the room's inventory
 						if(itemChoice == 1){
+							System.out.println();
 							ray.dropItem();
 						}
 						//implements items use method
 						else if(itemChoice == 2){
+							System.out.println();
 							ray.useItem();
 						}
 					}
@@ -196,7 +198,7 @@ public abstract class BasicLevel {
 					}
 					//if entered name is still not a match, print error, and then repeat while loop
 					if(beingMatch != true){
-						System.out.println("That is not a valid name for a being. Please try again");
+						System.out.println("That is not a valid name for a being. Please try again.");
 						System.out.println();
 					}
 				}
