@@ -1,6 +1,7 @@
 package mercury.core.beings;
 
 import mercury.core.items.BasicItem;
+import mercury.core.levels.BasicLevel;
 import mercury.core.rooms.BasicRoom;
 import misc.Tools;
 
@@ -86,7 +87,8 @@ public class Ray extends BasicBeing {
                 System.out.println("Sorry, that isn't a valid option");
             }
 
-
+            System.out.println();
+            System.out.println("Ok, let's have Ray pick up that item.");
             // adds userChoice to Ray's inventory and removes it from the room's items
             rayInventory.add(this.location.getItem(userChoice - 1));
             this.location.removeItem(userChoice - 1);
@@ -94,7 +96,7 @@ public class Ray extends BasicBeing {
 // prints out Ray's inventory
             System.out.println();
             printInventory();
-            System.out.println();
+            BasicLevel.transitionText();
 
         }
     }
