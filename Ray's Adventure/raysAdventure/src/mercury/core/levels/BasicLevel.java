@@ -1,16 +1,12 @@
 package mercury.core.levels;
 
+import mercury.core.MercuryGame;
+import mercury.core.beings.Ray;
+import misc.Tools;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
-
-import main.Game;
-import misc.Tools;
-import mercury.core.MercuryGame;
-import mercury.core.beings.*;
-import mercury.core.items.*;
-import mercury.core.rooms.*;
 
 public abstract class BasicLevel {
 	
@@ -158,19 +154,28 @@ public abstract class BasicLevel {
 				//method to list doors in the room
 				ray.getLocation().printDoors();
 				System.out.println();
-				System.out.println("What room would you like to move to?");
-				System.out.println();
-				//Takes numbered input of the door the user would like to go through
-				int roomChoice = Tools.getWholeNumberInput();
-				//method to check door choice is valid
-				while(roomChoice > ray.getLocation().doors.size()){
-					System.out.println("Please select a valid number");
-					roomChoice = Tools.getWholeNumberInput();
-				}
-				//method to change Ray's location to selected room
-				ray.changeLocation(ray.getLocation().doors.get(roomChoice-1));
+				System.out.println("Would you like to go through a door?");
+				String[] doorChoices = {"Go through a door.", "no."};
+				int doorChoice = Tools.getWholeNumberInput(doorChoices);
 
-				
+				if (doorChoice == 1) {
+
+					//Takes numbered input of the door the user would like to go through
+					ray.getLocation().printDoors();
+					int roomChoice = Tools.getWholeNumberInput();
+					System.out.println();
+					System.out.println("Please choose a door.");
+					System.out.println();
+					//method to check door choice is valid
+					while (roomChoice > ray.getLocation().doors.size()) {
+						System.out.println("Please select a valid number");
+						roomChoice = Tools.getWholeNumberInput();
+					}
+					//method to change Ray's location to selected room
+					ray.changeLocation(ray.getLocation().doors.get(roomChoice - 1));
+
+
+				}
 			}
 
 			// check if the choice is to interact with the other being
