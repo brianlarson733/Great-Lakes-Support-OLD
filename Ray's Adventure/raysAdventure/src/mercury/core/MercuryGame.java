@@ -49,30 +49,35 @@ public class MercuryGame extends Game {
 			System.out.println("Okay, bye!");	
 			return;
 		}
-		
-		System.out.println("Please enter the code for " + choices[levelChoice-1].toLowerCase());
-		int userCodeInput = Tools.getWholeNumberInput();
-		
-		if (levelChoice==1) {
-			if (levelOne.levelCode==userCodeInput) {
-				levelOne.startLevel();
+		boolean levelChoosing = true;
+		while(levelChoosing = true){		
+			System.out.println("Please enter the code for " + choices[levelChoice-1].toLowerCase());
+			int userCodeInput = Tools.getWholeNumberInput();
+			
+			if (levelChoice==1) {
+				if (levelOne.levelCode==userCodeInput) {
+					levelOne.startLevel();
+				}else{
+					System.out.println("Sorry, that isn't a valid level code.");
+					System.out.println("-------------------------------------");
+				}
 			}
-		}
-		else if (levelChoice==2) {
-			if (levelTwo.levelCode==userCodeInput) {
-				levelTwo.startLevel();
+			else if (levelChoice==2) {
+				if (levelTwo.levelCode==userCodeInput) {
+					levelTwo.startLevel();
+				}else{
+					System.out.println("Sorry, that isn't a valid level code.");
+					System.out.println("-------------------------------------");
+				}
 			}
-		}
-		else if (levelChoice==3) {
-			if (levelThree.levelCode==userCodeInput) {
-				levelThree.startLevel();
-			}	
-		
-		}
-		
-		else {
-			System.out.println("Sorry, that isn't a valid level code.");
-			return;
+			else if (levelChoice==3) {
+				if (levelThree.levelCode==userCodeInput) {
+					levelThree.startLevel();
+				}else{
+					System.out.println("Sorry, that isn't a valid level code.");
+					System.out.println("-------------------------------------");
+				}	
+			}
 		}
 	}
 }
