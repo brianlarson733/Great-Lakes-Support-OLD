@@ -185,6 +185,11 @@ public abstract class BasicLevel {
                     alloy.changeLocation((ray.getLocation()));
                 }
 
+                //method for Alloy to follow Ray if stayPut=false
+                if (!alloy.stayPut){
+                    alloy.changeLocation((ray.getLocation()));
+                }
+
 				
 >>>>>>> upstream/develop
 			}
