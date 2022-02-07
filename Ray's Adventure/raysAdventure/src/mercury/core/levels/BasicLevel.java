@@ -1,6 +1,7 @@
 package mercury.core.levels;
 
 import mercury.core.MercuryGame;
+import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
 import misc.Tools;
 
@@ -160,7 +161,7 @@ public abstract class BasicLevel {
 				String[] doorChoices = {"Go through a door.", "no."};
 				int doorChoice = Tools.getWholeNumberInput(doorChoices);
 
-<<<<<<< HEAD
+
 				if (doorChoice == 1) {
 
 					//Takes numbered input of the door the user would like to go through
@@ -179,7 +180,7 @@ public abstract class BasicLevel {
 
 
 				}
-=======
+
                 //method for Alloy to follow Ray if stayPut=false
                 if (!alloy.stayPut){
                     alloy.changeLocation((ray.getLocation()));
@@ -191,7 +192,7 @@ public abstract class BasicLevel {
                 }
 
 				
->>>>>>> upstream/develop
+
 			}
 
 			// check if the choice is to interact with the other being
