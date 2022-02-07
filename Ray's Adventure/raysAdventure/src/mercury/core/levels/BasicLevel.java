@@ -194,7 +194,7 @@ public abstract class BasicLevel {
 				
 
 			}
-//comment test
+//comment test 2
 			// check if the choice is to interact with the other being
         	else if(choice == 4) {
 				System.out.println("Who would you like to interact with?");
