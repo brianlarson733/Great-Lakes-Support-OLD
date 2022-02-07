@@ -156,22 +156,14 @@ public abstract class BasicLevel {
 			else if(choice == 3) {
 				//method to list doors in the room
 				ray.getLocation().printDoors();
+				System.out.println("Stay here.");
 				System.out.println();
 				System.out.println("Would you like to go through a door?");
-				String[] doorChoices = {"Go through a door.", "no."};
-				int doorChoice = Tools.getWholeNumberInput(doorChoices);
-
-
-				if (doorChoice == 1) {
 
 					//Takes numbered input of the door the user would like to go through
-					ray.getLocation().printDoors();
 					int roomChoice = Tools.getWholeNumberInput();
-					System.out.println();
-					System.out.println("Please choose a door.");
-					System.out.println();
-					//method to check door choice is valid
-					while (roomChoice > ray.getLocation().doors.size()) {
+
+					while (roomChoice > (ray.getLocation().doors.size() + 1)) {
 						System.out.println("Please select a valid number");
 						roomChoice = Tools.getWholeNumberInput();
 					}
