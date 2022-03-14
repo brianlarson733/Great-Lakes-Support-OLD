@@ -12,7 +12,7 @@ public abstract class BasicBeing {
         return this.health;
     }
 
- public BasicRoom getLocation(){
+    public BasicRoom getLocation(){
         return this.location;
     }
 
