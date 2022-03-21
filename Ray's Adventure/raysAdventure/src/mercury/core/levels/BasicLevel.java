@@ -8,9 +8,12 @@ import misc.Tools;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Random;
 
 public abstract class BasicLevel {
-	
+
+	Random rand = new Random();
+
 	//end game condition
 	public static boolean endLevel;
 	public boolean userWins;
@@ -178,9 +181,11 @@ public abstract class BasicLevel {
                     alloy.changeLocation((ray.getLocation()));
                 }
 
-                //method for Alloy to follow Ray if stayPut=false
-                if (!alloy.stayPut){
-                    alloy.changeLocation((ray.getLocation()));
+                //method for BugOne to follow Ray if lockedOn=true
+                if (bugOne.lockedOn){
+                    bugOne.changeLocation((ray.getLocation()));
+                } else{
+            		bugOne.changeLocation(mainCorridon.getDoor(rand.nextInt(5)));
                 }
 
 				

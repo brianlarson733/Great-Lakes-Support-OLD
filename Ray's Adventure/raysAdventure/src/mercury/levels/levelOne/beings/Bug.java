@@ -5,21 +5,24 @@ import mercury.core.rooms.BasicRoom;
 
 public class Bug extends BasicBeing {
 
-	public Bug(BasicRoom location) {
+	public boolean lockedOn = false;
+	Ray ray;
+
+	public Bug(BasicRoom location, Ray ray) {
 		super("The bug", 20, location);
+		this.ray=ray;
 		// TODO Auto-generated constructor stub
 	}
 
-		//add lockedOn parameter in constructor, parameter toggles if ray enters a room with bug in it
+	/** Change location override from mercury BasicBeing
+	 * @param newLocation
+	 */
+	@Override
+	public void changeLocation(BasicRoom newLocation) {
+		super.changeLocation(newLocation);
+	}
 
 		//method to attack Ray if Ray walks in a room with a bug (maybe toggle lockedOn parameter here)
-
-		//method to move bug, check to see if lockedOn parameter is true, if it is, change bug's location to ray's location, if false, move randomly
-
-
-
-
-
 
 	@Override
 	public void interact() {
