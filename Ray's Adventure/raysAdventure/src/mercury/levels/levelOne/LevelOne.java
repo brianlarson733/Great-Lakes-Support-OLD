@@ -1,25 +1,12 @@
 package mercury.levels.levelOne;
-import java.util.Random;
-
-import mercury.core.beings.*;
+import mercury.core.beings.Alloy;
+import mercury.core.beings.Ray;
 import mercury.core.levels.BasicLevel;
 import mercury.levels.levelOne.beings.Bug;
-import mercury.levels.levelOne.rooms.CargoBay;
-import mercury.levels.levelOne.rooms.Cockpit;
-import mercury.levels.levelOne.rooms.CrewLounge;
-import mercury.levels.levelOne.rooms.CrewQuarters;
-import mercury.levels.levelOne.rooms.EngineRoom;
-import mercury.levels.levelOne.rooms.MainCorridor;
-import mercury.levels.levelOne.rooms.MedicalBay;
-import mercury.levels.levelOne.rooms.StorageArea;
+import mercury.levels.levelOne.items.*;
+import mercury.levels.levelOne.rooms.*;
 
-import mercury.levels.levelOne.items.Map;
-import mercury.levels.levelOne.items.Bolt;
-import mercury.levels.levelOne.items.Candies;
-import mercury.levels.levelOne.items.Book;
-import mercury.levels.levelOne.items.Spacesuit;
-import mercury.levels.levelOne.items.Goggles;
-import mercury.levels.levelOne.items.InvisibleWrench;
+import java.util.Random;
 
 public class LevelOne extends BasicLevel {
 
@@ -66,15 +53,17 @@ public class LevelOne extends BasicLevel {
 		storageAreaEngineRoom.addDoor(engineRoom);
 		
 		//create beings
+		Random rand = new Random();
 		Ray ray = new Ray(mainCorridor);
 		mainCorridor.addBeing(ray);
-		
+
 		//random starting location for Alloy 
-		Random rand = new Random();
+
 		int randomInt = rand.nextInt(5);
 		Alloy alloy = new Alloy(mainCorridor.getDoor(randomInt), ray);
+		ray.alloy= alloy;
 		mainCorridor.getDoor(randomInt).addBeing(alloy);
-		
+
 		//random starting location for the bugs
 		randomInt = rand.nextInt(5);
 		Bug bugOne = new Bug(mainCorridor.getDoor(randomInt));

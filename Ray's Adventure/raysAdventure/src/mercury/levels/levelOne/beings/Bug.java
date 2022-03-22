@@ -2,6 +2,7 @@ package mercury.levels.levelOne.beings;
 
 import mercury.core.beings.BasicBeing;
 import mercury.core.rooms.BasicRoom;
+import misc.Tools;
 
 public class Bug extends BasicBeing {
 
