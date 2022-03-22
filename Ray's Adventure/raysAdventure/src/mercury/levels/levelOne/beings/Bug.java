@@ -1,3 +1,4 @@
+/
 package mercury.levels.levelOne.beings;
 
 import mercury.core.beings.BasicBeing;
@@ -18,6 +19,7 @@ public class Bug extends BasicBeing {
 	/** Change location override from mercury BasicBeing
 	 * @param newLocation
 	 */
+
 	@Override
 	public void changeLocation(BasicRoom newLocation) {
 		super.changeLocation(newLocation);
