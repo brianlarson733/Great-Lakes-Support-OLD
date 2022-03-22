@@ -1,4 +1,4 @@
-/
+
 package mercury.levels.levelOne.beings;
 
 import mercury.core.beings.BasicBeing;

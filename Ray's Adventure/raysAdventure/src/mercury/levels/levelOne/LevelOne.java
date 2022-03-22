@@ -1,8 +1,8 @@
 package mercury.levels.levelOne;
 import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
-import mercury.levels.levelOne.beings.Bug;
 import mercury.core.levels.BasicLevel;
+import mercury.levels.levelOne.beings.Bug;
 import mercury.levels.levelOne.items.*;
 import mercury.levels.levelOne.rooms.*;
 
