@@ -23,7 +23,14 @@ public class Bug extends BasicBeing {
 		super.changeLocation(newLocation);
 	}
 
-		//method to attack Ray if Ray walks in a room with a bug (maybe toggle lockedOn parameter here)
+	
+	//method to attack Ray if Ray walks in a room with a bug (maybe toggle lockedOn parameter here)
+	public void attackRay(Ray ray){
+		System.out.println("the bug attacks"); //attack ray, maybe need to come up with a way to get different names for bugs
+		lockedOn = true; 					// change lockedOn parameter to true
+	}
+
+
 
 	@Override
 	public void interact() {
