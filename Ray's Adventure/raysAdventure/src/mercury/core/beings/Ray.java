@@ -63,7 +63,7 @@ public class Ray extends BasicBeing {
     /** 
      * pickUpItem - Remove item from current room’s items, Add item to Ray’s inventory
      */
-    public void pickUpItem() {
+    public void interactWithItem() {
 
         //accounts for edge cases where room is empty
         if (this.location.getItemsSize() == 0) {
@@ -72,7 +72,7 @@ public class Ray extends BasicBeing {
 
             this.location.printItems();
             System.out.println();
-            System.out.println("Please identify the item you would like to pick up from this room.");
+            System.out.println("Please identify the item you would like to interact with in this room.");
             System.out.println();
 
             // userChoice lets the user select an item numerically from the room's items
@@ -90,10 +90,17 @@ public class Ray extends BasicBeing {
             }
 
             System.out.println();
-            System.out.println("Ok, let's have Ray pick up that item.");
+            System.out.println("Ok, let's have Ray interact with that item.");
+            // check if the item is stationary
+            if (this.location.getItem(userChoice - 1).stationary = true)  {
+                this.location.getItem(userChoice - 1).use();
+            }
+
             // adds userChoice to Ray's inventory and removes it from the room's items
-            rayInventory.add(this.location.getItem(userChoice - 1));
-            this.location.removeItem(userChoice - 1);
+            else {
+                rayInventory.add(this.location.getItem(userChoice - 1));
+                this.location.removeItem(userChoice - 1);
+            }
 
 // prints out Ray's inventory
             System.out.println();

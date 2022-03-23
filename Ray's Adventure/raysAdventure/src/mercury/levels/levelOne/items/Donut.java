@@ -4,6 +4,7 @@ import mercury.core.items.BasicItem;
 public class Donut extends BasicItem {
 
     public boolean edible = true;
+    public boolean stationary = false;
 
     //constructor for Donut
     public Donut() {

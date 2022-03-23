@@ -4,6 +4,7 @@ import mercury.core.items.BasicItem;
 public class Jar extends BasicItem {
 
     public boolean edible = false;
+    public boolean stationary = false;
 
     //constructor for Jar
     public Jar() {

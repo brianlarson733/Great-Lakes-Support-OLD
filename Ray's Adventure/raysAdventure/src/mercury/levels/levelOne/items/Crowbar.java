@@ -4,6 +4,7 @@ import mercury.core.items.BasicItem;
 public class Crowbar extends BasicItem {
 
     public boolean edible = false;
+    public boolean stationary = false;
 
     //constructor for Crowbar
     public Crowbar() {
