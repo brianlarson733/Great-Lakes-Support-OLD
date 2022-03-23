@@ -3,6 +3,7 @@ package mercury.core.levels;
 import mercury.core.MercuryGame;
 import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
+import mercury.levels.levelOne.beings.Bug;
 import misc.Tools;
 
 import java.util.ArrayList;
@@ -205,7 +206,7 @@ public abstract class BasicLevel {
 			// check if the choice is to interact with the other being
         	else if(choice == 4) {
 				System.out.println("Who would you like to interact with?");
-				
+				ray.getLocation().printBeings();
 				//logic to take input of being name
 				Scanner scanner = new Scanner(System.in);
 				boolean beingMatch = false;

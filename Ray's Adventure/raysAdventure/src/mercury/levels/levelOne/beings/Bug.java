@@ -1,6 +1,7 @@
 
 package mercury.levels.levelOne.beings;
 
+import mercury.core.beings.Ray;
 import mercury.core.beings.BasicBeing;
 import mercury.core.rooms.BasicRoom;
 import misc.Tools;
@@ -8,8 +9,7 @@ import misc.Tools;
 public class Bug extends BasicBeing {
 
 	public boolean lockedOn = false;
-	Ray ray;
-
+	
 	public Bug(BasicRoom location, Ray ray) {
 		super("The bug", 20, location);
 		this.ray=ray;
@@ -28,7 +28,8 @@ public class Bug extends BasicBeing {
 	
 	//method to attack Ray if Ray walks in a room with a bug (maybe toggle lockedOn parameter here)
 	public void attackRay(Ray ray){
-		System.out.println("the bug attacks"); //attack ray, maybe need to come up with a way to get different names for bugs
+		System.out.println("The bug lashes out and attacks Ray!"); //attack ray, maybe need to come up with a way to get different names for bugs
+		ray.changeHealth(-5);
 		lockedOn = true; 					// change lockedOn parameter to true
 	}
 
