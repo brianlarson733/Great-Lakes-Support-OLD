@@ -78,6 +78,11 @@ public abstract class BasicLevel {
 			if(ray.getLocation().beings.size() > 1) {
 				System.out.println();
 				System.out.println("It appears you aren't alone in this room.");
+				for(int i =0;i<ray.getLocation().beings.size();i++){	//for every being in the room, 
+					if(ray.getLocation().beings.get(i) instanceof Bug){	//		check to see if it's an instance of bug
+						ray.getLocation().beings.get(i).attackRay(ray);	//			if it is, run attack ray method
+					}	
+				}
 			}
 			else {
 				System.out.println();
@@ -189,7 +194,9 @@ public abstract class BasicLevel {
                 if (bugOne.lockedOn){
                     bugOne.changeLocation((ray.getLocation()));
                 } else{
-            		bugOne.changeLocation(mainCorridor.getDoor(rand.nextInt(5)));
+
+                bugOne.changeLocation(mainCorridon.getDoor(rand.nextInt(mainCorridor.doors.size())));
+
                 }
 				
 

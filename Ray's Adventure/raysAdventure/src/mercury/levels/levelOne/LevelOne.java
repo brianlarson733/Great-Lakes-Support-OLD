@@ -59,46 +59,46 @@ public class LevelOne extends BasicLevel {
 
 		//random starting location for Alloy 
 
-		int randomInt = rand.nextInt(5);
+		int randomInt = rand.nextInt(mainCorridor.doors.size());
 		Alloy alloy = new Alloy(mainCorridor.getDoor(randomInt), ray);
 		ray.alloy= alloy;
 		mainCorridor.getDoor(randomInt).addBeing(alloy);
 
 
 		//random starting location for the bugs
-		randomInt = rand.nextInt(5);
-		Bug bugOne = new Bug(mainCorridor.getDoor(randomInt));
+		randomInt = rand.nextInt(mainCorridor.doors.size());
+		Bug bugOne = new Bug(mainCorridor.getDoor(randomInt), ray);
 		mainCorridor.getDoor(randomInt).addBeing(bugOne);
 
-		randomInt = rand.nextInt(5);
-		Bug bugTwo = new Bug(mainCorridor.getDoor(randomInt));
+		randomInt = rand.nextInt(mainCorridor.doors.size());
+		Bug bugTwo = new Bug(mainCorridor.getDoor(randomInt), ray);
 		mainCorridor.getDoor(randomInt).addBeing(bugTwo);
 
-		randomInt = rand.nextInt(5);
-		Bug bugThree = new Bug(mainCorridor.getDoor(randomInt));
+		randomInt = rand.nextInt(mainCorridor.doors.size());
+		Bug bugThree = new Bug(mainCorridor.getDoor(randomInt), ray);
 		mainCorridor.getDoor(randomInt).addBeing(bugThree);
 
 		//add items, some with random starting locations
 		Map map = new Map();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(map);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(map);
 		
 		Bolt bolt = new Bolt();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(bolt);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(bolt);
 		
 		Candies candies = new Candies();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(candies);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(candies);
 		
 		Book book = new Book();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(book);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(book);
 		
 		Spacesuit spacesuit = new Spacesuit();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(spacesuit);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(spacesuit);
 		
 		Goggles goggles = new Goggles();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(goggles);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(goggles);
 		
 		InvisibleWrench invisibleWrench = new InvisibleWrench();
-		mainCorridor.getDoor(rand.nextInt(5)).addItem(invisibleWrench);
+		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(invisibleWrench);
 				
 		BasicLevel.makeDecision(ray, alloy);
 	}
