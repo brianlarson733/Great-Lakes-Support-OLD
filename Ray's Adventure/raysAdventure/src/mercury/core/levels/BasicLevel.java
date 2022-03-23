@@ -158,26 +158,26 @@ public abstract class BasicLevel {
 			// Displays room doors
 			else if(choice == 3) {
 				//method to list doors in the room
-				System.out.println("Stay here.");
 				ray.getLocation().printDoors();
+				System.out.println((ray.getLocation().doors.size() + 1) + ") Stay here.");
 				System.out.println();
 				System.out.println("Would you like to go through a door?");
 
 					//Takes numbered input of the door the user would like to go through
 					int roomChoice = Tools.getWholeNumberInput();
 
-					while (roomChoice > (ray.getLocation().doors.size() + 2)) {
+					while (roomChoice > (ray.getLocation().doors.size() + 1)) {
 						System.out.println("Please select a valid number");
 						roomChoice = Tools.getWholeNumberInput();
 					}
 
-				if (roomChoice == 1) {
+				if (roomChoice == (ray.getLocation().doors.size() + 1)) {
 					System.out.println("You stay in the room.");
 					transitionText();
 				}
 				//method to change Ray's location to selected room
-				if (roomChoice > 1) {
-					ray.changeLocation(ray.getLocation().doors.get(roomChoice - 2));
+				if ((roomChoice > 1) && (roomChoice < (ray.getLocation().doors.size() + 1))) {
+					ray.changeLocation(ray.getLocation().doors.get(roomChoice - 1));
 				}
 
                 //method for Alloy to follow Ray if stayPut=false
@@ -189,9 +189,8 @@ public abstract class BasicLevel {
                 if (bugOne.lockedOn){
                     bugOne.changeLocation((ray.getLocation()));
                 } else{
-            		bugOne.changeLocation(mainCorridon.getDoor(rand.nextInt(5)));
+            		bugOne.changeLocation(mainCorridor.getDoor(rand.nextInt(5)));
                 }
-
 				
 
 			}
