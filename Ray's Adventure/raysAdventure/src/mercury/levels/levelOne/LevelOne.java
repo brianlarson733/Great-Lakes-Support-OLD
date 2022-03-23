@@ -64,6 +64,7 @@ public class LevelOne extends BasicLevel {
 		ray.alloy= alloy;
 		mainCorridor.getDoor(randomInt).addBeing(alloy);
 
+
 		//random starting location for the bugs
 		randomInt = rand.nextInt(mainCorridor.doors.size());
 		Bug bugOne = new Bug(mainCorridor.getDoor(randomInt), ray);
@@ -76,7 +77,7 @@ public class LevelOne extends BasicLevel {
 		randomInt = rand.nextInt(mainCorridor.doors.size());
 		Bug bugThree = new Bug(mainCorridor.getDoor(randomInt), ray);
 		mainCorridor.getDoor(randomInt).addBeing(bugThree);
-		
+
 		//add items, some with random starting locations
 		Map map = new Map();
 		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(map);
