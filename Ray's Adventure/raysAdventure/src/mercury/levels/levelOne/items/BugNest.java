@@ -4,6 +4,7 @@ import mercury.core.items.BasicItem;
 public class BugNest extends BasicItem {
 
     public boolean edible = false;
+    public boolean stationary = false;
 
     //constructor for BugNest
     public BugNest() {

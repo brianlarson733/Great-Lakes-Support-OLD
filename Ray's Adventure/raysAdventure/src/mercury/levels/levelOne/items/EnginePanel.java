@@ -4,6 +4,7 @@ import mercury.core.items.BasicItem;
 public class EnginePanel extends BasicItem {
 
     public boolean edible = false;
+    public boolean stationary = false;
 
     //constructor for EnginePanel
     public EnginePanel() {

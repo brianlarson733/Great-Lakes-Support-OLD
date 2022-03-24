@@ -26,6 +26,7 @@ public class LevelOne extends BasicLevel {
 		EngineRoom engineRoom = new EngineRoom();
 		StorageArea storageAreaCrewQuarters = new StorageArea("Crew quarters storage area");
 		StorageArea storageAreaEngineRoom = new StorageArea("Engine room storage area");
+		GarbageRoom garbageRoom = new GarbageRoom();
 		
 		//connect rooms
 		mainCorridor.addDoor(cockpit);
@@ -99,6 +100,9 @@ public class LevelOne extends BasicLevel {
 		
 		InvisibleWrench invisibleWrench = new InvisibleWrench();
 		mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())).addItem(invisibleWrench);
+
+		GarbageChute garbageChute = new GarbageChute();
+		garbageRoom.addItem(garbageChute);
 				
 		BasicLevel.makeDecision(ray, alloy);
 	}

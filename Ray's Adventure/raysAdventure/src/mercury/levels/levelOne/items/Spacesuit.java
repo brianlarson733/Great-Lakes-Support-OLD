@@ -4,6 +4,7 @@ import mercury.core.items.BasicItem;
 public class Spacesuit extends BasicItem {
 
     public boolean edible = false;
+    public boolean stationary = false;
 
     //constructor for Spacesuit
     public Spacesuit() {

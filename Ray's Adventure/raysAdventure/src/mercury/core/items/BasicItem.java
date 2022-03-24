@@ -5,6 +5,7 @@ public abstract class BasicItem {
     public String description;
     public String name;
     public boolean edible;
+    public boolean stationary;
 
 
     //Item Constructor

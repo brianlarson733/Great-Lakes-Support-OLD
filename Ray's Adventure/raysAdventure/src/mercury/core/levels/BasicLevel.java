@@ -124,12 +124,12 @@ public abstract class BasicLevel {
 					else {
 					transitionText();
 			        System.out.println();
-					System.out.println("Would you like to do something with one of the items in the room?");
-					String[] itemChoices = {"Pick up an item", "No"};
+					System.out.println("Would you like to inspect any of these items closer?");
+					String[] itemChoices = {"Interact with an item", "No"};
 					int itemChoice = Tools.getWholeNumberInput(itemChoices);
 					//Moving an item from the room's inventory to Ray's inventory
 					if (itemChoice == 1) {
-						ray.pickUpItem();
+						ray.interactWithItem();
 					}
 				}
 
