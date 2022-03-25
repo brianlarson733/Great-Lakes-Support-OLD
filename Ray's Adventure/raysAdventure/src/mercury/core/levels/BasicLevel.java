@@ -3,6 +3,12 @@ package mercury.core.levels;
 import mercury.core.MercuryGame;
 import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
+
+import mercury.levels.levelOne.beings.Bug;
+import mercury.levels.levelOne.LevelOne;
+import mercury.levels.levelOne.rooms.MainCorridor;
+
+
 import misc.Tools;
 
 import java.util.ArrayList;
@@ -12,7 +18,7 @@ import java.util.Scanner;
 
 public abstract class BasicLevel {
 
-	Random rand = new Random();
+	static Random rand = new Random();
 
 	//end game condition
 	public static boolean endLevel;
@@ -68,7 +74,7 @@ public abstract class BasicLevel {
 	/**
 	 * This allows the user to make choices and advance through the game
 	 */
-	public static void makeDecision(Ray ray, Alloy alloy) {
+	public static void makeDecision(Ray ray, Alloy alloy, MainCorridor mainCorridor) {
 		while(!endLevel){
 
 			System.out.println();
@@ -80,7 +86,8 @@ public abstract class BasicLevel {
 				System.out.println("It appears you aren't alone in this room.");
 				for(int i =0;i<ray.getLocation().beings.size();i++){	//for every being in the room, 
 					if(ray.getLocation().beings.get(i) instanceof Bug){	//		check to see if it's an instance of bug
-						ray.getLocation().beings.get(i).attackRay(ray);	//			if it is, run attack ray method
+						Bug tempBug = (Bug)ray.getLocation().beings.get(i);
+						tempBug.attackRay(ray);	//			if it is, run attack ray method
 					}	
 				}
 			}
@@ -191,14 +198,20 @@ public abstract class BasicLevel {
                     alloy.changeLocation((ray.getLocation()));
                 }
 
-                //method for BugOne to follow Ray if lockedOn=true
-                if (bugOne.lockedOn){
-                    bugOne.changeLocation((ray.getLocation()));
-                } else{
+                //method for Bug to follow Ray if lockedOn=true, for loop to find all bugs
+                for(int i =0;i<ray.getLocation().beings.size();i++){	//for every being in the room, 
+					if(ray.getLocation().beings.get(i) instanceof Bug){	//		check to see if it's an instance of bug
+				        Bug tempBug = (Bug)ray.getLocation().beings.get(i);
+				        if (tempBug.lockedOn){
+                    		tempBug.changeLocation((ray.getLocation()));
+                		} else{
+	                		tempBug.changeLocation(mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())));
+                		}	
+					}	
+				}
 
-                bugOne.changeLocation(mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())));
+                
 
-                }
 
 			}
 //comment test 2

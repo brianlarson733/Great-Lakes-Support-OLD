@@ -107,7 +107,7 @@ public class LevelOne extends BasicLevel {
 		GarbageChute garbageChute = new GarbageChute();
 		garbageRoom.addItem(garbageChute);
 				
-		BasicLevel.makeDecision(ray, alloy);
+		BasicLevel.makeDecision(ray, alloy, mainCorridor);
 	}
 		
 }
