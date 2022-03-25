@@ -150,7 +150,6 @@ public class Ray extends BasicBeing {
         }
     }
 
-
     /**
      * useItem - Uses an item from Ray's inventory
      */
