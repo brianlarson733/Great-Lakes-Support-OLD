@@ -4,6 +4,8 @@ import mercury.core.MercuryGame;
 import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
 import mercury.levels.levelOne.beings.Bug;
+import mercury.levels.levelOne.LevelOne;
+
 import misc.Tools;
 
 import java.util.ArrayList;
@@ -196,7 +198,7 @@ public abstract class BasicLevel {
                     bugOne.changeLocation((ray.getLocation()));
                 } else{
 
-                bugOne.changeLocation(mainCorridon.getDoor(rand.nextInt(mainCorridor.doors.size())));
+                bugOne.changeLocation(mainCorridor.getDoor(rand.nextInt(mainCorridor.doors.size())));
 
                 }
 				
