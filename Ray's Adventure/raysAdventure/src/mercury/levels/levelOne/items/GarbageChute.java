@@ -36,7 +36,7 @@ public class GarbageChute extends BasicItem {
         }
         //method to remove item delete item from game - not sure how to accomplish this
         if ((itemChoice > 1) && (itemChoice < (ray.rayInventory.size() + 1))) {
-
+            ray.rayInventory.remove(itemChoice - 1);
         }
 
 

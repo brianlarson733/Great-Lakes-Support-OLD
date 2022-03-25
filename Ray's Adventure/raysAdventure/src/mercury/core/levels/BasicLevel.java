@@ -3,16 +3,18 @@ package mercury.core.levels;
 import mercury.core.MercuryGame;
 import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
+
 import mercury.levels.levelOne.beings.Bug;
 import mercury.levels.levelOne.LevelOne;
 import mercury.levels.levelOne.rooms.MainCorridor;
+
 
 import misc.Tools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class BasicLevel {
 
@@ -78,7 +80,7 @@ public abstract class BasicLevel {
 			System.out.println();
 			System.out.println("You are in the " + ray.getLocation().getName() + ".");
 
-			
+
 			if(ray.getLocation().beings.size() > 1) {
 				System.out.println();
 				System.out.println("It appears you aren't alone in this room.");
@@ -89,6 +91,7 @@ public abstract class BasicLevel {
 					}	
 				}
 			}
+
 			else {
 				System.out.println();
 				System.out.println("You don't see anyone else in the room.");
@@ -186,7 +189,7 @@ public abstract class BasicLevel {
 					transitionText();
 				}
 				//method to change Ray's location to selected room
-				if ((roomChoice > 1) && (roomChoice < (ray.getLocation().doors.size() + 1))) {
+				if ((roomChoice >= 1) && (roomChoice < (ray.getLocation().doors.size() + 1))) {
 					ray.changeLocation(ray.getLocation().doors.get(roomChoice - 1));
 				}
 
@@ -207,7 +210,8 @@ public abstract class BasicLevel {
 					}	
 				}
 
-				
+                
+
 
 			}
 //comment test 2

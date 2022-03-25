@@ -52,6 +52,9 @@ public class LevelOne extends BasicLevel {
 		
 		engineRoom.addDoor(storageAreaEngineRoom);
 		storageAreaEngineRoom.addDoor(engineRoom);
+
+		mainCorridor.addDoor(garbageRoom);
+		garbageRoom.addDoor(mainCorridor);
 		
 		//create beings
 		Random rand = new Random();
