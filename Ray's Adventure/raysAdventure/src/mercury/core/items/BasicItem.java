@@ -16,6 +16,6 @@ public abstract class BasicItem {
 
 
     //use() method to use item functionality
-    public abstract void use();
+    abstract public void use();
 
 }
