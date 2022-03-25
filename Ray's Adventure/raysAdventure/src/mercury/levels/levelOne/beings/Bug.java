@@ -4,10 +4,12 @@ import mercury.core.beings.Ray;
 import mercury.core.beings.BasicBeing;
 import mercury.core.rooms.BasicRoom;
 import misc.Tools;
+import java.util.Random;
 
 public class Bug extends BasicBeing {
 
 	public boolean lockedOn = false;
+	Ray ray;
 	
 	public Bug(BasicRoom location, Ray ray) {
 		super("The bug", 20, location);
