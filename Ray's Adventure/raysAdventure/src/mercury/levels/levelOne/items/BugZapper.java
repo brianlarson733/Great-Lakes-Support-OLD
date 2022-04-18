@@ -1,5 +1,6 @@
 package mercury.levels.levelOne.items;
 import mercury.core.items.BasicItem;
+import mercury.core.items.Weapon;
 
 public class BugZapper extends Weapon {
 
