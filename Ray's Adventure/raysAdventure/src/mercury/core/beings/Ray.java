@@ -109,9 +109,14 @@ public class Ray extends BasicBeing {
             // adds userChoice to Ray's inventory and removes it from the room's items
             else {
                 System.out.println("Would you like to add this item to your inventory?");
+                System.out.println();
+                String[] addChoices = {"Yes", "No"};
+                int addChoice = Tools.getWholeNumberInput(addChoices);
 
-                rayInventory.add(this.location.getItem(userChoice - 1));
-                this.location.removeItem(userChoice - 1);
+                if (addChoice == 1) {
+                    rayInventory.add(this.location.getItem(userChoice - 1));
+                    this.location.removeItem(userChoice - 1);
+                }
             }
 
 // prints out Ray's inventory
