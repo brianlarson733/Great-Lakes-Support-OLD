@@ -5,7 +5,7 @@ import mercury.core.items.BasicItem;
 
 import java.util.ArrayList;
 
-import beings.BasicBeing;
+import mercury.core.beings.BasicBeing;
 
 public abstract class BasicRoom {
 	
