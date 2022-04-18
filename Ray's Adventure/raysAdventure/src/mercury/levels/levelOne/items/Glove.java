@@ -1,5 +1,7 @@
 package mercury.levels.levelOne.items;
 
+import mercury.core.items.BasicItem;
+
 public class Glove extends BasicItem {
 	
 	Boolean wearingGlove;
