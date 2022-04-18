@@ -72,7 +72,7 @@ public class Ray extends BasicBeing {
 
             this.location.printItems();
             System.out.println();
-            System.out.println("Please identify the item you would like to interact with in this room.");
+            System.out.println("Please identify the item you would like to inspect in this room.");
             System.out.println();
 
             // userChoice lets the user select an item numerically from the room's items
@@ -86,18 +86,30 @@ public class Ray extends BasicBeing {
                 if (userChoice <= this.location.getItemsSize()) {
                     break;
                 }
-                System.out.println("Sorry, that isn't a valid option");
+                System.out.println("Sorry, that isn't a valid option.");
             }
 
+            //print out item name and description
             System.out.println();
-            System.out.println("Ok, let's have Ray interact with that item.");
+            System.out.println(this.location.getItem(userChoice - 1).name);
+            System.out.println(this.location.getItem(userChoice - 1).description);
+
             // check if the item is stationary
             if (this.location.getItem(userChoice - 1).stationary = true)  {
-                this.location.getItem(userChoice - 1).use();
+                System.out.println("This item is stationary. Would you like to use it?");
+                System.out.println();
+                String[] useChoices = {"Yes", "No"};
+                int useChoice = Tools.getWholeNumberInput(useChoices);
+
+                if (useChoice == 1) {
+                    this.location.getItem(userChoice - 1).use();
+                }
             }
 
             // adds userChoice to Ray's inventory and removes it from the room's items
             else {
+                System.out.println("Would you like to add this item to your inventory?");
+
                 rayInventory.add(this.location.getItem(userChoice - 1));
                 this.location.removeItem(userChoice - 1);
             }

@@ -1,11 +1,10 @@
 package mercury.core.rooms;
 
+import mercury.core.beings.BasicBeing;
 import mercury.core.beings.Ray;
 import mercury.core.items.BasicItem;
 
 import java.util.ArrayList;
-
-import beings.BasicBeing;
 
 public abstract class BasicRoom {
 	

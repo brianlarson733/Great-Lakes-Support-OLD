@@ -3,12 +3,8 @@ package mercury.core.levels;
 import mercury.core.MercuryGame;
 import mercury.core.beings.Alloy;
 import mercury.core.beings.Ray;
-
 import mercury.levels.levelOne.beings.Bug;
-import mercury.levels.levelOne.LevelOne;
 import mercury.levels.levelOne.rooms.MainCorridor;
-
-
 import misc.Tools;
 
 import java.util.ArrayList;
@@ -96,13 +92,13 @@ public abstract class BasicLevel {
 				System.out.println();
 				System.out.println("You don't see anyone else in the room.");
 			}
-
+/**
 			if(ray.getLocation().getItemsSize() > 0) {
 				System.out.println();
 				System.out.println("There may be an item in the room worth inspecting.");
 			}
 			transitionText();
-			
+*/
 			System.out.println("What do you want to do?");
 			System.out.println();
 			
@@ -123,7 +119,8 @@ public abstract class BasicLevel {
 			//Displays the contents of the room's inventory
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
-				ray.getLocation().printItems();
+				ray.getLocation().printName();
+				ray.getLocation().printDescription();
 
 
 					if (ray.getLocation().items.size() == 0) {
@@ -132,11 +129,11 @@ public abstract class BasicLevel {
 					else {
 					transitionText();
 			        System.out.println();
-					System.out.println("Would you like to inspect any of these items closer?");
-					String[] itemChoices = {"Interact with an item", "No"};
-					int itemChoice = Tools.getWholeNumberInput(itemChoices);
+					System.out.println("There may be an item in the room worth inspecting. Would you like to inspect any of these items closer?");
+					String[] inspectChoices = {"Inspect items", "No"};
+					int inspectChoice = Tools.getWholeNumberInput(inspectChoices);
 					//Moving an item from the room's inventory to Ray's inventory
-					if (itemChoice == 1) {
+					if (inspectChoice == 1) {
 						ray.interactWithItem();
 					}
 				}
