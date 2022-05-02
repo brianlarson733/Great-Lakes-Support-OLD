@@ -120,6 +120,7 @@ public abstract class BasicLevel {
 			//This needs to somehow determine both Ray's location and call the array for that location
 			if (choice == 1) {
 				ray.getLocation().printName();
+				System.out.println();
 				ray.getLocation().printDescription();
 
 
