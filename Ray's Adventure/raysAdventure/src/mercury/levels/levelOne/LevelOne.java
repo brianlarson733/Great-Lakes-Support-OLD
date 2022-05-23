@@ -15,7 +15,6 @@ public class LevelOne extends BasicLevel {
 	}
 
 	public void startLevel() {
-		
 		//create rooms
 		MainCorridor mainCorridor = new MainCorridor();
 		Cockpit cockpit = new Cockpit();
@@ -106,7 +105,14 @@ public class LevelOne extends BasicLevel {
 
 		GarbageChute garbageChute = new GarbageChute();
 		garbageRoom.addItem(garbageChute);
-				
+		
+		AlertMessage cockpitAlert = new AlertMessage("Warning - critical failure detected in the engine. Inspect immediately.");
+		cockpit.addItem(cockpitAlert);
+		System.out.println("You wake up feeling the bright, warm lights above and"
+				+ " the cold metal floor beneath.");
+		System.out.println("You see a blinking message on a screen to your side:");
+		System.out.println("Urgent - the Captain's presence is requested in the cockpit.");
+		transitionText();
 		BasicLevel.makeDecision(ray, alloy, mainCorridor);
 	}
 		
