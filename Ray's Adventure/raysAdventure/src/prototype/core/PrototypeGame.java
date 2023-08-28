@@ -15,6 +15,7 @@ import prototype.room.*;
 
 public class PrototypeGame extends Game {
 	
+
 	//end game condition
 	public static boolean endGame = false;
 
@@ -251,6 +252,7 @@ public class PrototypeGame extends Game {
 			}
 		}
 	}
+
 
 }
 
